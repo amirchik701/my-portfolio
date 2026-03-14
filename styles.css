@@ -1,4 +1,4 @@
-/* Base */
+﻿/* Base */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -958,7 +958,39 @@ html.light .divider { background: var(--border); }
   .nav-links.open a { font-size: 28px; }
   .burger { display: flex; }
   .wrapper { padding: 80px 24px; }
-  #hero { padding: 0 24px; }
+  .nav-controls { gap: 8px; }
+  .theme-toggle { width: 40px; }
+  .lang-btn { padding: 6px 10px; }
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-name {
+    font-size: clamp(54px, 20vw, 88px);
+    line-height: 0.92;
+  }
+  .hero-sub {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .btn-primary,
+  .btn-outline,
+  .btn-cv {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  #hero {
+    min-height: auto;
+    padding: 132px 24px 72px;
+    align-items: flex-start;
+  }
   .hero-bottom { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -974,3 +1006,4 @@ html.light .divider { background: var(--border); }
     text-align: center;
   }
 }
+
