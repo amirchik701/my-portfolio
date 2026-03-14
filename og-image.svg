@@ -1,0 +1,37 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#060608"/>
+      <stop offset="1" stop-color="#11111A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 220) rotate(18) scale(360 280)">
+      <stop stop-color="#00CC88" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#00CC88" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="rgba(255,255,255,0.08)"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.32"/>
+  <circle cx="260" cy="220" r="320" fill="url(#glow)"/>
+
+  <rect x="72" y="64" width="170" height="38" rx="19" fill="none" stroke="#00CC88" stroke-opacity="0.45"/>
+  <circle cx="95" cy="83" r="6" fill="#00CC88"/>
+  <text x="112" y="89" fill="#E2E2EE" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">OPEN TO PROJECTS</text>
+
+  <text x="72" y="238" fill="#F3F4FA" font-family="Arial, sans-serif" font-size="108" font-weight="700">TURSUNOV</text>
+  <text x="72" y="336" fill="#00CC88" font-family="Arial, sans-serif" font-size="108" font-weight="700">AMIR</text>
+
+  <text x="76" y="408" fill="#B1B5C8" font-family="Arial, sans-serif" font-size="30">Frontend Developer  •  InfoSec Student</text>
+  <text x="76" y="462" fill="#7C819A" font-family="Arial, sans-serif" font-size="24">Modern web projects, interactive UI, and a growing focus on security.</text>
+
+  <rect x="72" y="510" width="176" height="44" rx="8" fill="#151823" stroke="#262A3A"/>
+  <text x="96" y="539" fill="#D6D9E8" font-family="Arial, sans-serif" font-size="22">HTML</text>
+  <text x="168" y="539" fill="#D6D9E8" font-family="Arial, sans-serif" font-size="22">CSS</text>
+  <text x="226" y="539" fill="#D6D9E8" font-family="Arial, sans-serif" font-size="22">JS</text>
+
+  <text x="995" y="146" fill="#1B1D29" font-family="Arial, sans-serif" font-size="124" font-weight="700">01</text>
+  <text x="908" y="568" fill="#6B718A" font-family="Arial, sans-serif" font-size="24">tursunov-amir.dev</text>
+</svg>
