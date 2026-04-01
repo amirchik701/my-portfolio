@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tursunov-amir.dev/sitemap.xml

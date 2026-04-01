@@ -1,22 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tursunov Amir — Frontend Developer</title>
+<link rel="canonical" href="https://tursunov-amir.dev/">
 <!-- META TAGS для соцсетей -->
 <meta name="description" content="Tursunov Amir — Frontend Developer and InfoSec Student. Создаю современные веб-проекты, быстро учусь и развиваюсь на стыке интерфейсов и безопасности.">
 <meta property="og:title" content="Tursunov Amir — Frontend Developer">
 <meta property="og:description" content="Frontend Developer and InfoSec Student. Современные веб-проекты, интерактивный UI и живой личный стиль.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tursunov-amir.dev">
-<meta property="og:image" content="./og-image.svg">
+<meta property="og:image" content="https://tursunov-amir.dev/og-image.svg">
+<meta property="og:locale" content="ru_RU">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tursunov Amir — Frontend Developer">
 <meta name="twitter:description" content="Frontend Developer and InfoSec Student. Современные веб-проекты, интерактивный UI и живой личный стиль.">
-<meta name="twitter:image" content="./og-image.svg">
+<meta name="twitter:image" content="https://tursunov-amir.dev/og-image.svg">
 <meta name="theme-color" content="#060608">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -27,7 +29,7 @@
 <div id="scroll-progress"></div>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">
+<button id="back-top" type="button" title="Наверх" aria-label="Scroll to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
@@ -35,20 +37,20 @@
 <nav id="nav">
   <div class="nav-logo">TA_DEV</div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about" data-ru="Обо мне" data-en="About" onclick="closeBurger()">Обо мне</a></li>
-    <li><a href="#skills" data-ru="Навыки" data-en="Skills" onclick="closeBurger()">Навыки</a></li>
-    <li><a href="#projects" data-ru="Проекты" data-en="Projects" onclick="closeBurger()">Проекты</a></li>
-    <li><a href="#contact" data-ru="Контакт" data-en="Contact" onclick="closeBurger()">Контакт</a></li>
+    <li><a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a></li>
+    <li><a href="#skills" data-ru="Навыки" data-en="Skills">Навыки</a></li>
+    <li><a href="#projects" data-ru="Проекты" data-en="Projects">Проекты</a></li>
+    <li><a href="#contact" data-ru="Контакт" data-en="Contact">Контакт</a></li>
   </ul>
   <div class="nav-controls">
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Переключить тему">
+    <button class="theme-toggle" id="themeToggle" type="button" title="Переключить тему" aria-label="Toggle theme">
       <div class="theme-toggle-thumb" id="themeThumb">🌙</div>
     </button>
     <div class="lang-switcher">
-      <button class="lang-btn active" id="btnRu" onclick="setLang('ru')">RU</button>
-      <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn active" id="btnRu" type="button" aria-label="Switch language to Russian">RU</button>
+      <button class="lang-btn" id="btnEn" type="button" aria-label="Switch language to English">EN</button>
     </div>
-    <button class="burger" id="burger" onclick="toggleBurger()">
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -269,64 +271,89 @@
     <h2 class="section-title" data-ru="ПРОЕКТЫ" data-en="PROJECTS">ПРОЕКТЫ</h2>
   </div>
 
+  <div class="project-filters reveal" style="transition-delay:0.05s;">
+    <button type="button" class="filter-btn active" data-project-filter="all" data-ru="Все" data-en="All">Все</button>
+    <button type="button" class="filter-btn" data-project-filter="landing" data-ru="Landing" data-en="Landing">Landing</button>
+    <button type="button" class="filter-btn" data-project-filter="business" data-ru="Business" data-en="Business">Business</button>
+    <button type="button" class="filter-btn" data-project-filter="app" data-ru="App" data-en="App">App</button>
+    <button type="button" class="filter-btn" data-project-filter="ui" data-ru="UI" data-en="UI">UI</button>
+  </div>
+
   <div class="projects-grid">
-    <div class="proj-card reveal" style="transition-delay:0.05s;">
+    <div class="proj-card reveal" style="transition-delay:0.05s;" data-project-kind="landing ui">
       <div class="proj-ghost">01</div>
-      <div class="proj-badge">Landing / UI</div>
-      <div class="proj-title" data-ru="LUXURY TILE" data-en="LUXURY TILE">LUXURY TILE</div>
-      <p class="proj-desc" data-ru="Лендинг с акцентом на визуальную подачу, аккуратную верстку и современный интерфейс. Проект показывает мой подход к коммерческому дизайну и фронтенд-реализации." data-en="A landing page focused on visual presentation, clean layout, and a modern interface. It reflects my approach to commercial design and frontend implementation.">Лендинг с акцентом на визуальную подачу, аккуратную верстку и современный интерфейс. Проект показывает мой подход к коммерческому дизайну и фронтенд-реализации.</p>
+      <div class="proj-badge">Commercial / Tile</div>
+      <div class="proj-preview">
+        <img class="proj-shot desktop" src="https://image.thum.io/get/width/1200/noanimate/https://keramogranit.netlify.app/" alt="MARMO desktop preview" loading="lazy">
+        <img class="proj-shot mobile" src="https://image.thum.io/get/width/420/noanimate/https://keramogranit.netlify.app/" alt="MARMO mobile preview" loading="lazy">
+      </div>
+      <div class="proj-title" data-ru="MARMO" data-en="MARMO">MARMO</div>
+      <div class="proj-story">
+        <p class="proj-line" data-ru="<strong>Проблема:</strong> длинный путь от каталога к заявке." data-en="<strong>Problem:</strong> users had a long path from catalog to lead form."><strong>Проблема:</strong> длинный путь от каталога к заявке.</p>
+        <p class="proj-line" data-ru="<strong>Решение:</strong> структура + калькулятор + CTA в каждом блоке." data-en="<strong>Solution:</strong> streamlined structure, built-in calculator, and visible CTAs."><strong>Решение:</strong> структура + калькулятор + CTA в каждом блоке.</p>
+        <p class="proj-line" data-ru="<strong>Результат:</strong> сценарий обращения в 2 шага и более понятная воронка." data-en="<strong>Result:</strong> 2-step contact flow with clearer conversion funnel."><strong>Результат:</strong> сценарий обращения в 2 шага и более понятная воронка.</p>
+      </div>
+      <div class="proj-role" data-ru="Моя роль: UX-структура, верстка, логика калькулятора, интеграция форм." data-en="My role: UX structure, layout implementation, calculator logic, and form integration.">Моя роль: UX-структура, верстка, логика калькулятора, интеграция форм.</div>
+      <div class="proj-proof">
+        <span class="proof-badge">A11y-ready</span>
+        <span class="proof-badge">Responsive</span>
+        <span class="proof-badge">SEO-ready</span>
+      </div>
+      <div class="proj-result" data-ru="Мини-результат: ключевая ценность и путь к заявке считываются за 5-7 секунд." data-en="Mini result: core offer and lead path are clear within 5-7 seconds.">Мини-результат: ключевая ценность и путь к заявке считываются за 5-7 секунд.</div>
       <div class="proj-stack">
         <span class="proj-tag">HTML</span>
         <span class="proj-tag">CSS</span>
         <span class="proj-tag">JavaScript</span>
       </div>
       <div class="proj-links">
-        <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer" class="proj-link">
+        <a href="https://github.com/amirchik701/marmo-tile1" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_marmo_github" data-project-kind="landing ui">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
-        <a href="https://luxurytile.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link">
+        <a href="https://keramogranit.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_marmo_live" data-project-kind="landing ui">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Live demo
         </a>
       </div>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:0.15s;">
+    <div class="proj-card reveal" style="transition-delay:0.15s;" data-project-kind="business app">
       <div class="proj-ghost">02</div>
-      <div class="proj-badge">Web / Practice</div>
-      <div class="proj-title" data-ru="AMIR'S PROJECT" data-en="AMIR'S PROJECT">AMIR'S PROJECT</div>
-      <p class="proj-desc" data-ru="Практический веб-проект, в котором я отрабатывал структуру страницы, верстку и подачу контента. Он хорошо отражает мой текущий уровень и подход к разработке интерфейсов." data-en="A hands-on web project where I practiced page structure, layout, and content presentation. It reflects my current level and approach to interface development.">Практический веб-проект, в котором я отрабатывал структуру страницы, верстку и подачу контента. Он хорошо отражает мой текущий уровень и подход к разработке интерфейсов.</p>
-      <div class="proj-stack">
-        <span class="proj-tag">HTML</span>
-        <span class="proj-tag">CSS</span>
-        <span class="proj-tag">JS</span>
+      <div class="proj-badge">Business / Global</div>
+      <div class="proj-preview">
+        <img class="proj-shot desktop" src="https://image.thum.io/get/width/1200/noanimate/https://worldy-global.netlify.app/" alt="WORLDY GLOBAL desktop preview" loading="lazy">
+        <img class="proj-shot mobile" src="https://image.thum.io/get/width/420/noanimate/https://worldy-global.netlify.app/" alt="WORLDY GLOBAL mobile preview" loading="lazy">
       </div>
-      <div class="proj-links">
-        <a href="https://amirsproject.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          Live demo
-        </a>
+      <div class="proj-title" data-ru="WORLDY GLOBAL" data-en="WORLDY GLOBAL">WORLDY GLOBAL</div>
+      <div class="proj-story">
+        <p class="proj-line" data-ru="<strong>Проблема:</strong> сложное объяснение услуг на международную аудиторию." data-en="<strong>Problem:</strong> services were hard to explain clearly for a global audience."><strong>Проблема:</strong> сложное объяснение услуг на международную аудиторию.</p>
+        <p class="proj-line" data-ru="<strong>Решение:</strong> лаконичная структура, блоки ценности и понятные CTA." data-en="<strong>Solution:</strong> concise page architecture, value blocks, and clear CTAs."><strong>Решение:</strong> лаконичная структура, блоки ценности и понятные CTA.</p>
+        <p class="proj-line" data-ru="<strong>Результат:</strong> бизнес-предложение читается быстро, навигация стала проще." data-en="<strong>Result:</strong> business offer is easier to scan and navigation is faster."><strong>Результат:</strong> бизнес-предложение читается быстро, навигация стала проще.</p>
       </div>
-    </div>
-
-    <div class="proj-card reveal" style="transition-delay:0.25s;">
-      <div class="proj-ghost">03</div>
-      <div class="proj-badge">Profile</div>
-      <div class="proj-title" data-ru="ПОРТФОЛИО" data-en="PORTFOLIO">ПОРТФОЛИО</div>
-      <p class="proj-desc" data-ru="Личный сайт-портфолио, в котором я собрал свой стиль, информацию о себе, навыки и способы связи. Этот проект показывает мой визуальный вкус и любовь к интерактивным деталям." data-en="A personal portfolio site where I brought together my style, background, skills, and contact details. This project highlights my visual taste and love for interactive details.">Личный сайт-портфолио, в котором я собрал свой стиль, информацию о себе, навыки и способы связи. Этот проект показывает мой визуальный вкус и любовь к интерактивным деталям.</p>
+      <div class="proj-role" data-ru="Моя роль: информационная архитектура, UI-система, адаптив и QA." data-en="My role: information architecture, UI system, responsive implementation, and QA.">Моя роль: информационная архитектура, UI-система, адаптив и QA.</div>
+      <div class="proj-proof">
+        <span class="proof-badge">A11y-ready</span>
+        <span class="proof-badge">Mobile</span>
+        <span class="proof-badge">Performance</span>
+      </div>
+      <div class="proj-result" data-ru="Мини-результат: ключевые офферы и контакты находятся без лишнего скролла." data-en="Mini result: key offers and contacts are reachable without extra scrolling.">Мини-результат: ключевые офферы и контакты находятся без лишнего скролла.</div>
       <div class="proj-stack">
         <span class="proj-tag">HTML</span>
         <span class="proj-tag">CSS</span>
         <span class="proj-tag">JavaScript</span>
       </div>
       <div class="proj-links">
-        <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer" class="proj-link">
+        <a href="https://github.com/amirchik701/wordly" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_worldy_github" data-project-kind="business app">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
+        <a href="https://worldy-global.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_worldy_live" data-project-kind="business app">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Live demo
+        </a>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -338,23 +365,31 @@
   <h2 class="contact-big reveal" style="transition-delay:0.1s;">
     <span data-ru="НАПИШИ" data-en="GET IN">НАПИШИ</span><br><span data-ru="МНЕ" data-en="TOUCH" style="color:var(--accent)">МНЕ</span>
   </h2>
-  <p class="contact-sub reveal" style="transition-delay:0.2s;" data-ru="Открыт к проектам и сотрудничеству. Если у тебя есть идея, задача или предложение, буду рад обсудить." data-en="Open to projects and collaborations. If you have an idea, task, or opportunity, I would be glad to discuss it.">
-    Открыт к проектам и сотрудничеству. Если у тебя есть идея,<br>задача или предложение, буду рад обсудить.
+  <p class="contact-sub reveal" style="transition-delay:0.2s;" data-ru="Выбери удобный формат: быстрый старт лендинга, детальное обсуждение задачи или сразу резюме для HR/клиента." data-en="Choose the format you need: a quick landing request, detailed project discussion, or instant CV download for HR/client.">
+    Выбери удобный формат: быстрый старт лендинга, детальное обсуждение задачи или сразу резюме для HR/клиента.
   </p>
+  <div class="cta-actions reveal" style="transition-delay:0.25s;">
+    <a href="https://t.me/amirr17?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3" target="_blank" rel="noopener noreferrer" class="btn-primary js-track-link" data-track-id="cta_order_landing" data-ru="Заказать лендинг" data-en="Order Landing">Заказать лендинг</a>
+    <a href="mailto:tursunov.amir701@gmail.com?subject=%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0" class="btn-outline js-track-link" data-track-id="cta_discuss_project" data-ru="Обсудить проект" data-en="Discuss Project">Обсудить проект</a>
+    <a href="cv-tursunov-amir.pdf" download class="btn-cv js-track-link" data-track-id="cta_download_cv">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span data-ru="Скачать CV" data-en="Download CV">Скачать CV</span>
+    </a>
+  </div>
   <div class="contact-links reveal" style="transition-delay:0.3s;">
-    <a href="mailto:tursunov.amir701@gmail.com" class="contact-link">
+    <a href="mailto:tursunov.amir701@gmail.com" class="contact-link js-track-link" data-track-id="contact_email">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       Email
     </a>
-    <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer" class="contact-link">
+    <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer" class="contact-link js-track-link" data-track-id="contact_github">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       GitHub
     </a>
-    <a href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" class="contact-link">
+    <a href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" class="contact-link js-track-link" data-track-id="contact_telegram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
       Telegram
     </a>
-    <a href="https://www.linkedin.com/in/amir-tursunov-17b41b3b5" target="_blank" rel="noopener noreferrer" class="contact-link">
+    <a href="https://www.linkedin.com/in/amir-tursunov-17b41b3b5" target="_blank" rel="noopener noreferrer" class="contact-link js-track-link" data-track-id="contact_linkedin">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
     </a>
@@ -366,6 +401,22 @@
   <div class="ft">© 2025 Tursunov Amir. Built with passion.</div>
   <div class="ft">TA_DEV · Frontend & InfoSec</div>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tursunov Amir",
+  "url": "https://tursunov-amir.dev",
+  "jobTitle": "Frontend Developer",
+  "knowsAbout": ["Frontend Development", "JavaScript", "Information Security"],
+  "sameAs": [
+    "https://github.com/amirchik701",
+    "https://www.linkedin.com/in/amir-tursunov-17b41b3b5",
+    "https://t.me/amirr17"
+  ]
+}
+</script>
 
 <script src="./script.js"></script>
 </body>

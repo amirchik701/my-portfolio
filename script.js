@@ -1,3 +1,27 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasFinePointer = window.matchMedia('(pointer: fine)').matches && window.matchMedia('(hover: hover)').matches;
+const shouldRunHeavyAnimations = !prefersReducedMotion;
+const shouldShowCustomCursor = hasFinePointer && !prefersReducedMotion;
+
+function sanitizeMarkup(raw) {
+  const template = document.createElement('template');
+  template.innerHTML = raw;
+  const allowedTags = new Set(['STRONG', 'BR', 'SPAN']);
+
+  template.content.querySelectorAll('*').forEach(node => {
+    if (!allowedTags.has(node.tagName)) {
+      node.replaceWith(document.createTextNode(node.textContent || ''));
+      return;
+    }
+
+    [...node.attributes].forEach(attr => {
+      if (attr.name !== 'class') node.removeAttribute(attr.name);
+    });
+  });
+
+  return template.innerHTML;
+}
+
 // Cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
@@ -6,45 +30,66 @@ let my = 0;
 let rx = 0;
 let ry = 0;
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX;
-  my = e.clientY;
-  cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
-});
-
-(function animateRing() {
-  rx += (mx - rx) * 0.1;
-  ry += (my - ry) * 0.1;
-  ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
-  requestAnimationFrame(animateRing);
-})();
-
-document.querySelectorAll('a, button, .proj-card, .skill-cell, .about-card').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    ring.style.width = '56px';
-    ring.style.height = '56px';
-    ring.style.opacity = '0.25';
+if (shouldShowCustomCursor && cursor && ring) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
   });
 
-  el.addEventListener('mouseleave', () => {
-    ring.style.width = '36px';
-    ring.style.height = '36px';
-    ring.style.opacity = '0.5';
+  (function animateRing() {
+    if (document.hidden) {
+      requestAnimationFrame(animateRing);
+      return;
+    }
+
+    rx += (mx - rx) * 0.1;
+    ry += (my - ry) * 0.1;
+    ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+    requestAnimationFrame(animateRing);
+  })();
+
+  document.querySelectorAll('a, button, .proj-card, .skill-cell, .about-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '56px';
+      ring.style.height = '56px';
+      ring.style.opacity = '0.25';
+    });
+
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.opacity = '0.5';
+    });
   });
-});
+}
 
 // Navigation and scrolling
 const nav = document.getElementById('nav');
 const progressBar = document.getElementById('scroll-progress');
 const backTop = document.getElementById('back-top');
 
-window.addEventListener('scroll', () => {
+let scrollTicking = false;
+function updateScrollUI() {
   nav.classList.toggle('scrolled', scrollY > 60);
   backTop.classList.toggle('visible', scrollY > 400);
 
-  const scrolled = scrollY / (document.body.scrollHeight - innerHeight);
+  const maxScroll = Math.max(document.body.scrollHeight - innerHeight, 1);
+  const scrolled = Math.min(scrollY / maxScroll, 1);
   progressBar.style.width = `${scrolled * 100}%`;
+  scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(updateScrollUI);
 }, { passive: true });
+
+backTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+updateScrollUI();
 
 // Section reveal
 const revealObserver = new IntersectionObserver(entries => {
@@ -83,7 +128,7 @@ function setLang(lang) {
 
   document.querySelectorAll('[data-ru][data-en]').forEach(el => {
     const value = el.getAttribute(`data-${lang}`);
-    if (value) el.innerHTML = value;
+    if (value) el.innerHTML = sanitizeMarkup(value);
   });
 
   document.title = lang === 'en'
@@ -120,10 +165,13 @@ function playThemeSound() {
 }
 
 const baseToggleTheme = toggleTheme;
-window.toggleTheme = function() {
+function handleThemeToggle() {
   baseToggleTheme();
   playThemeSound();
-};
+}
+
+const themeToggleBtn = document.getElementById('themeToggle');
+if (themeToggleBtn) themeToggleBtn.addEventListener('click', handleThemeToggle);
 
 // Cursor trail
 const TRAIL_COUNT = 12;
@@ -131,36 +179,43 @@ const trails = [];
 let trailMx = 0;
 let trailMy = 0;
 
-for (let i = 0; i < TRAIL_COUNT; i++) {
-  const dot = document.createElement('div');
-  dot.className = 'trail-dot';
-  document.body.appendChild(dot);
-  trails.push({ el: dot, x: 0, y: 0 });
-}
+if (shouldShowCustomCursor) {
+  for (let i = 0; i < TRAIL_COUNT; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    document.body.appendChild(dot);
+    trails.push({ el: dot, x: 0, y: 0 });
+  }
 
-document.addEventListener('mousemove', e => {
-  trailMx = e.clientX;
-  trailMy = e.clientY;
-});
-
-(function animateTrail() {
-  let px = trailMx;
-  let py = trailMy;
-
-  trails.forEach((trail, index) => {
-    const delay = 1 - index / TRAIL_COUNT;
-    trail.x += (px - trail.x) * (0.35 - index * 0.018);
-    trail.y += (py - trail.y) * (0.35 - index * 0.018);
-    trail.el.style.transform = `translate(${trail.x}px, ${trail.y}px) translate(-50%,-50%)`;
-    trail.el.style.opacity = (delay * 0.45).toFixed(2);
-    trail.el.style.width = `${5 - index * 0.3}px`;
-    trail.el.style.height = `${5 - index * 0.3}px`;
-    px = trail.x;
-    py = trail.y;
+  document.addEventListener('mousemove', e => {
+    trailMx = e.clientX;
+    trailMy = e.clientY;
   });
 
-  requestAnimationFrame(animateTrail);
-})();
+  (function animateTrail() {
+    if (document.hidden) {
+      requestAnimationFrame(animateTrail);
+      return;
+    }
+
+    let px = trailMx;
+    let py = trailMy;
+
+    trails.forEach((trail, index) => {
+      const delay = 1 - index / TRAIL_COUNT;
+      trail.x += (px - trail.x) * (0.35 - index * 0.018);
+      trail.y += (py - trail.y) * (0.35 - index * 0.018);
+      trail.el.style.transform = `translate(${trail.x}px, ${trail.y}px) translate(-50%,-50%)`;
+      trail.el.style.opacity = (delay * 0.45).toFixed(2);
+      trail.el.style.width = `${5 - index * 0.3}px`;
+      trail.el.style.height = `${5 - index * 0.3}px`;
+      px = trail.x;
+      py = trail.y;
+    });
+
+    requestAnimationFrame(animateTrail);
+  })();
+}
 
 // Typing effect
 const typingEl = document.getElementById('typing-text');
@@ -205,7 +260,11 @@ function typeLoop() {
   setTimeout(typeLoop, 45);
 }
 
-typeLoop();
+if (typingEl && !prefersReducedMotion) {
+  typeLoop();
+} else if (typingEl) {
+  typingEl.textContent = typingPhrases[0];
+}
 
 // Timeline
 const timelineObserver = new IntersectionObserver(entries => {
@@ -224,7 +283,7 @@ document.querySelectorAll('.tl-item').forEach((el, index) => {
 const navLinks = document.getElementById('navLinks');
 if (navLinks) {
   const li = document.createElement('li');
-  li.innerHTML = '<a href="#timeline" data-ru="Путь" data-en="Journey" onclick="closeBurger()">Путь</a>';
+  li.innerHTML = '<a href="#timeline" data-ru="Путь" data-en="Journey">Путь</a>';
   navLinks.insertBefore(li, navLinks.children[1]);
 }
 
@@ -235,21 +294,40 @@ function toggleBurger() {
 
   burger.classList.toggle('open');
   links.classList.toggle('open');
+  burger.setAttribute('aria-expanded', links.classList.contains('open') ? 'true' : 'false');
   document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
 }
 
 function closeBurger() {
-  document.getElementById('burger').classList.remove('open');
-  document.getElementById('navLinks').classList.remove('open');
+  const burger = document.getElementById('burger');
+  const links = document.getElementById('navLinks');
+  burger.classList.remove('open');
+  links.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 }
 
+const burger = document.getElementById('burger');
+if (burger) burger.addEventListener('click', toggleBurger);
+
+if (navLinks) {
+  navLinks.addEventListener('click', e => {
+    if (e.target instanceof Element && e.target.closest('a')) closeBurger();
+  });
+}
+
+const btnRu = document.getElementById('btnRu');
+const btnEn = document.getElementById('btnEn');
+if (btnRu) btnRu.addEventListener('click', () => setLang('ru'));
+if (btnEn) btnEn.addEventListener('click', () => setLang('en'));
+
 // Particles
 const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas ? canvas.getContext('2d') : null;
 const particles = [];
 
 function resizeCanvas() {
+  if (!canvas) return;
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
 }
@@ -266,6 +344,12 @@ function createParticle() {
 }
 
 function animateParticles() {
+  if (!canvas || !ctx) return;
+  if (document.hidden) {
+    requestAnimationFrame(animateParticles);
+    return;
+  }
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   const accent = document.documentElement.classList.contains('light')
@@ -292,14 +376,102 @@ function animateParticles() {
   requestAnimationFrame(animateParticles);
 }
 
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-for (let i = 0; i < 120; i++) particles.push(createParticle());
-animateParticles();
+if (canvas && ctx && shouldRunHeavyAnimations) {
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+  const particleCount = hasFinePointer ? 120 : 45;
+  for (let i = 0; i < particleCount; i++) particles.push(createParticle());
+  animateParticles();
+}
 
 // Stats counter
 const statsGrid = document.getElementById('statsGrid');
+const projectsGrid = document.querySelector('.projects-grid');
+const projectCards = projectsGrid ? [...projectsGrid.querySelectorAll('.proj-card')] : [];
+const filterButtons = [...document.querySelectorAll('.filter-btn')];
+
+if (projectCards.length) {
+  const projectsCount = projectCards.length;
+  const projectsStatEl = statsGrid ? statsGrid.querySelector('.stat-num') : null;
+  if (projectsStatEl) projectsStatEl.dataset.target = String(projectsCount);
+}
+
+function matchesFilter(card, filterKey) {
+  if (filterKey === 'all') return true;
+  const kinds = (card.dataset.projectKind || '').split(' ').filter(Boolean);
+  return kinds.includes(filterKey);
+}
+
+function applyProjectFilter(filterKey) {
+  projectCards.forEach(card => {
+    const visible = matchesFilter(card, filterKey);
+    card.style.display = visible ? '' : 'none';
+  });
+}
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filterKey = btn.dataset.projectFilter || 'all';
+    filterButtons.forEach(item => item.classList.remove('active'));
+    btn.classList.add('active');
+    applyProjectFilter(filterKey);
+  });
+});
+
+function appendUtmParams(urlValue, trackId) {
+  try {
+    const url = new URL(urlValue);
+    if (!/^https?:$/i.test(url.protocol)) return urlValue;
+    url.searchParams.set('utm_source', 'portfolio');
+    url.searchParams.set('utm_medium', 'cta');
+    url.searchParams.set('utm_campaign', trackId || 'click');
+    return url.toString();
+  } catch (err) {
+    return urlValue;
+  }
+}
+
+function trackClick(trackId, href) {
+  const payload = {
+    event: 'portfolio_click',
+    trackId,
+    href,
+    ts: Date.now(),
+  };
+
+  if (Array.isArray(window.dataLayer)) window.dataLayer.push(payload);
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'portfolio_click', {
+      event_category: 'engagement',
+      event_label: trackId,
+      link_url: href,
+    });
+  }
+}
+
+document.querySelectorAll('.js-track-link').forEach(link => {
+  const trackId = link.dataset.trackId || 'unknown_click';
+  const originalHref = link.getAttribute('href');
+  if (!originalHref) return;
+
+  const hrefWithUtm = appendUtmParams(originalHref, trackId);
+  if (hrefWithUtm !== originalHref) link.setAttribute('href', hrefWithUtm);
+
+  link.addEventListener('click', () => {
+    trackClick(trackId, link.getAttribute('href') || originalHref);
+  });
+});
+
+function applyPreviewFallback(imgEl) {
+  const placeholder = './assets/project-placeholder.svg';
+  imgEl.src = placeholder;
+  imgEl.classList.add('is-fallback');
+}
+
+document.querySelectorAll('.proj-shot').forEach(imgEl => {
+  imgEl.addEventListener('error', () => applyPreviewFallback(imgEl), { once: true });
+});
+
 const statsObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;

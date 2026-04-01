@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16161f"/>
+      <stop offset="1" stop-color="#0e0e14"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00cc88" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0.35"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect width="1200" height="700" fill="url(#grid)"/>
+  <rect x="0" y="0" width="1200" height="700" fill="url(#accent)" opacity="0.35"/>
+
+  <g fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2">
+    <rect x="80" y="80" width="1040" height="540" rx="18"/>
+    <rect x="120" y="140" width="520" height="12" rx="6"/>
+    <rect x="120" y="170" width="420" height="12" rx="6"/>
+    <rect x="120" y="200" width="360" height="12" rx="6"/>
+    <rect x="120" y="260" width="260" height="36" rx="10"/>
+  </g>
+
+  <g font-family="JetBrains Mono, monospace" fill="rgba(226,226,238,0.75)">
+    <text x="120" y="410" font-size="22" letter-spacing="2">PREVIEW UNAVAILABLE</text>
+    <text x="120" y="450" font-size="14" fill="rgba(226,226,238,0.55)">Screenshot will appear when available.</text>
+  </g>
+</svg>
