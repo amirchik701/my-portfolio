@@ -291,6 +291,7 @@ if (navLinks) {
 function toggleBurger() {
   const burger = document.getElementById('burger');
   const links = document.getElementById('navLinks');
+  if (!burger || !links) return;
 
   burger.classList.toggle('open');
   links.classList.toggle('open');
@@ -301,6 +302,7 @@ function toggleBurger() {
 function closeBurger() {
   const burger = document.getElementById('burger');
   const links = document.getElementById('navLinks');
+  if (!burger || !links) return;
   burger.classList.remove('open');
   links.classList.remove('open');
   burger.setAttribute('aria-expanded', 'false');
@@ -315,6 +317,14 @@ if (navLinks) {
     if (e.target instanceof Element && e.target.closest('a')) closeBurger();
   });
 }
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) closeBurger();
+}, { passive: true });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeBurger();
+});
 
 const btnRu = document.getElementById('btnRu');
 const btnEn = document.getElementById('btnEn');
