@@ -59,7 +59,7 @@ body {
 }
 
 @media (pointer: fine) {
-  body { cursor: none; }
+  /* body { cursor: none; } - отключено, чтобы системная мышка была видна, когда открыт терминал или консоль */
 }
 
 /* Shared layout */
