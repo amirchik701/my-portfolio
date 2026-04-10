@@ -131,6 +131,11 @@ function setLang(lang) {
     if (value) el.innerHTML = sanitizeMarkup(value);
   });
 
+  document.querySelectorAll('[data-ru-ph][data-en-ph]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}-ph`);
+    if (value) el.placeholder = value;
+  });
+
   document.title = lang === 'en'
     ? 'Tursunov Amir — Frontend Developer'
     : 'Турсунов Амир — Frontend Developer';
@@ -507,6 +512,110 @@ if (statsGrid) statsObserver.observe(statsGrid);
 
 // Console easter egg
 console.log('%c👋 Привет! Я рад что ты заглянул в консоль.', 'color:#00cc88;font-size:16px;font-weight:bold;');
-console.log('%cЭтот сайт написал Amir Tursunov с нуля — HTML, CSS, JS.', 'color:#a855f7;font-size:13px;');
-console.log('%c📧 Хочешь поработать вместе? tursunov.amir701@gmail.com', 'color:#e2e2ee;font-size:13px;');
-console.log('%c🔐 P.S. Если найдёшь уязвимость — напиши мне 😄', 'color:#5a5a72;font-size:12px;');
+console.log('%cСайт написан с нуля без тяжелых фреймворков.', 'color:#a855f7;font-size:13px;');
+console.log('%c🔐 P.S. Попробуй нажать Ctrl + ~ прямо на сайте...', 'color:#ff5f56;font-size:14px;font-weight:bold;');
+
+// --- Contact Form ---
+const contactForm = document.getElementById('contactForm');
+const contactSubmit = document.getElementById('contactSubmit');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const originalText = contactSubmit.textContent;
+    contactSubmit.textContent = currentLang === 'en' ? 'Sending...' : 'Отправка...';
+    contactSubmit.disabled = true;
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
+
+    try {
+      // Имитация задержки сети, так как реального бекенда пока нет
+      await new Promise(r => setTimeout(r, 1200));
+
+      formStatus.textContent = currentLang === 'en' ? 'Message sent successfully! (Simulated)' : 'Сообщение успешно отправлено! (Демонстрация)';
+      formStatus.classList.add('success');
+      contactForm.reset();
+    } catch (err) {
+      formStatus.textContent = currentLang === 'en' ? 'Oops! There was a problem.' : 'Произошла ошибка при отправке.';
+      formStatus.classList.add('error');
+    } finally {
+      contactSubmit.textContent = originalText;
+      contactSubmit.disabled = false;
+    }
+  });
+}
+
+// --- Terminal Logic ---
+const terminalOverlay = document.getElementById('terminal');
+const terminalClose = document.getElementById('terminalClose');
+const termInput = document.getElementById('termInput');
+const termBody = document.getElementById('termBody');
+
+const commands = {
+  help: () => 'Available commands: <span class="term-hl">help, whoami, skills, clear</span>. Or try finding the <span class="term-hl-purple">flag</span>.',
+  whoami: () => 'guest@amirtursunov. I am Amir Tursunov, a Frontend Developer & InfoSec student.',
+  skills: () => 'HTML, CSS, JS, Python, Penetration Testing, Git. Constantly learning.',
+  clear: () => { termBody.innerHTML = ''; return ''; },
+  'cat flag.txt': () => '<span class="term-hl-purple">CTF{y0u_f0und_th3_p0rtf0l1o_fl4g}</span><br>Well played! Send me this flag if you want to connect!',
+  'sudo': () => 'guest is not in the sudoers file. This incident will be reported.',
+};
+
+function printTerm(text, isInput = false) {
+  if (!text) return;
+  const line = document.createElement('div');
+  line.className = 'term-line';
+  if (isInput) {
+    line.innerHTML = `<span class="term-prompt">guest@amirtursunov:~$</span> ${text.replace(/</g, "&lt;")}`;
+  } else {
+    line.innerHTML = text;
+  }
+  termBody.appendChild(line);
+  termBody.scrollTop = termBody.scrollHeight;
+}
+
+function parseCommand(cmd) {
+  const c = cmd.trim().toLowerCase();
+  if (!c) return;
+  printTerm(cmd, true);
+  
+  if (commands[c]) {
+    printTerm(commands[c]());
+  } else if (c.startsWith('cat ')) {
+    printTerm(`cat: ${c.substring(4)}: Permission denied`);
+  } else {
+    printTerm(`Command not found: ${c}. Type <span class="term-hl">help</span>.`);
+  }
+}
+
+function toggleTerminal() {
+  if (!terminalOverlay) return;
+  const isOpen = terminalOverlay.classList.contains('open');
+  if (isOpen) {
+    terminalOverlay.classList.remove('open');
+    terminalOverlay.setAttribute('aria-hidden', 'true');
+    termInput.blur();
+  } else {
+    terminalOverlay.classList.add('open');
+    terminalOverlay.setAttribute('aria-hidden', 'false');
+    setTimeout(() => termInput.focus(), 100);
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && (e.key === '\`' || e.key === '~' || e.code === 'Backquote')) {
+    e.preventDefault();
+    toggleTerminal();
+  }
+});
+
+if (terminalClose) terminalClose.addEventListener('click', toggleTerminal);
+if (termInput) {
+  termInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      parseCommand(termInput.value);
+      termInput.value = '';
+    }
+  });
+}

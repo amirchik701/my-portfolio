@@ -373,13 +373,24 @@
   <p class="contact-sub reveal" style="transition-delay:0.2s;" data-ru="Выбери удобный формат: быстрый старт лендинга, детальное обсуждение задачи или сразу резюме для HR/клиента." data-en="Choose the format you need: a quick landing request, detailed project discussion, or instant CV download for HR/client.">
     Выбери удобный формат: быстрый старт лендинга, детальное обсуждение задачи или сразу резюме для HR/клиента.
   </p>
-  <div class="cta-actions reveal" style="transition-delay:0.25s;">
-    <a href="https://t.me/amirr17?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3" target="_blank" rel="noopener noreferrer" class="btn-primary js-track-link" data-track-id="cta_order_landing" data-ru="Заказать лендинг" data-en="Order Landing">Заказать лендинг</a>
-    <a href="mailto:tursunov.amir701@gmail.com?subject=%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0" class="btn-outline js-track-link" data-track-id="cta_discuss_project" data-ru="Обсудить проект" data-en="Discuss Project">Обсудить проект</a>
-    <a href="cv-tursunov-amir.pdf" download class="btn-cv js-track-link" data-track-id="cta_download_cv">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      <span data-ru="Скачать CV" data-en="Download CV">Скачать CV</span>
-    </a>
+  <div class="contact-form-container reveal" style="transition-delay:0.25s;">
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <input type="text" id="contactName" placeholder="Имя" data-ru-ph="Имя" data-en-ph="Name" required>
+        <input type="email" id="contactEmail" placeholder="Email" data-ru-ph="Email" data-en-ph="Email" required>
+      </div>
+      <textarea id="contactMessage" placeholder="Сообщение..." data-ru-ph="Сообщение..." data-en-ph="Message..." rows="4" required></textarea>
+      <button type="submit" class="btn-primary form-submit" id="contactSubmit" data-ru="Отправить" data-en="Send Message">Отправить</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+    
+    <div class="cta-alt">
+      <span data-ru="Или скачайте моё резюме:" data-en="Or download my CV:">Или скачайте моё резюме:</span>
+      <a href="cv-tursunov-amir.pdf" download class="btn-cv js-track-link" data-track-id="cta_download_cv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-ru="Скачать CV" data-en="Download CV">Скачать CV</span>
+      </a>
+    </div>
   </div>
   <div class="contact-links reveal" style="transition-delay:0.3s;">
     <a href="mailto:tursunov.amir701@gmail.com" class="contact-link js-track-link" data-track-id="contact_email">
@@ -424,6 +435,28 @@
 </script>
 
 <script src="./script.js"></script>
+
+<!-- TERMINAL -->
+<div id="terminal" class="terminal-overlay" aria-hidden="true">
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="terminal-title">guest@amirtursunov: ~</div>
+      <button id="terminalClose" type="button" aria-label="Close terminal">×</button>
+    </div>
+    <div class="terminal-body" id="termBody">
+      <div class="term-line">Welcome to AmirOS v1.0.0</div>
+      <div class="term-line">Type <span class="term-hl">'help'</span> to see available commands.</div>
+    </div>
+    <div class="terminal-input-line">
+      <span class="term-prompt">guest@amirtursunov:~$</span>
+      <input type="text" id="termInput" autocomplete="off" spellcheck="false" autofocus>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 
