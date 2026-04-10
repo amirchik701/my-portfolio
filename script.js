@@ -544,7 +544,8 @@ if (contactForm) {
         body: json
       });
       
-      if (!res.ok) throw new Error('Submission failed');
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Submission failed');
 
       formStatus.textContent = currentLang === 'en' ? 'Message sent successfully!' : 'Сообщение успешно отправлено!';
       formStatus.classList.add('success');
