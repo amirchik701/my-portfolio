@@ -388,10 +388,10 @@
     <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
       <div class="form-row">
-        <input type="text" id="contactName" placeholder="Имя" data-ru-ph="Имя" data-en-ph="Name" required>
-        <input type="email" id="contactEmail" placeholder="Email" data-ru-ph="Email" data-en-ph="Email" required>
+        <input type="text" id="contactName" name="name" placeholder="Имя" data-ru-ph="Имя" data-en-ph="Name" required>
+        <input type="email" id="contactEmail" name="email" placeholder="Email" data-ru-ph="Email" data-en-ph="Email" required>
       </div>
-      <textarea id="contactMessage" placeholder="Сообщение..." data-ru-ph="Сообщение..." data-en-ph="Message..." rows="4" required></textarea>
+      <textarea id="contactMessage" name="message" placeholder="Сообщение..." data-ru-ph="Сообщение..." data-en-ph="Message..." rows="4" required></textarea>
       <button type="submit" class="btn-primary form-submit" id="contactSubmit" data-ru="Отправить" data-en="Send Message">Отправить</button>
       <div class="form-status" id="formStatus"></div>
     </form>
