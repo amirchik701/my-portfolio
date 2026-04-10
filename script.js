@@ -604,7 +604,7 @@ function toggleTerminal() {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && (e.key === '\`' || e.key === '~' || e.code === 'Backquote')) {
+  if (e.ctrlKey && (e.key === '`' || e.key === '~' || e.code === 'Backquote' || e.key === 'ё' || e.key === 'Ё')) {
     e.preventDefault();
     toggleTerminal();
   }
