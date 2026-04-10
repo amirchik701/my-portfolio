@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+<a href="#about" class="skip-link" data-ru="Перейти к контенту" data-en="Skip to main content">Перейти к контенту</a>
 
 <div id="scroll-progress"></div>
 <div class="cursor" id="cursor"></div>
@@ -374,7 +375,8 @@
     Выбери удобный формат: быстрый старт лендинга, детальное обсуждение задачи или сразу резюме для HR/клиента.
   </p>
   <div class="contact-form-container reveal" style="transition-delay:0.25s;">
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
       <div class="form-row">
         <input type="text" id="contactName" placeholder="Имя" data-ru-ph="Имя" data-en-ph="Name" required>
         <input type="email" id="contactEmail" placeholder="Email" data-ru-ph="Email" data-en-ph="Email" required>

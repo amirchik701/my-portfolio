@@ -531,10 +531,16 @@ if (contactForm) {
     formStatus.className = 'form-status';
 
     try {
-      // Имитация задержки сети, так как реального бекенда пока нет
-      await new Promise(r => setTimeout(r, 1200));
+      const formData = new FormData(contactForm);
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      });
+      
+      if (!res.ok) throw new Error('Submission failed');
 
-      formStatus.textContent = currentLang === 'en' ? 'Message sent successfully! (Simulated)' : 'Сообщение успешно отправлено! (Демонстрация)';
+      formStatus.textContent = currentLang === 'en' ? 'Message sent successfully!' : 'Сообщение успешно отправлено!';
       formStatus.classList.add('success');
       contactForm.reset();
     } catch (err) {
@@ -617,5 +623,36 @@ if (termInput) {
       parseCommand(termInput.value);
       termInput.value = '';
     }
+  });
+}
+
+// 3D Tilt Effect for Project Cards
+document.querySelectorAll('.proj-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Set 12 degrees max rotation
+    const rx = ((y / rect.height) - 0.5) * -12; 
+    const ry = ((x / rect.width) - 0.5) * 12;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.transition = 'transform 0.1s ease-out';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+  });
+});
+
+// PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(err => {
+      console.log('SW registration failed:', err);
+    });
   });
 }
