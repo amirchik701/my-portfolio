@@ -532,10 +532,16 @@ if (contactForm) {
 
     try {
       const formData = new FormData(contactForm);
-      const res = await fetch("/", {
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: json
       });
       
       if (!res.ok) throw new Error('Submission failed');
