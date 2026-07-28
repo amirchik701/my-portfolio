@@ -136,6 +136,16 @@ function setLang(lang) {
     if (value) el.placeholder = value;
   });
 
+  document.querySelectorAll('.stat-num').forEach(el => {
+    const target = el.dataset.target;
+    if (target !== undefined) {
+      const suffix = (lang === 'en' && el.dataset.enSuffix !== undefined)
+        ? el.dataset.enSuffix
+        : (el.dataset.ruSuffix || el.dataset.suffix || '');
+      el.textContent = target + suffix;
+    }
+  });
+
   document.title = lang === 'en'
     ? 'Tursunov Amir — Frontend Developer'
     : 'Турсунов Амир — Frontend Developer';
@@ -493,7 +503,9 @@ const statsObserver = new IntersectionObserver(entries => {
 
     entry.target.querySelectorAll('.stat-num').forEach(el => {
       const target = Number(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
+      const suffix = (currentLang === 'en' && el.dataset.enSuffix !== undefined)
+        ? el.dataset.enSuffix
+        : (el.dataset.ruSuffix || el.dataset.suffix || '');
       let current = 0;
       const step = target / 50;
 
