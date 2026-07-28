@@ -1588,9 +1588,13 @@ html.light .terminal-window {
   transition: background 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-.mindset-icon svg {
-  width: 22px;
-  height: 22px;
+.mindset-icon svg,
+svg.mindset-svg {
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  flex-shrink: 0;
 }
 
 .mindset-card:hover .mindset-icon {
