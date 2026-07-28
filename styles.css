@@ -1575,8 +1575,28 @@ html.light .terminal-window {
 }
 
 .mindset-icon {
-  font-size: 32px;
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 24px;
+  background: rgba(0, 204, 136, 0.06);
+  border: 1px solid rgba(0, 204, 136, 0.2);
+  border-radius: 8px;
+  color: var(--accent);
+  transition: background 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.mindset-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.mindset-card:hover .mindset-icon {
+  background: rgba(0, 204, 136, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 16px rgba(0, 204, 136, 0.25);
 }
 
 .mindset-num {
