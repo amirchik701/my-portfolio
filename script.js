@@ -626,6 +626,13 @@ document.addEventListener('keydown', (e) => {
 const termFloatBtn = document.getElementById('termFloatBtn');
 if (termFloatBtn) termFloatBtn.addEventListener('click', toggleTerminal);
 if (terminalClose) terminalClose.addEventListener('click', toggleTerminal);
+
+document.querySelectorAll('.term-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const cmd = chip.getAttribute('data-cmd');
+    if (cmd) parseCommand(cmd);
+  });
+});
 if (termInput) {
   termInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {

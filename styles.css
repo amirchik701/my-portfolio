@@ -1676,11 +1676,41 @@ svg.mindset-svg {
     font-size: 12px;
   }
 
+  /* Horizontal swipeable project filter bar on mobile */
+  .project-filters {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+
+  .project-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
   /* Prevent iOS Safari auto-zoom on input focus */
   .contact-form input,
   .contact-form textarea,
   #termInput {
     font-size: 16px !important;
+  }
+
+  /* Touch feedback */
+  .btn-primary:active,
+  .btn-outline:active,
+  .btn-cv:active,
+  .contact-link:active,
+  .term-float-btn:active {
+    transform: scale(0.97);
   }
 }
 
@@ -1690,8 +1720,46 @@ svg.mindset-svg {
     max-height: 85vh;
   }
   .terminal-body {
-    height: 50vh;
+    height: 48vh;
     font-size: 12px;
     padding: 12px;
   }
+}
+
+/* Terminal Quick Chips */
+.terminal-quick-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.terminal-quick-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.term-chip {
+  padding: 4px 12px;
+  background: var(--bg2);
+  border: 1px solid rgba(0, 204, 136, 0.25);
+  border-radius: 100px;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.term-chip:hover,
+.term-chip:active {
+  background: var(--bg3);
+  border-color: var(--accent);
+  transform: scale(0.95);
 }
