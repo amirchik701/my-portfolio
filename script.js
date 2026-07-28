@@ -623,6 +623,8 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+const termFloatBtn = document.getElementById('termFloatBtn');
+if (termFloatBtn) termFloatBtn.addEventListener('click', toggleTerminal);
 if (terminalClose) terminalClose.addEventListener('click', toggleTerminal);
 if (termInput) {
   termInput.addEventListener('keydown', (e) => {

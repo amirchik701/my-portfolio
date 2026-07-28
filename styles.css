@@ -360,7 +360,13 @@ html.light .theme-toggle-thumb { transform: translateX(20px); }
   height: 6px;
   background: var(--accent);
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  animation: radarPulse 2s infinite;
+}
+
+@keyframes radarPulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 204, 136, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 204, 136, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 204, 136, 0); }
 }
 
 .hero-name {
@@ -1543,4 +1549,108 @@ html.light .terminal-window {
   top: 20px;
   outline: 2px solid #fff;
   outline-offset: 4px;
+}
+
+/* Mindset Grid */
+.mindset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.mindset-card {
+  position: relative;
+  padding: 40px 32px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, border-color 0.3s;
+}
+
+.mindset-card:hover {
+  transform: translateY(-6px);
+  background: var(--bg3);
+  border-color: var(--accent);
+}
+
+.mindset-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.mindset-num {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.mindset-title {
+  margin-bottom: 14px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.mindset-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Floating Terminal Trigger Button */
+.term-float-btn {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.term-float-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: var(--bg3);
+  border-color: var(--accent);
+  box-shadow: 0 12px 36px rgba(0, 204, 136, 0.25);
+}
+
+.term-float-btn .term-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+@media (max-width: 900px) {
+  .mindset-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .term-float-btn {
+    bottom: 24px;
+    left: 20px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
 }
