@@ -1763,3 +1763,16 @@ svg.mindset-svg {
   border-color: var(--accent);
   transform: scale(0.95);
 }
+
+/* 120Hz / High Refresh Rate GPU Compositing Optimization */
+.proj-card,
+.mindset-card,
+.term-float-btn,
+.skill-fill,
+.cursor,
+.cursor-ring,
+#nav {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
