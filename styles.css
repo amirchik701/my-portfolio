@@ -1664,17 +1664,34 @@ svg.mindset-svg {
   box-shadow: 0 0 8px var(--accent);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .mindset-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 768px) {
   .term-float-btn {
-    bottom: 24px;
-    left: 20px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    left: calc(16px + env(safe-area-inset-left));
     padding: 10px 14px;
     font-size: 12px;
+  }
+
+  /* Prevent iOS Safari auto-zoom on input focus */
+  .contact-form input,
+  .contact-form textarea,
+  #termInput {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .terminal-window {
+    width: 94%;
+    max-height: 85vh;
+  }
+  .terminal-body {
+    height: 50vh;
+    font-size: 12px;
+    padding: 12px;
   }
 }
