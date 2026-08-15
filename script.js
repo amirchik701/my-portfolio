@@ -10,6 +10,7 @@ const I18N = {
     "nav.faq": "FAQ",
     "nav.contacts": "Контакты",
     "nav.cta": "Связаться",
+    "hero.chip": "Открыт к проектам",
     "hero.subtitle": "Frontend Developer и студент InfoSec. Сайты, интерфейсы и рабочие решения от идеи до запуска.",
     "hero.btn": "Обсудить проект",
     "about.num": "[ 01 / 08 ]",
@@ -120,6 +121,7 @@ const I18N = {
     "nav.faq": "FAQ",
     "nav.contacts": "Contacts",
     "nav.cta": "Get in Touch",
+    "hero.chip": "Open to projects",
     "hero.subtitle": "Frontend Developer and InfoSec student. Websites, interfaces, and working products from brief to launch.",
     "hero.btn": "Discuss a project",
     "about.num": "[ 01 / 08 ]",
@@ -241,8 +243,8 @@ function applyLang() {
   const langLabel = document.getElementById("langBtnLabel");
   if (langLabel) langLabel.textContent = currentLang.toUpperCase();
   document.title = currentLang === "en"
-    ? "Tursunov Amir — Frontend Developer"
-    : "Турсунов Амир — Frontend Developer";
+    ? "Tursunov Amir - Frontend Developer"
+    : "Турсунов Амир - Frontend Developer";
   refreshDynamicCopy();
 }
 
@@ -309,13 +311,24 @@ window.addEventListener("scroll", () => {
   lastY = y;
 
   const ids = ["home", "about-work", "services", "stack", "projects", "security", "process", "faq", "contacts"];
+  const toNav = {
+    home: "home",
+    "about-work": "home",
+    services: "services",
+    stack: "stack",
+    projects: "projects",
+    security: "projects",
+    process: "process",
+    faq: "contacts",
+    contacts: "contacts",
+  };
   let current = "home";
   ids.forEach((id) => {
     const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top <= 280) current = id;
+    if (el && el.getBoundingClientRect().top <= 280) current = toNav[id] || "home";
   });
   document.querySelectorAll(".nav-link").forEach((link) => {
-    link.classList.toggle("is-active", link.dataset.nav === current || (current === "projects" && link.dataset.nav === "about-work"));
+    link.classList.toggle("is-active", link.dataset.nav === current);
   });
 }, { passive: true });
 
@@ -368,14 +381,18 @@ const slides = carousel ? [...carousel.querySelectorAll(".proj-slide")] : [];
 
 function slideIndex() {
   if (!carousel || !slides.length) return 0;
-  const w = slides[0].getBoundingClientRect().width + 20;
-  return Math.round(carousel.scrollLeft / Math.max(w, 1));
+  const w = carousel.clientWidth || 1;
+  return Math.round(carousel.scrollLeft / w);
 }
 
 function goTo(index) {
   if (!carousel || !slides.length) return;
   const next = Math.max(0, Math.min(slides.length - 1, index));
-  slides[next].scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", inline: "start", block: "nearest" });
+  const left = slides[next].getBoundingClientRect().left - carousel.getBoundingClientRect().left + carousel.scrollLeft;
+  carousel.scrollTo({
+    left,
+    behavior: prefersReducedMotion ? "auto" : "smooth",
+  });
 }
 
 if (dotsWrap && slides.length) {
@@ -383,6 +400,7 @@ if (dotsWrap && slides.length) {
     const dot = document.createElement("button");
     dot.type = "button";
     dot.className = "dot";
+    dot.setAttribute("aria-label", `Project ${i + 1}`);
     dot.addEventListener("click", () => goTo(i));
     dotsWrap.appendChild(dot);
   });
@@ -406,6 +424,40 @@ if (carousel && !prefersReducedMotion && slides.length > 1) {
     goTo(i >= slides.length - 1 ? 0 : i + 1);
   }, 6000);
   carousel.addEventListener("pointerdown", () => clearInterval(timer));
+}
+
+document.querySelectorAll(".proj-media img").forEach((img) => {
+  img.addEventListener("error", () => {
+    img.remove();
+    img.parentElement?.classList.add("is-fallback");
+  }, { once: true });
+});
+
+document.querySelectorAll("#faqList details").forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (!item.open) return;
+    document.querySelectorAll("#faqList details").forEach((other) => {
+      if (other !== item) other.open = false;
+    });
+  });
+});
+
+document.querySelectorAll(".aw-section, .split-section, .stack-section").forEach((el) => {
+  el.classList.add("reveal");
+});
+
+if (!prefersReducedMotion) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+} else {
+  document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-in"));
 }
 
 const form = document.getElementById("contactForm");

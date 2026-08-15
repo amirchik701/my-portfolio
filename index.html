@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tursunov Amir — Frontend Developer</title>
+  <title>Tursunov Amir - Frontend Developer</title>
   <link rel="canonical" href="https://amirjondev.uz/">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="manifest" href="./site.webmanifest">
-  <meta name="description" content="Tursunov Amir — Frontend Developer and InfoSec Student. Современные веб-проекты, интерфейсы и безопасность.">
-  <meta property="og:title" content="Tursunov Amir — Frontend Developer">
+  <meta name="description" content="Tursunov Amir - Frontend Developer and InfoSec Student. Современные веб-проекты, интерфейсы и безопасность.">
+  <meta property="og:title" content="Tursunov Amir - Frontend Developer">
   <meta property="og:description" content="Frontend Developer and InfoSec Student. Современные веб-проекты на amirjondev.uz">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://amirjondev.uz/">
@@ -19,14 +19,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=2.0.1">
+  <link rel="stylesheet" href="/styles.css?v=2.0.2">
   <style>
     html, body { background: #050505; color: #f5f5f5; }
     html:not(.dark), html:not(.dark) body { background: #f6f6f4; color: #0a0a0a; }
     a { color: inherit; }
     .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
     .hero-stack { width: 100%; text-align: center; }
-    svg { max-width: 100%; }
+    .hero-cta svg { flex-shrink: 0; }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TM1ZPD66BM"></script>
   <script>
@@ -42,12 +42,10 @@
   <header class="site-header" id="siteHeader">
     <nav class="liquid-glass top-nav" aria-label="Primary">
       <a class="nav-link is-active" href="#home" data-nav="home" data-i18n="nav.home">Главная</a>
-      <a class="nav-link" href="#about-work" data-nav="about-work" data-i18n="nav.work">Работы</a>
+      <a class="nav-link" href="#projects" data-nav="projects" data-i18n="nav.work">Работы</a>
       <a class="nav-link" href="#services" data-nav="services" data-i18n="nav.services">Услуги</a>
       <a class="nav-link" href="#stack" data-nav="stack" data-i18n="nav.stack">Стек</a>
-      <a class="nav-link" href="#security" data-nav="security" data-i18n="nav.security">Безопасность</a>
       <a class="nav-link" href="#process" data-nav="process" data-i18n="nav.process">Процесс</a>
-      <a class="nav-link" href="#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
       <a class="nav-link" href="#contacts" data-nav="contacts" data-i18n="nav.contacts">Контакты</a>
 
       <div class="aileader-lang">
@@ -101,7 +99,7 @@
   <div class="mobile-sheet" id="mobileSheet" hidden>
     <div class="mobile-sheet-inner">
       <a href="#home" data-i18n="nav.home">Главная</a>
-      <a href="#about-work" data-i18n="nav.work">Работы</a>
+      <a href="#projects" data-i18n="nav.work">Работы</a>
       <a href="#services" data-i18n="nav.services">Услуги</a>
       <a href="#stack" data-i18n="nav.stack">Стек</a>
       <a href="#security" data-i18n="nav.security">Безопасность</a>
@@ -117,9 +115,11 @@
       <div class="hero-shader" id="heroShader" aria-hidden="true"></div>
       <div class="hero-veil" aria-hidden="true"></div>
       <div class="hero-stack">
+        <p class="hero-chip" data-i18n="hero.chip">Открыт к проектам</p>
         <div class="hero-logo">
           <h1 class="hero-logo__title">
-            <span>AMIR</span><span>JON</span>
+            <span>AMIR</span>
+            <span>JON</span>
           </h1>
         </div>
         <p class="hero-sub" data-i18n="hero.subtitle">Frontend Developer и студент InfoSec. Сайты, интерфейсы и рабочие решения от идеи до запуска.</p>
@@ -127,6 +127,14 @@
           <span data-i18n="hero.btn">Обсудить проект</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+      </div>
+      <div class="hero-ticker" aria-hidden="true">
+        <div class="hero-ticker-track">
+          <span>Frontend</span><span>InfoSec</span><span>MARMO</span><span>WORLDY</span><span>AUSIDE</span>
+          <span>HTML / CSS / JS</span><span>Tashkent</span><span>Open to work</span>
+          <span>Frontend</span><span>InfoSec</span><span>MARMO</span><span>WORLDY</span><span>AUSIDE</span>
+          <span>HTML / CSS / JS</span><span>Tashkent</span><span>Open to work</span>
+        </div>
       </div>
     </section>
 
@@ -157,12 +165,12 @@
               </a>
             </div>
             <div class="aw-card__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200"><rect x="28" y="40" width="144" height="96" rx="14" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 64h144" stroke="currentColor" stroke-width="3"/><circle cx="44" cy="52" r="4" fill="currentColor"/><circle cx="58" cy="52" r="4" fill="currentColor"/><rect x="48" y="82" width="72" height="8" rx="4" fill="currentColor" opacity=".45"/><rect x="48" y="100" width="104" height="8" rx="4" fill="currentColor" opacity=".22"/></svg>
+              <div class="orb orb--screen"></div>
             </div>
           </article>
           <article class="aw-card aw-card--art-top">
             <div class="aw-card__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M100 58v42l28 16" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="100" cy="100" r="6" fill="currentColor"/></svg>
+              <div class="orb orb--clock"></div>
             </div>
             <div class="aw-card__actions">
               <a class="aw-card__btn" href="#projects" data-i18n="about.more">Подробнее</a>
@@ -187,12 +195,12 @@
               </a>
             </div>
             <div class="aw-card__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200"><path d="M40 140 L100 44 L160 140Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M70 140h60" stroke="currentColor" stroke-width="3"/><rect x="88" y="96" width="24" height="44" fill="currentColor" opacity=".2"/></svg>
+              <div class="orb orb--ship"></div>
             </div>
           </article>
           <article class="aw-card aw-card--art-top">
             <div class="aw-card__art" aria-hidden="true">
-              <svg viewBox="0 0 200 200"><path d="M100 36l56 20v36c0 36-24 60-56 72-32-12-56-36-56-72V56z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M78 104l16 16 30-34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="orb orb--shield"></div>
             </div>
             <div class="aw-card__actions">
               <a class="aw-card__btn" href="#security" data-i18n="about.more">Подробнее</a>
@@ -212,7 +220,7 @@
     <section id="services" class="split-section">
       <div class="aw-inner">
         <div class="aw-topbar">
-          <span class="aw-mono" data-i18n="services.label">НАШИ УСЛУГИ</span>
+          <span class="aw-mono" data-i18n="services.label">МОИ УСЛУГИ</span>
           <span class="aw-mono">02</span>
         </div>
         <h2 class="aw-title" data-i18n="services.title">Что я делаю</h2>
@@ -288,7 +296,7 @@
         <div class="proj-carousel" id="projCarousel" tabindex="0">
           <article class="proj-slide">
             <div class="proj-media">
-              <img src="https://image.thum.io/get/width/1200/noanimate/https://marmo.uz/" alt="MARMO" loading="lazy">
+              <img src="https://image.thum.io/get/width/1200/noanimate/https://marmo.uz/" alt="MARMO" loading="lazy" decoding="async">
             </div>
             <div class="proj-body">
               <p class="aw-mono">01 · LANDING</p>
@@ -304,7 +312,7 @@
           </article>
           <article class="proj-slide">
             <div class="proj-media">
-              <img src="https://image.thum.io/get/width/1200/noanimate/https://worldy-global.netlify.app/" alt="WORLDY GLOBAL" loading="lazy">
+              <img src="https://image.thum.io/get/width/1200/noanimate/https://worldy-global.netlify.app/" alt="WORLDY GLOBAL" loading="lazy" decoding="async">
             </div>
             <div class="proj-body">
               <p class="aw-mono">02 · BUSINESS</p>
@@ -320,7 +328,7 @@
           </article>
           <article class="proj-slide">
             <div class="proj-media">
-              <img src="https://image.thum.io/get/width/1200/noanimate/https://auside.netlify.app/" alt="AUSIDE" loading="lazy">
+              <img src="https://image.thum.io/get/width/1200/noanimate/https://auside.netlify.app/" alt="AUSIDE" loading="lazy" decoding="async">
             </div>
             <div class="proj-body">
               <p class="aw-mono">03 · B2B</p>
@@ -451,26 +459,28 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-mark">amirjondev</p>
-        <p class="stack-desc" data-i18n="footer.blurb">Frontend Developer · InfoSec student. Tashkent.</p>
+    <div class="aw-inner">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-mark">amirjondev</p>
+          <p class="stack-desc" data-i18n="footer.blurb">Frontend Developer · InfoSec student. Tashkent.</p>
+        </div>
+        <div>
+          <p class="aw-mono" data-i18n="footer.links">Ссылки</p>
+          <a href="#projects" data-i18n="nav.work">Работы</a>
+          <a href="#process" data-i18n="nav.process">Процесс</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        </div>
+        <div>
+          <p class="aw-mono" data-i18n="footer.contacts">Контакты</p>
+          <a href="mailto:tursunov.amir701@gmail.com">Email</a>
+          <a href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <a class="footer-send" href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" data-i18n="footer.send">Отправить</a>
       </div>
-      <div>
-        <p class="aw-mono" data-i18n="footer.links">Ссылки</p>
-        <a href="#projects" data-i18n="nav.work">Работы</a>
-        <a href="#process" data-i18n="nav.process">Процесс</a>
-        <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      </div>
-      <div>
-        <p class="aw-mono" data-i18n="footer.contacts">Контакты</p>
-        <a href="mailto:tursunov.amir701@gmail.com">Email</a>
-        <a href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer">Telegram</a>
-        <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
-      <a class="footer-send" href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" data-i18n="footer.send">Отправить</a>
+      <p class="footer-copy">© 2026 Tursunov Amir · amirjondev.uz</p>
     </div>
-    <p class="footer-copy">© 2026 Tursunov Amir · amirjondev.uz</p>
   </footer>
 
   <script type="application/ld+json">
@@ -488,6 +498,6 @@
     ]
   }
   </script>
-  <script src="/script.js?v=2.0.1"></script>
+  <script src="/script.js?v=2.0.2"></script>
 </body>
 </html>
