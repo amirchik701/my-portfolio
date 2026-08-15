@@ -55,8 +55,8 @@ const I18N = {
     "projects.title": "Проекты",
     "proj.1.text": "Плитка и керамогранит. Сократил путь от каталога к заявке: структура, калькулятор и CTA в каждом блоке.",
     "proj.1.role": "Роль: UX-структура, вёрстка, логика калькулятора, формы.",
-    "proj.2.text": "Международный оффер собран в короткую структуру: ценность, блоки услуг и понятные CTA.",
-    "proj.2.role": "Роль: информационная архитектура, UI-система, адаптив, QA.",
+    "proj.2.text": "Платформа изучения мира: маршруты, карта стран, сравнение и дашборд прогресса.",
+    "proj.2.role": "Роль: информационная архитектура, UI, дашборд, адаптив.",
     "proj.3.text": "B2B-платформа фурнитуры: каталог, быстрый запрос цены и оптовые условия в одном интерфейсе.",
     "proj.3.role": "Роль: полный цикл, UI/UX, каталог, система запросов.",
     "security.label": "БЕЗОПАСНОСТЬ",
@@ -94,7 +94,7 @@ const I18N = {
     "faq.3.q": "Как начать?",
     "faq.3.a": "Коротко опиши задачу в Telegram @amirr17 или через форму ниже. Обсудим объём и срок, затем старт.",
     "faq.4.q": "Есть коммерческий опыт?",
-    "faq.4.a": "Да: marmo.uz, WORLDY GLOBAL и AUSIDE. Это не учебные макеты, а опубликованные сайты.",
+    "faq.4.a": "Да: marmo.uz, WORLDY и AUSIDE. Это не учебные макеты, а опубликованные сайты.",
     "contact.label": "КОНТАКТ",
     "contact.title": "Напиши мне",
     "contact.sub": "Лендинг, доработка сайта или обсуждение стажировки. Выбери удобный канал.",
@@ -166,8 +166,8 @@ const I18N = {
     "projects.title": "Projects",
     "proj.1.text": "Tile and porcelain. Shorter path from catalog to lead: structure, calculator, and CTAs in every block.",
     "proj.1.role": "Role: UX structure, layout, calculator logic, forms.",
-    "proj.2.text": "A global offer packed into a short structure: value, service blocks, and readable CTAs.",
-    "proj.2.role": "Role: information architecture, UI system, responsive, QA.",
+    "proj.2.text": "A world-discovery platform: learning routes, country map, compare, and a progress dashboard.",
+    "proj.2.role": "Role: information architecture, UI, dashboard, responsive.",
     "proj.3.text": "B2B hardware platform: catalog, quick price request, and wholesale terms in one UI.",
     "proj.3.role": "Role: full cycle, UI/UX, catalog, request flow.",
     "security.label": "SECURITY",
@@ -205,7 +205,7 @@ const I18N = {
     "faq.3.q": "How do we start?",
     "faq.3.a": "Send a short brief to Telegram @amirr17 or use the form. We agree on scope and timeline, then start.",
     "faq.4.q": "Any commercial work?",
-    "faq.4.a": "Yes: marmo.uz, WORLDY GLOBAL, and AUSIDE. Published sites, not school mockups.",
+    "faq.4.a": "Yes: marmo.uz, WORLDY, and AUSIDE. Published sites, not school mockups.",
     "contact.label": "CONTACT",
     "contact.title": "Write me",
     "contact.sub": "A landing, a site update, or an internship chat. Pick a channel.",
@@ -422,15 +422,25 @@ if (carousel && !prefersReducedMotion && slides.length > 1) {
   let timer = setInterval(() => {
     const i = slideIndex();
     goTo(i >= slides.length - 1 ? 0 : i + 1);
-  }, 6000);
-  carousel.addEventListener("pointerdown", () => clearInterval(timer));
+  }, 7000);
+  const stop = () => clearInterval(timer);
+  carousel.addEventListener("pointerdown", stop);
+  carousel.addEventListener("mouseenter", stop);
+  carousel.addEventListener("focusin", stop);
+}
+
+function markMediaLoaded(img) {
+  img.closest(".proj-media")?.classList.add("is-loaded");
 }
 
 document.querySelectorAll(".proj-media img").forEach((img) => {
   img.addEventListener("error", () => {
+    const media = img.closest(".proj-media");
     img.remove();
-    img.parentElement?.classList.add("is-fallback");
+    media?.classList.add("is-fallback");
   }, { once: true });
+  img.addEventListener("load", () => markMediaLoaded(img), { once: true });
+  if (img.complete && img.naturalWidth > 0) markMediaLoaded(img);
 });
 
 document.querySelectorAll("#faqList details").forEach((item) => {
