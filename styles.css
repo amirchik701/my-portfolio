@@ -71,6 +71,7 @@ img {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 ::selection {
@@ -213,12 +214,14 @@ html.dark ::selection {
   text-decoration: none;
   font-size: 14px;
   letter-spacing: -0.01em;
-  color: color-mix(in srgb, var(--hero-nav-fg) 80%, transparent);
+  color: var(--hero-nav-fg);
+  opacity: 0.82;
 }
 
 .nav-link.is-active {
   color: var(--accent-inv);
   font-weight: 700;
+  opacity: 1;
 }
 
 html:not(.dark) .nav-link.is-active {
@@ -432,7 +435,9 @@ html.dark .nav-link.is-active {
 
 .hero {
   position: relative;
-  min-height: 100svh;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -476,6 +481,8 @@ html:not(.dark) .hero-veil {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  width: 100%;
+  max-width: 52rem;
   padding: 0 1.5rem;
   text-align: center;
 }
@@ -710,8 +717,9 @@ html.dark .aw-label {
 }
 
 .aw-card__art svg {
-  width: 78%;
-  height: 78%;
+  width: min(180px, 70%);
+  height: auto;
+  max-height: 180px;
 }
 
 .aw-card--art-top .aw-card__art {
