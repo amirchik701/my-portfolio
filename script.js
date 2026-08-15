@@ -1,447 +1,686 @@
-const I18N = {
-  ru: {
-    skip: "Перейти к контенту",
-    "nav.home": "Главная",
-    "nav.work": "Работы",
-    "nav.services": "Услуги",
-    "nav.stack": "Стек",
-    "nav.security": "Безопасность",
-    "nav.process": "Процесс",
-    "nav.faq": "FAQ",
-    "nav.contacts": "Контакты",
-    "nav.cta": "Связаться",
-    "hero.subtitle": "Frontend Developer и студент InfoSec. Сайты, интерфейсы и рабочие решения от идеи до запуска.",
-    "hero.btn": "Обсудить проект",
-    "about.num": "[ 01 / 08 ]",
-    "about.tag": "PRODUCTS",
-    "about.label": "ПРОДУКТЫ И ВОЗМОЖНОСТИ",
-    "about.title": "Почему Amirjon",
-    "about.more": "Подробнее",
-    "about.c1.title": "Frontend",
-    "about.c1.text": "Интерфейсы с нуля: структура, адаптив, анимация и понятный путь к действию.",
-    "about.c2.title": "Коммерческие сайты",
-    "about.c2.text": "MARMO, WORLDY, AUSIDE: живые проекты с каталогом, заявкой и адаптивной вёрсткой.",
-    "about.c3.title": "Поставка",
-    "about.c3.text": "От брифа до запуска: сроки, структура страницы, формы и публикация.",
-    "about.c4.title": "InfoSec",
-    "about.c4.text": "Студент информационной безопасности. Думаю про валидацию, XSS и надёжный фронтенд.",
-    "services.label": "МОИ УСЛУГИ",
-    "services.title": "Что я делаю",
-    "services.cta": "Обсудить проект",
-    "services.ready": "Готовы обсудить задачу?",
-    "svc.1.name": "Лендинги",
-    "svc.1.desc": "Лендинги с понятной воронкой: оффер, блоки ценности, калькулятор и заявка без лишних шагов.",
-    "svc.2.name": "Бизнес-сайты",
-    "svc.2.desc": "Многостраничные сайты для компаний: услуги, каталог, контакты и ясные CTA.",
-    "svc.3.name": "UI-вёрстка",
-    "svc.3.desc": "Аккуратная сборка интерфейса по макету. Сетка, типографика, состояния и детали.",
-    "svc.4.name": "Адаптив",
-    "svc.4.desc": "Сборка под телефон, планшет и десктоп. Без сломанных кнопок и горизонтального скролла.",
-    "svc.5.name": "Формы и заявки",
-    "svc.5.desc": "Формы, валидация и отправка заявок. Как в MARMO: короткий путь до контакта.",
-    "svc.6.name": "Интерактив",
-    "svc.6.desc": "Калькуляторы, фильтры, карусели и микроанимации, которые помогают читать продукт.",
-    "svc.7.name": "Производительность",
-    "svc.7.desc": "Лёгкий фронтенд без лишнего фреймворка там, где он не нужен. Быстрая первая отрисовка.",
-    "svc.8.name": "Базовая безопасность",
-    "svc.8.desc": "CSP, безопасный ввод, аккуратная работа с разметкой. Без театра про military-grade.",
-    "stack.label": "ИНСТРУМЕНТЫ",
-    "stack.title1": "Тех",
-    "stack.title2": "стек",
-    "stack.desc": "Инструменты, которыми собираю интерфейсы сейчас. React и TypeScript развиваю параллельно с живыми HTML/CSS/JS проектами.",
-    "projects.label": "КЕЙСЫ",
-    "projects.kicker": "ЖИВЫЕ САЙТЫ",
-    "projects.title": "Проекты",
-    "proj.1.text": "Плитка и керамогранит. Сократил путь от каталога к заявке: структура, калькулятор и CTA в каждом блоке.",
-    "proj.1.role": "Роль: UX-структура, вёрстка, логика калькулятора, формы.",
-    "proj.2.text": "Международный оффер собран в короткую структуру: ценность, блоки услуг и понятные CTA.",
-    "proj.2.role": "Роль: информационная архитектура, UI-система, адаптив, QA.",
-    "proj.3.text": "B2B-платформа фурнитуры: каталог, быстрый запрос цены и оптовые условия в одном интерфейсе.",
-    "proj.3.role": "Роль: полный цикл, UI/UX, каталог, система запросов.",
-    "security.label": "БЕЗОПАСНОСТЬ",
-    "security.title1": "Код, который",
-    "security.title2": "не ломает доверие.",
-    "sec.1.title": "Валидация входа",
-    "sec.1.desc": "Внешние данные с форм и API не идут в логику без проверки. Это база, которой учу на InfoSec.",
-    "sec.2.title": "XSS-гигиена",
-    "sec.2.desc": "Текст вместо слепого innerHTML, экранирование ввода, CSP на заголовках сайта.",
-    "sec.3.title": "OWASP Top 10",
-    "sec.3.desc": "Смотрю типичные веб-дыры уже на этапе вёрстки и клиентской логики, не после релиза.",
-    "sec.4.title": "Секреты",
-    "sec.4.desc": "Ключи и пароли не хардкожу в клиенте. Форма идёт через Web3Forms, аналитика отдельным тегом.",
-    "sec.5.title": "Честная зона",
-    "sec.5.desc": "Я студент, не security-vendor. Не продаю AES-256 и 99.9% uptime. Продаю аккуратный фронтенд с головой на безопасности.",
-    "process.label": "МОЙ ПРОЦЕСС",
-    "process.title": "КАК Я РАБОТАЮ:",
-    "step.1.title": "Обсуждение",
-    "step.1.desc": "Ты описываешь задачу. Я собираю требования, предлагаю структуру страницы и называю реалистичный срок.",
-    "step.2.title": "Структура",
-    "step.2.desc": "Сначала каркас и приоритеты блоков, потом визуал. Чтобы оффер считывался за несколько секунд.",
-    "step.3.title": "Сборка",
-    "step.3.desc": "Вёрстка, адаптив, формы и интерактив. Держу в курсе прогресса, не пропадаю на две недели.",
-    "step.4.title": "Запуск",
-    "step.4.desc": "Публикация, проверка на телефоне и сдача доступов. Дальше правки в рамках договорённости.",
-    "faq.label": "ЧАСТО ЗАДАВАЕМЫЕ",
-    "faq.title": "ВОПРОСЫ",
-    "faq.title2": "& ответы",
-    "faq.hint": "Нет ответа в списке? Напиши в Telegram, отвечаю сам.",
-    "faq.btn": "Написать в Telegram",
-    "faq.1.q": "Что ты делаешь?",
-    "faq.1.a": "Лендинги, бизнес-сайты и интерфейсы на HTML, CSS и JavaScript. Есть три живых коммерческих кейса.",
-    "faq.2.q": "Какой стек?",
-    "faq.2.a": "Боевые работы сейчас на HTML/CSS/JS. React, TypeScript и Next.js изучаю и подключаю, когда задаче это нужно.",
-    "faq.3.q": "Как начать?",
-    "faq.3.a": "Коротко опиши задачу в Telegram @amirr17 или через форму ниже. Обсудим объём и срок, затем старт.",
-    "faq.4.q": "Есть коммерческий опыт?",
-    "faq.4.a": "Да: marmo.uz, WORLDY GLOBAL и AUSIDE. Это не учебные макеты, а опубликованные сайты.",
-    "contact.label": "КОНТАКТ",
-    "contact.title": "Напиши мне",
-    "contact.sub": "Лендинг, доработка сайта или обсуждение стажировки. Выбери удобный канал.",
-    "form.name": "Имя",
-    "form.email": "Email",
-    "form.message": "Сообщение",
-    "form.send": "Отправить",
-    "form.sending": "Отправка...",
-    "form.ok": "Сообщение отправлено.",
-    "form.err": "Не получилось отправить. Напиши в Telegram.",
-    "footer.blurb": "Frontend Developer · InfoSec student. Tashkent.",
-    "footer.links": "Ссылки",
-    "footer.contacts": "Контакты",
-    "footer.send": "Отправить",
-  },
-  en: {
-    skip: "Skip to content",
-    "nav.home": "Home",
-    "nav.work": "Work",
-    "nav.services": "Services",
-    "nav.stack": "Stack",
-    "nav.security": "Security",
-    "nav.process": "Process",
-    "nav.faq": "FAQ",
-    "nav.contacts": "Contacts",
-    "nav.cta": "Get in Touch",
-    "hero.subtitle": "Frontend Developer and InfoSec student. Websites, interfaces, and working products from brief to launch.",
-    "hero.btn": "Discuss a project",
-    "about.num": "[ 01 / 08 ]",
-    "about.tag": "PRODUCTS",
-    "about.label": "PRODUCTS & CAPABILITIES",
-    "about.title": "Why Amirjon",
-    "about.more": "Read more",
-    "about.c1.title": "Frontend",
-    "about.c1.text": "Interfaces from scratch: structure, responsiveness, motion, and a clear path to action.",
-    "about.c2.title": "Commercial sites",
-    "about.c2.text": "MARMO, WORLDY, AUSIDE: live projects with catalog, leads, and responsive layout.",
-    "about.c3.title": "Delivery",
-    "about.c3.text": "From brief to launch: timeline, page structure, forms, and publish.",
-    "about.c4.title": "InfoSec",
-    "about.c4.text": "Information Security student. I think about validation, XSS, and reliable frontend.",
-    "services.label": "SERVICES",
-    "services.title": "What I do",
-    "services.cta": "Discuss a project",
-    "services.ready": "Ready to talk?",
-    "svc.1.name": "Landings",
-    "svc.1.desc": "Landing pages with a readable funnel: offer, value blocks, calculator, and a short path to the lead.",
-    "svc.2.name": "Business sites",
-    "svc.2.desc": "Multi-page company sites: services, catalog, contacts, and clear CTAs.",
-    "svc.3.name": "UI implementation",
-    "svc.3.desc": "Clean implementation from a design. Grid, type, states, and the small details.",
-    "svc.4.name": "Responsive",
-    "svc.4.desc": "Phone, tablet, desktop. No broken buttons and no accidental horizontal scroll.",
-    "svc.5.name": "Forms & leads",
-    "svc.5.desc": "Forms, validation, and lead submit. Same idea as MARMO: a short path to contact.",
-    "svc.6.name": "Interaction",
-    "svc.6.desc": "Calculators, filters, carousels, and micro-motion that help people read the product.",
-    "svc.7.name": "Performance",
-    "svc.7.desc": "Light frontend without a heavy framework when the job does not need one. Fast first paint.",
-    "svc.8.name": "Web hygiene",
-    "svc.8.desc": "CSP, safer input handling, careful markup. No military-grade theater.",
-    "stack.label": "TOOLS",
-    "stack.title1": "Tech",
-    "stack.title2": "stack",
-    "stack.desc": "Tools I ship with today. React and TypeScript grow in parallel with live HTML/CSS/JS work.",
-    "projects.label": "CASES",
-    "projects.kicker": "LIVE SITES",
-    "projects.title": "Projects",
-    "proj.1.text": "Tile and porcelain. Shorter path from catalog to lead: structure, calculator, and CTAs in every block.",
-    "proj.1.role": "Role: UX structure, layout, calculator logic, forms.",
-    "proj.2.text": "A global offer packed into a short structure: value, service blocks, and readable CTAs.",
-    "proj.2.role": "Role: information architecture, UI system, responsive, QA.",
-    "proj.3.text": "B2B hardware platform: catalog, quick price request, and wholesale terms in one UI.",
-    "proj.3.role": "Role: full cycle, UI/UX, catalog, request flow.",
-    "security.label": "SECURITY",
-    "security.title1": "Code that",
-    "security.title2": "does not break trust.",
-    "sec.1.title": "Input validation",
-    "sec.1.desc": "Form and API data does not enter logic without checks. That is InfoSec class, applied on the frontend.",
-    "sec.2.title": "XSS hygiene",
-    "sec.2.desc": "textContent instead of blind innerHTML, escaped input, CSP on response headers.",
-    "sec.3.title": "OWASP Top 10",
-    "sec.3.desc": "I watch common web issues during layout and client logic, not after launch.",
-    "sec.4.title": "Secrets",
-    "sec.4.desc": "No passwords in client code. Forms go through Web3Forms. Analytics is a separate tag.",
-    "sec.5.title": "Honest scope",
-    "sec.5.desc": "I am a student, not a security vendor. I do not sell AES-256 or 99.9% uptime. I sell careful frontend with a security mindset.",
-    "process.label": "PROCESS",
-    "process.title": "HOW I WORK:",
-    "step.1.title": "Brief",
-    "step.1.desc": "You describe the job. I collect requirements, propose page structure, and give a realistic timeline.",
-    "step.2.title": "Structure",
-    "step.2.desc": "Skeleton and block priority first, visuals second. The offer should scan in a few seconds.",
-    "step.3.title": "Build",
-    "step.3.desc": "Layout, responsive, forms, interaction. You get progress updates, not two weeks of silence.",
-    "step.4.title": "Launch",
-    "step.4.desc": "Publish, phone QA, and handoff. Then revisions inside the agreed scope.",
-    "faq.label": "FREQUENTLY ASKED",
-    "faq.title": "QUESTIONS",
-    "faq.title2": "& answers",
-    "faq.hint": "Missing an answer? Message me on Telegram, I reply myself.",
-    "faq.btn": "Message on Telegram",
-    "faq.1.q": "What do you build?",
-    "faq.1.a": "Landing pages, business sites, and interfaces in HTML, CSS, and JavaScript. Three live commercial cases.",
-    "faq.2.q": "What is your stack?",
-    "faq.2.a": "Shipped work is HTML/CSS/JS. React, TypeScript, and Next.js are in progress and used when the job needs them.",
-    "faq.3.q": "How do we start?",
-    "faq.3.a": "Send a short brief to Telegram @amirr17 or use the form. We agree on scope and timeline, then start.",
-    "faq.4.q": "Any commercial work?",
-    "faq.4.a": "Yes: marmo.uz, WORLDY GLOBAL, and AUSIDE. Published sites, not school mockups.",
-    "contact.label": "CONTACT",
-    "contact.title": "Write me",
-    "contact.sub": "A landing, a site update, or an internship chat. Pick a channel.",
-    "form.name": "Name",
-    "form.email": "Email",
-    "form.message": "Message",
-    "form.send": "Send",
-    "form.sending": "Sending...",
-    "form.ok": "Message sent.",
-    "form.err": "Could not send. Write on Telegram instead.",
-    "footer.blurb": "Frontend Developer · InfoSec student. Tashkent.",
-    "footer.links": "Links",
-    "footer.contacts": "Contacts",
-    "footer.send": "Send",
-  },
-};
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasFinePointer = window.matchMedia('(pointer: fine)').matches && window.matchMedia('(hover: hover)').matches;
+const shouldRunHeavyAnimations = !prefersReducedMotion;
+const shouldShowCustomCursor = hasFinePointer && !prefersReducedMotion;
 
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-let currentLang = localStorage.getItem("lang") === "en" ? "en" : "ru";
-let currentTheme = localStorage.getItem("theme") || "dark";
+function sanitizeMarkup(raw) {
+  const template = document.createElement('template');
+  template.innerHTML = raw;
+  const allowedTags = new Set(['STRONG', 'BR', 'SPAN']);
 
-function t(key) {
-  return I18N[currentLang][key] || I18N.en[key] || key;
+  template.content.querySelectorAll('*').forEach(node => {
+    if (!allowedTags.has(node.tagName)) {
+      node.replaceWith(document.createTextNode(node.textContent || ''));
+      return;
+    }
+
+    [...node.attributes].forEach(attr => {
+      if (attr.name !== 'class') node.removeAttribute(attr.name);
+    });
+  });
+
+  return template.innerHTML;
 }
 
-function applyLang() {
-  document.documentElement.lang = currentLang;
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    if (key) el.textContent = t(key);
-  });
-  document.querySelectorAll("[data-lang]").forEach((btn) => {
-    btn.classList.toggle("is-active", btn.getAttribute("data-lang") === currentLang);
-  });
-  const langLabel = document.getElementById("langBtnLabel");
-  if (langLabel) langLabel.textContent = currentLang.toUpperCase();
-  document.title = currentLang === "en"
-    ? "Tursunov Amir — Frontend Developer"
-    : "Турсунов Амир — Frontend Developer";
-  refreshDynamicCopy();
-}
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0;
+let my = 0;
+let rx = 0;
+let ry = 0;
 
-function applyTheme() {
-  document.documentElement.classList.toggle("dark", currentTheme === "dark");
-  localStorage.setItem("theme", currentTheme);
-  document.querySelectorAll(".icon-sun, #themeIconSun").forEach((el) => {
-    el.hidden = currentTheme !== "dark";
+if (shouldShowCustomCursor && cursor && ring) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
   });
-  document.querySelectorAll(".icon-moon, #themeIconMoon").forEach((el) => {
-    el.hidden = currentTheme === "dark";
+
+  (function animateRing() {
+    if (document.hidden) {
+      requestAnimationFrame(animateRing);
+      return;
+    }
+
+    rx += (mx - rx) * 0.1;
+    ry += (my - ry) * 0.1;
+    ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+    requestAnimationFrame(animateRing);
+  })();
+
+  document.querySelectorAll('a, button, .proj-card, .skill-cell, .about-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '56px';
+      ring.style.height = '56px';
+      ring.style.opacity = '0.25';
+    });
+
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.opacity = '0.5';
+    });
   });
 }
 
-function refreshDynamicCopy() {
-  const activeSvc = document.querySelector("#svcList li.is-active");
-  const copy = document.getElementById("svcCopy");
-  if (activeSvc && copy) copy.textContent = t(`svc.${activeSvc.dataset.svc}.desc`);
-  const activeStep = document.querySelector("#procList li.is-active");
-  const procCopy = document.getElementById("procCopy");
-  if (activeStep && procCopy) procCopy.textContent = t(`step.${activeStep.dataset.step}.desc`);
+// Navigation and scrolling
+const nav = document.getElementById('nav');
+const progressBar = document.getElementById('scroll-progress');
+const backTop = document.getElementById('back-top');
+
+let scrollTicking = false;
+function updateScrollUI() {
+  nav.classList.toggle('scrolled', scrollY > 60);
+  backTop.classList.toggle('visible', scrollY > 400);
+
+  const maxScroll = Math.max(document.body.scrollHeight - innerHeight, 1);
+  const scrolled = Math.min(scrollY / maxScroll, 1);
+  progressBar.style.width = `${scrolled * 100}%`;
+  scrollTicking = false;
 }
+
+window.addEventListener('scroll', () => {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(updateScrollUI);
+}, { passive: true });
+
+backTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+updateScrollUI();
+
+// Section reveal
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('on');
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Skills animation
+const skillsGrid = document.getElementById('skillsGrid');
+const skillsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    entry.target.querySelectorAll('.skill-cell').forEach((cell, index) => {
+      setTimeout(() => {
+        cell.querySelector('.skill-fill').style.width = `${cell.dataset.level}%`;
+      }, index * 120);
+    });
+
+    skillsObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.2 });
+
+if (skillsGrid) skillsObserver.observe(skillsGrid);
+
+// Language switcher
+let currentLang = 'ru';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btnRu').classList.toggle('active', lang === 'ru');
+  document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+
+  document.querySelectorAll('[data-ru][data-en]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}`);
+    if (value) el.innerHTML = sanitizeMarkup(value);
+  });
+
+  document.querySelectorAll('[data-ru-ph][data-en-ph]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}-ph`);
+    if (value) el.placeholder = value;
+  });
+
+  document.querySelectorAll('.stat-num').forEach(el => {
+    const target = el.dataset.target;
+    if (target !== undefined) {
+      const suffix = (lang === 'en' && el.dataset.enSuffix !== undefined)
+        ? el.dataset.enSuffix
+        : (el.dataset.ruSuffix || el.dataset.suffix || '');
+      el.textContent = target + suffix;
+    }
+  });
+
+  document.title = lang === 'en'
+    ? 'Tursunov Amir — Frontend Developer'
+    : 'Турсунов Амир — Frontend Developer';
+  document.documentElement.lang = lang;
+}
+
+// Theme switcher
+let isDark = true;
 
 function toggleTheme() {
-  currentTheme = currentTheme === "dark" ? "light" : "dark";
-  applyTheme();
+  isDark = !isDark;
+  document.documentElement.classList.toggle('light', !isDark);
+  document.getElementById('themeThumb').textContent = isDark ? '🌙' : '☀️';
 }
 
-applyTheme();
-applyLang();
-
-document.getElementById("themeToggle")?.addEventListener("click", toggleTheme);
-document.getElementById("themeToggleMobile")?.addEventListener("click", toggleTheme);
-
-const langBtn = document.getElementById("langBtn");
-const langMenu = document.getElementById("langMenu");
-langBtn?.addEventListener("click", () => {
-  const open = langMenu.classList.toggle("is-open");
-  langBtn.setAttribute("aria-expanded", open ? "true" : "false");
-  langMenu.setAttribute("aria-hidden", open ? "false" : "true");
-});
-document.querySelectorAll("[data-lang]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    currentLang = btn.getAttribute("data-lang") === "en" ? "en" : "ru";
-    localStorage.setItem("lang", currentLang);
-    applyLang();
-    langMenu.classList.remove("is-open");
-    langBtn?.setAttribute("aria-expanded", "false");
-  });
-});
-document.addEventListener("click", (e) => {
-  if (!(e.target instanceof Element) || e.target.closest(".aileader-lang")) return;
-  langMenu?.classList.remove("is-open");
-});
-
-const header = document.getElementById("siteHeader");
-const mobileBar = document.getElementById("mobileBar");
-let lastY = 0;
-window.addEventListener("scroll", () => {
-  const y = window.scrollY;
-  const hidden = y > 80 && y > lastY;
-  header?.classList.toggle("is-hidden", hidden);
-  mobileBar?.classList.toggle("is-hidden", hidden);
-  lastY = y;
-
-  const ids = ["home", "about-work", "services", "stack", "projects", "security", "process", "faq", "contacts"];
-  let current = "home";
-  ids.forEach((id) => {
-    const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top <= 280) current = id;
-  });
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    link.classList.toggle("is-active", link.dataset.nav === current || (current === "projects" && link.dataset.nav === "about-work"));
-  });
-}, { passive: true });
-
-const burger = document.getElementById("burger");
-const sheet = document.getElementById("mobileSheet");
-function closeSheet() {
-  if (!sheet) return;
-  sheet.hidden = true;
-  burger?.setAttribute("aria-expanded", "false");
-  document.body.style.overflow = "";
-}
-burger?.addEventListener("click", () => {
-  const open = sheet.hidden;
-  sheet.hidden = !open;
-  burger.setAttribute("aria-expanded", open ? "true" : "false");
-  document.body.style.overflow = open ? "hidden" : "";
-});
-sheet?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeSheet));
-
-function bindList(listId, onPick) {
-  const list = document.getElementById(listId);
-  if (!list) return;
-  list.querySelectorAll("li").forEach((item) => {
-    const activate = () => {
-      list.querySelectorAll("li").forEach((el) => el.classList.remove("is-active"));
-      item.classList.add("is-active");
-      onPick(item);
-    };
-    item.addEventListener("mouseenter", activate);
-    item.querySelector("button")?.addEventListener("focus", activate);
-    item.querySelector("button")?.addEventListener("click", activate);
-  });
-}
-
-bindList("svcList", (item) => {
-  const copy = document.getElementById("svcCopy");
-  if (copy) copy.textContent = t(`svc.${item.dataset.svc}.desc`);
-});
-
-bindList("procList", (item) => {
-  const copy = document.getElementById("procCopy");
-  const num = document.getElementById("procNum");
-  if (copy) copy.textContent = t(`step.${item.dataset.step}.desc`);
-  if (num) num.textContent = String(item.dataset.step).padStart(2, "0");
-});
-
-const carousel = document.getElementById("projCarousel");
-const dotsWrap = document.getElementById("projDots");
-const slides = carousel ? [...carousel.querySelectorAll(".proj-slide")] : [];
-
-function slideIndex() {
-  if (!carousel || !slides.length) return 0;
-  const w = slides[0].getBoundingClientRect().width + 20;
-  return Math.round(carousel.scrollLeft / Math.max(w, 1));
-}
-
-function goTo(index) {
-  if (!carousel || !slides.length) return;
-  const next = Math.max(0, Math.min(slides.length - 1, index));
-  slides[next].scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", inline: "start", block: "nearest" });
-}
-
-if (dotsWrap && slides.length) {
-  slides.forEach((_, i) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "dot";
-    dot.addEventListener("click", () => goTo(i));
-    dotsWrap.appendChild(dot);
-  });
-}
-
-function syncDots() {
-  const i = slideIndex();
-  dotsWrap?.querySelectorAll(".dot").forEach((dot, idx) => dot.classList.toggle("is-on", idx === i));
-}
-
-carousel?.addEventListener("scroll", () => {
-  window.requestAnimationFrame(syncDots);
-}, { passive: true });
-document.getElementById("projPrev")?.addEventListener("click", () => goTo(slideIndex() - 1));
-document.getElementById("projNext")?.addEventListener("click", () => goTo(slideIndex() + 1));
-syncDots();
-
-if (carousel && !prefersReducedMotion && slides.length > 1) {
-  let timer = setInterval(() => {
-    const i = slideIndex();
-    goTo(i >= slides.length - 1 ? 0 : i + 1);
-  }, 6000);
-  carousel.addEventListener("pointerdown", () => clearInterval(timer));
-}
-
-const form = document.getElementById("contactForm");
-const submitBtn = document.getElementById("contactSubmit");
-const formStatus = document.getElementById("formStatus");
-form?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  if (!submitBtn || !formStatus) return;
-  const original = t("form.send");
-  submitBtn.textContent = t("form.sending");
-  submitBtn.disabled = true;
-  formStatus.className = "form-status";
-  formStatus.textContent = "";
+function playThemeSound() {
   try {
-    const payload = JSON.stringify(Object.fromEntries(new FormData(form)));
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: payload,
+    const ac = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+
+    osc.connect(gain);
+    gain.connect(ac.destination);
+    osc.frequency.setValueAtTime(isDark ? 660 : 440, ac.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(isDark ? 880 : 330, ac.currentTime + 0.12);
+    gain.gain.setValueAtTime(0.06, ac.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 0.18);
+
+    osc.start();
+    osc.stop(ac.currentTime + 0.18);
+  } catch (e) {}
+}
+
+const baseToggleTheme = toggleTheme;
+function handleThemeToggle() {
+  baseToggleTheme();
+  playThemeSound();
+}
+
+const themeToggleBtn = document.getElementById('themeToggle');
+if (themeToggleBtn) themeToggleBtn.addEventListener('click', handleThemeToggle);
+
+// Cursor trail
+const TRAIL_COUNT = 12;
+const trails = [];
+let trailMx = 0;
+let trailMy = 0;
+
+if (shouldShowCustomCursor) {
+  for (let i = 0; i < TRAIL_COUNT; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    document.body.appendChild(dot);
+    trails.push({ el: dot, x: 0, y: 0 });
+  }
+
+  document.addEventListener('mousemove', e => {
+    trailMx = e.clientX;
+    trailMy = e.clientY;
+  });
+
+  (function animateTrail() {
+    if (document.hidden) {
+      requestAnimationFrame(animateTrail);
+      return;
+    }
+
+    let px = trailMx;
+    let py = trailMy;
+
+    trails.forEach((trail, index) => {
+      const delay = 1 - index / TRAIL_COUNT;
+      trail.x += (px - trail.x) * (0.35 - index * 0.018);
+      trail.y += (py - trail.y) * (0.35 - index * 0.018);
+      trail.el.style.transform = `translate(${trail.x}px, ${trail.y}px) translate(-50%,-50%)`;
+      trail.el.style.opacity = (delay * 0.45).toFixed(2);
+      trail.el.style.width = `${5 - index * 0.3}px`;
+      trail.el.style.height = `${5 - index * 0.3}px`;
+      px = trail.x;
+      py = trail.y;
     });
-    const data = await res.json();
-    if (!data.success) throw new Error("fail");
-    formStatus.textContent = t("form.ok");
-    formStatus.classList.add("success");
-    form.reset();
+
+    requestAnimationFrame(animateTrail);
+  })();
+}
+
+// Typing effect
+const typingEl = document.getElementById('typing-text');
+const typingPhrases = [
+  'Frontend Developer.',
+  'InfoSec Student.',
+  'Fast Learner.',
+  'Open to Projects.',
+];
+
+let tPhrase = 0;
+let tChar = 0;
+let tDeleting = false;
+
+function typeLoop() {
+  const current = typingPhrases[tPhrase];
+
+  if (!tDeleting) {
+    tChar++;
+    typingEl.textContent = current.slice(0, tChar);
+
+    if (tChar === current.length) {
+      tDeleting = true;
+      setTimeout(typeLoop, 1800);
+      return;
+    }
+
+    setTimeout(typeLoop, 80);
+    return;
+  }
+
+  tChar--;
+  typingEl.textContent = current.slice(0, tChar);
+
+  if (tChar === 0) {
+    tDeleting = false;
+    tPhrase = (tPhrase + 1) % typingPhrases.length;
+    setTimeout(typeLoop, 300);
+    return;
+  }
+
+  setTimeout(typeLoop, 45);
+}
+
+if (typingEl && !prefersReducedMotion) {
+  typeLoop();
+} else if (typingEl) {
+  typingEl.textContent = typingPhrases[0];
+}
+
+// Timeline
+const timelineObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('on'), 100);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.tl-item').forEach((el, index) => {
+  el.style.transitionDelay = `${index * 0.12}s`;
+  timelineObserver.observe(el);
+});
+
+const navLinks = document.getElementById('navLinks');
+if (navLinks) {
+  const li = document.createElement('li');
+  li.innerHTML = '<a href="#timeline" data-ru="Путь" data-en="Journey">Путь</a>';
+  navLinks.insertBefore(li, navLinks.children[1]);
+}
+
+// Mobile menu
+function toggleBurger() {
+  const burger = document.getElementById('burger');
+  const links = document.getElementById('navLinks');
+  if (!burger || !links) return;
+
+  burger.classList.toggle('open');
+  links.classList.toggle('open');
+  burger.setAttribute('aria-expanded', links.classList.contains('open') ? 'true' : 'false');
+  document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeBurger() {
+  const burger = document.getElementById('burger');
+  const links = document.getElementById('navLinks');
+  if (!burger || !links) return;
+  burger.classList.remove('open');
+  links.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+const burger = document.getElementById('burger');
+if (burger) burger.addEventListener('click', toggleBurger);
+
+if (navLinks) {
+  navLinks.addEventListener('click', e => {
+    if (e.target instanceof Element && e.target.closest('a')) closeBurger();
+  });
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) closeBurger();
+}, { passive: true });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeBurger();
+});
+
+const btnRu = document.getElementById('btnRu');
+const btnEn = document.getElementById('btnEn');
+if (btnRu) btnRu.addEventListener('click', () => setLang('ru'));
+if (btnEn) btnEn.addEventListener('click', () => setLang('en'));
+
+// Particles
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas ? canvas.getContext('2d') : null;
+const particles = [];
+
+function resizeCanvas() {
+  if (!canvas) return;
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+
+function createParticle() {
+  return {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.3,
+    opacity: Math.random() * 0.6 + 0.1,
+    speed: Math.random() * 0.3 + 0.05,
+    drift: (Math.random() - 0.5) * 0.15,
+  };
+}
+
+function animateParticles() {
+  if (!canvas || !ctx) return;
+  if (document.hidden) {
+    requestAnimationFrame(animateParticles);
+    return;
+  }
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const accent = document.documentElement.classList.contains('light')
+    ? '0,153,102'
+    : '0,204,136';
+
+  particles.forEach(particle => {
+    ctx.beginPath();
+    ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${accent},${particle.opacity})`;
+    ctx.fill();
+
+    particle.y -= particle.speed;
+    particle.x += particle.drift;
+
+    if (particle.y < -5) {
+      particle.y = canvas.height + 5;
+      particle.x = Math.random() * canvas.width;
+    }
+
+    if (particle.x < 0 || particle.x > canvas.width) particle.drift *= -1;
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+if (canvas && ctx && shouldRunHeavyAnimations) {
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+  const particleCount = hasFinePointer ? 120 : 45;
+  for (let i = 0; i < particleCount; i++) particles.push(createParticle());
+  animateParticles();
+}
+
+// Stats counter
+const statsGrid = document.getElementById('statsGrid');
+const projectsGrid = document.querySelector('.projects-grid');
+const projectCards = projectsGrid ? [...projectsGrid.querySelectorAll('.proj-card')] : [];
+const filterButtons = [...document.querySelectorAll('.filter-btn')];
+
+if (projectCards.length) {
+  const projectsCount = projectCards.length;
+  const projectsStatEl = statsGrid ? statsGrid.querySelector('.stat-num') : null;
+  if (projectsStatEl) projectsStatEl.dataset.target = String(projectsCount);
+}
+
+function matchesFilter(card, filterKey) {
+  if (filterKey === 'all') return true;
+  const kinds = (card.dataset.projectKind || '').split(' ').filter(Boolean);
+  return kinds.includes(filterKey);
+}
+
+function applyProjectFilter(filterKey) {
+  projectCards.forEach(card => {
+    const visible = matchesFilter(card, filterKey);
+    card.style.display = visible ? '' : 'none';
+  });
+}
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filterKey = btn.dataset.projectFilter || 'all';
+    filterButtons.forEach(item => item.classList.remove('active'));
+    btn.classList.add('active');
+    applyProjectFilter(filterKey);
+  });
+});
+
+function appendUtmParams(urlValue, trackId) {
+  try {
+    const url = new URL(urlValue);
+    if (!/^https?:$/i.test(url.protocol)) return urlValue;
+    url.searchParams.set('utm_source', 'portfolio');
+    url.searchParams.set('utm_medium', 'cta');
+    url.searchParams.set('utm_campaign', trackId || 'click');
+    return url.toString();
   } catch (err) {
-    formStatus.textContent = t("form.err");
-    formStatus.classList.add("error");
-  } finally {
-    submitBtn.textContent = original;
-    submitBtn.disabled = false;
+    return urlValue;
+  }
+}
+
+function trackClick(trackId, href) {
+  const payload = {
+    event: 'portfolio_click',
+    trackId,
+    href,
+    ts: Date.now(),
+  };
+
+  if (Array.isArray(window.dataLayer)) window.dataLayer.push(payload);
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'portfolio_click', {
+      event_category: 'engagement',
+      event_label: trackId,
+      link_url: href,
+    });
+  }
+}
+
+document.querySelectorAll('.js-track-link').forEach(link => {
+  const trackId = link.dataset.trackId || 'unknown_click';
+  const originalHref = link.getAttribute('href');
+  if (!originalHref) return;
+
+  const hrefWithUtm = appendUtmParams(originalHref, trackId);
+  if (hrefWithUtm !== originalHref) link.setAttribute('href', hrefWithUtm);
+
+  link.addEventListener('click', () => {
+    trackClick(trackId, link.getAttribute('href') || originalHref);
+  });
+});
+
+function applyPreviewFallback(imgEl) {
+  const placeholder = './assets/project-placeholder.svg';
+  imgEl.src = placeholder;
+  imgEl.classList.add('is-fallback');
+}
+
+document.querySelectorAll('.proj-shot').forEach(imgEl => {
+  imgEl.addEventListener('error', () => applyPreviewFallback(imgEl), { once: true });
+});
+
+const statsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    entry.target.querySelectorAll('.stat-num').forEach(el => {
+      const target = Number(el.dataset.target);
+      const suffix = (currentLang === 'en' && el.dataset.enSuffix !== undefined)
+        ? el.dataset.enSuffix
+        : (el.dataset.ruSuffix || el.dataset.suffix || '');
+      let current = 0;
+      const step = target / 50;
+
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.round(current) + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 28);
+    });
+
+    statsObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.3 });
+
+if (statsGrid) statsObserver.observe(statsGrid);
+
+// Console easter egg
+console.log('%c👋 Привет! Я рад что ты заглянул в консоль.', 'color:#00cc88;font-size:16px;font-weight:bold;');
+console.log('%cСайт написан с нуля без тяжелых фреймворков.', 'color:#a855f7;font-size:13px;');
+console.log('%c🔐 P.S. Попробуй нажать Ctrl + ~ прямо на сайте...', 'color:#ff5f56;font-size:14px;font-weight:bold;');
+
+// --- Contact Form ---
+const contactForm = document.getElementById('contactForm');
+const contactSubmit = document.getElementById('contactSubmit');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const originalText = contactSubmit.textContent;
+    contactSubmit.textContent = currentLang === 'en' ? 'Sending...' : 'Отправка...';
+    contactSubmit.disabled = true;
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
+
+    try {
+      const formData = new FormData(contactForm);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: json
+      });
+      
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Submission failed');
+
+      formStatus.textContent = currentLang === 'en' ? 'Message sent successfully!' : 'Сообщение успешно отправлено!';
+      formStatus.classList.add('success');
+      contactForm.reset();
+    } catch (err) {
+      formStatus.textContent = currentLang === 'en' ? 'Oops! There was a problem.' : 'Произошла ошибка при отправке.';
+      formStatus.classList.add('error');
+    } finally {
+      contactSubmit.textContent = originalText;
+      contactSubmit.disabled = false;
+    }
+  });
+}
+
+// --- Terminal Logic ---
+const terminalOverlay = document.getElementById('terminal');
+const terminalClose = document.getElementById('terminalClose');
+const termInput = document.getElementById('termInput');
+const termBody = document.getElementById('termBody');
+
+const commands = {
+  help: () => 'Available commands: <span class="term-hl">help, whoami, skills, clear</span>. Or try finding the <span class="term-hl-purple">flag</span>.',
+  whoami: () => 'guest@amirtursunov. I am Amir Tursunov, a Frontend Developer & InfoSec student.',
+  skills: () => 'HTML, CSS, JS, Python, Penetration Testing, Git. Constantly learning.',
+  clear: () => { termBody.innerHTML = ''; return ''; },
+  'cat flag.txt': () => '<span class="term-hl-purple">CTF{y0u_f0und_th3_p0rtf0l1o_fl4g}</span><br>Well played! Send me this flag if you want to connect!',
+  'sudo': () => 'guest is not in the sudoers file. This incident will be reported.',
+};
+
+function printTerm(text, isInput = false) {
+  if (!text) return;
+  const line = document.createElement('div');
+  line.className = 'term-line';
+  if (isInput) {
+    line.innerHTML = `<span class="term-prompt">guest@amirtursunov:~$</span> ${text.replace(/</g, "&lt;")}`;
+  } else {
+    line.innerHTML = text;
+  }
+  termBody.appendChild(line);
+  termBody.scrollTop = termBody.scrollHeight;
+}
+
+function parseCommand(cmd) {
+  const c = cmd.trim().toLowerCase();
+  if (!c) return;
+  printTerm(cmd, true);
+  
+  if (commands[c]) {
+    printTerm(commands[c]());
+  } else if (c.startsWith('cat ')) {
+    printTerm(`cat: ${c.substring(4)}: Permission denied`);
+  } else {
+    printTerm(`Command not found: ${c}. Type <span class="term-hl">help</span>.`);
+  }
+}
+
+function toggleTerminal() {
+  if (!terminalOverlay) return;
+  const isOpen = terminalOverlay.classList.contains('open');
+  if (isOpen) {
+    terminalOverlay.classList.remove('open');
+    terminalOverlay.setAttribute('aria-hidden', 'true');
+    termInput.blur();
+  } else {
+    terminalOverlay.classList.add('open');
+    terminalOverlay.setAttribute('aria-hidden', 'false');
+    setTimeout(() => termInput.focus(), 100);
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && (e.key === '`' || e.key === '~' || e.code === 'Backquote' || e.key === 'ё' || e.key === 'Ё')) {
+    e.preventDefault();
+    toggleTerminal();
   }
 });
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js").catch(() => {});
+const termFloatBtn = document.getElementById('termFloatBtn');
+if (termFloatBtn) termFloatBtn.addEventListener('click', toggleTerminal);
+if (terminalClose) terminalClose.addEventListener('click', toggleTerminal);
+
+document.querySelectorAll('.term-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const cmd = chip.getAttribute('data-cmd');
+    if (cmd) parseCommand(cmd);
+  });
+});
+if (termInput) {
+  termInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      parseCommand(termInput.value);
+      termInput.value = '';
+    }
+  });
+}
+
+// 3D Tilt Effect for Project Cards
+document.querySelectorAll('.proj-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Set 12 degrees max rotation
+    const rx = ((y / rect.height) - 0.5) * -12; 
+    const ry = ((x / rect.width) - 0.5) * 12;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.transition = 'transform 0.1s ease-out';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+  });
+});
+
+// PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(err => {
+      console.log('SW registration failed:', err);
+    });
   });
 }

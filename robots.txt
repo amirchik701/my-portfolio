@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amirjondev.uz/sitemap.xml
+Sitemap: https://tursunov-amir.dev/sitemap.xml
