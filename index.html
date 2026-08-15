@@ -1,573 +1,485 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<title>Tursunov Amir — Frontend Developer</title>
-<link rel="canonical" href="https://tursunov-amir.dev/">
-<!-- META TAGS для соцсетей -->
-<meta name="description" content="Tursunov Amir — Frontend Developer and InfoSec Student. Создаю современные веб-проекты, быстро учусь и развиваюсь на стыке интерфейсов и безопасности.">
-<meta property="og:title" content="Tursunov Amir — Frontend Developer">
-<meta property="og:description" content="Frontend Developer and InfoSec Student. Современные веб-проекты, интерактивный UI и живой личный стиль.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tursunov-amir.dev">
-<meta property="og:image" content="https://tursunov-amir.dev/og-image.svg">
-<meta property="og:locale" content="ru_RU">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tursunov Amir — Frontend Developer">
-<meta name="twitter:description" content="Frontend Developer and InfoSec Student. Современные веб-проекты, интерактивный UI и живой личный стиль.">
-<meta name="twitter:image" content="https://tursunov-amir.dev/og-image.svg">
-<meta name="theme-color" content="#060608">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM1ZPD66BM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TM1ZPD66BM');
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tursunov Amir — Frontend Developer</title>
+  <link rel="canonical" href="https://amirjondev.uz/">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="description" content="Tursunov Amir — Frontend Developer and InfoSec Student. Современные веб-проекты, интерфейсы и безопасность.">
+  <meta property="og:title" content="Tursunov Amir — Frontend Developer">
+  <meta property="og:description" content="Frontend Developer and InfoSec Student. Современные веб-проекты на amirjondev.uz">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amirjondev.uz/">
+  <meta property="og:image" content="https://amirjondev.uz/og-image.svg">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#050505">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TM1ZPD66BM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TM1ZPD66BM');
+  </script>
 </head>
 <body>
-<a href="#about" class="skip-link" data-ru="Перейти к контенту" data-en="Skip to main content">Перейти к контенту</a>
+  <a class="skip-link" href="#about-work" data-i18n="skip">Перейти к контенту</a>
 
-<div id="scroll-progress"></div>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<button id="back-top" type="button" title="Наверх" aria-label="Scroll to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
+  <header class="site-header" id="siteHeader">
+    <nav class="liquid-glass top-nav" aria-label="Primary">
+      <a class="nav-link is-active" href="#home" data-nav="home" data-i18n="nav.home">Главная</a>
+      <a class="nav-link" href="#about-work" data-nav="about-work" data-i18n="nav.work">Работы</a>
+      <a class="nav-link" href="#services" data-nav="services" data-i18n="nav.services">Услуги</a>
+      <a class="nav-link" href="#stack" data-nav="stack" data-i18n="nav.stack">Стек</a>
+      <a class="nav-link" href="#security" data-nav="security" data-i18n="nav.security">Безопасность</a>
+      <a class="nav-link" href="#process" data-nav="process" data-i18n="nav.process">Процесс</a>
+      <a class="nav-link" href="#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+      <a class="nav-link" href="#contacts" data-nav="contacts" data-i18n="nav.contacts">Контакты</a>
 
-<button id="termFloatBtn" type="button" class="term-float-btn" title="Открыть Терминал (Ctrl + ~)" aria-label="Open Terminal">
-  <span class="term-badge-dot"></span>
-  <span>&gt;_ AmirOS</span>
-</button>
-
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo">amirjondev</div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a></li>
-    <li><a href="#skills" data-ru="Навыки" data-en="Skills">Навыки</a></li>
-    <li><a href="#mindset" data-ru="Подход" data-en="Mindset">Подход</a></li>
-    <li><a href="#projects" data-ru="Проекты" data-en="Projects">Проекты</a></li>
-    <li><a href="#contact" data-ru="Контакт" data-en="Contact">Контакт</a></li>
-  </ul>
-  <div class="nav-controls">
-    <button class="theme-toggle" id="themeToggle" type="button" title="Переключить тему" aria-label="Toggle theme">
-      <div class="theme-toggle-thumb" id="themeThumb">🌙</div>
-    </button>
-    <div class="lang-switcher">
-      <button class="lang-btn active" id="btnRu" type="button" aria-label="Switch language to Russian">RU</button>
-      <button class="lang-btn" id="btnEn" type="button" aria-label="Switch language to English">EN</button>
-    </div>
-    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <canvas id="particles-canvas"></canvas>
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-
-  <div class="hero-content">
-    <div class="hero-tag">
-      <div class="hero-tag-dot"></div>
-      <span data-ru="Открыт к проектам" data-en="Open to projects">Открыт к проектам</span>
-    </div>
-
-    <h1 class="hero-name">
-      TURSUNOV<br>
-      <span class="accent">AMIR</span>
-    </h1>
-
-    <p class="hero-sub">
-      <strong><span id="typing-text"></span><span class="typing-cursor"></span></strong><br>
-      <span data-ru="Мне 20 лет. Я Frontend Developer и студент по информационной безопасности. Создаю современные веб-проекты, быстро осваиваю новое и превращаю идеи в рабочие решения." data-en="I am 20 years old. I'm a Frontend Developer and Information Security student. I build modern web projects, learn quickly, and turn ideas into working solutions.">Мне 20 лет. Я Frontend Developer и студент по информационной безопасности. Создаю современные веб-проекты, быстро осваиваю новое и превращаю идеи в рабочие решения.</span>
-    </p>
-
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary" data-ru="Смотреть проекты" data-en="View Projects">Смотреть проекты</a>
-      <a href="#contact" class="btn-outline" data-ru="Связаться" data-en="Contact Me">Связаться</a>
-      <a href="cv-tursunov-amir.pdf" download class="btn-cv" data-ru="Скачать CV" data-en="Download CV">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Скачать CV
-      </a>
-    </div>
-  </div>
-
-  <div class="hero-bottom">
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      SCROLL DOWN
-    </div>
-    <div class="hero-year">02</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ABOUT -->
-<div class="wrapper" id="about">
-  <div class="about-grid">
-    <div class="reveal">
-      <div class="section-label" data-ru="О себе" data-en="About Me">О себе</div>
-      <h2 class="section-title" data-ru="КТО Я?" data-en="WHO AM I?">КТО Я?</h2>
-      <p class="about-text" style="margin-top:32px;" data-ru="Привет! Я <strong>Амир Турсунов</strong> — Frontend Developer и студент направления <strong>информационная безопасность</strong>. Параллельно с учёбой создаю веб-проекты, развиваю практические навыки и уверенно расту в IT." data-en="Hey! I'm <strong>Amir Tursunov</strong> — a Frontend Developer and an <strong>Information Security</strong> student. Alongside my studies, I build web projects, grow through practice, and steadily move forward in IT.">
-        Привет! Я <strong>Амир Турсунов</strong> — Frontend Developer и студент направления
-        <strong>информационная безопасность</strong>. Параллельно с учёбой создаю
-        веб-проекты, развиваю практические навыки и уверенно расту в IT.
-      </p>
-      <p class="about-text" data-ru='Мой фокус — <strong>frontend</strong>: люблю собирать аккуратные интерфейсы, продумывать детали и делать пользовательский опыт понятным и приятным. Одна из моих сильных сторон — быстро учиться и доводить идеи до готового результата.' data-en='My focus is <strong>frontend</strong>: I enjoy building clean interfaces, refining details, and making user experience clear and enjoyable. One of my strongest sides is learning quickly and turning ideas into finished results.'>
-        Мой фокус — <strong>frontend</strong>: люблю собирать аккуратные интерфейсы,
-        продумывать детали и делать пользовательский опыт понятным и приятным. Одна из моих сильных сторон — быстро учиться и доводить идеи до готового результата.
-      </p>
-      <p class="about-text" data-ru='Меня особенно интересует пересечение <strong>веба и безопасности</strong>: как появляются уязвимости, как защищать приложения и как писать более надёжный код.' data-en='I am especially interested in the intersection of <strong>web and security</strong>: how vulnerabilities appear, how to protect applications, and how to write more reliable code.'>
-        Меня особенно интересует пересечение <strong>веба и безопасности</strong>:
-        как появляются уязвимости, как защищать приложения
-        и как писать более надёжный код.
-      </p>
-    </div>
-
-    <div class="about-cards reveal" style="transition-delay:0.2s;">
-      <div class="about-card">
-        <div class="card-num">01</div>
-        <div class="card-title" data-ru="20 лет, студент" data-en="20 y.o. student">20 лет, студент</div>
-        <div class="card-desc" data-ru="Учусь по направлению информационная безопасность и параллельно развиваюсь в IT через практику и собственные проекты." data-en="I study Information Security and grow in IT through practice and personal projects.">Учусь по направлению информационная безопасность и параллельно развиваюсь в IT через практику и собственные проекты.</div>
+      <div class="aileader-lang">
+        <button type="button" class="aileader-lang-btn aileader-cta" id="langBtn" aria-label="Language" aria-expanded="false">
+          <span id="langBtnLabel">RU</span>
+        </button>
+        <div class="aileader-lang-menu" id="langMenu" aria-hidden="true">
+          <div class="aileader-lang-flags">
+            <button type="button" class="aileader-lang-flag is-active" data-lang="ru">RU</button>
+            <button type="button" class="aileader-lang-flag" data-lang="en">EN</button>
+          </div>
+        </div>
       </div>
-      <div class="about-card">
-        <div class="card-num">02</div>
-        <div class="card-title" data-ru="Frontend разработчик" data-en="Frontend Developer">Frontend разработчик</div>
-        <div class="card-desc" data-ru="Создаю интерфейсы с нуля. Фокусируюсь на чистом коде, адаптивности, анимациях и удобстве пользователя." data-en="I create interfaces from scratch, focusing on clean code, responsiveness, animation, and user experience.">Создаю интерфейсы с нуля. Фокусируюсь на чистом коде, адаптивности, анимациях и удобстве пользователя.</div>
-      </div>
-      <div class="about-card">
-        <div class="card-num">03</div>
-        <div class="card-title" data-ru="Быстро учусь" data-en="Fast Learner">Быстро учусь</div>
-        <div class="card-desc" data-ru="Люблю новые задачи, быстро вникаю в инструменты и постоянно поднимаю планку своих навыков." data-en="I enjoy new challenges, pick up tools quickly, and constantly raise the level of my skills.">Люблю новые задачи, быстро вникаю в инструменты и постоянно поднимаю планку своих навыков.</div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="divider"></div>
-
-<!-- TIMELINE -->
-<div id="timeline">
-  <div class="reveal">
-    <div class="section-label" data-ru="История" data-en="Journey">История</div>
-    <h2 class="section-title" data-ru="МОЙ ПУТЬ" data-en="MY PATH">МОЙ ПУТЬ</h2>
-  </div>
-  <div class="timeline-inner">
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-year">2022</div>
-      <div class="tl-title" data-ru="Первый контакт с кодом" data-en="First contact with code">Первый контакт с кодом</div>
-      <div class="tl-desc" data-ru="Открыл браузерную консоль, написал первый alert() и понял, что код может оживлять идеи. С этого началось знакомство с HTML и CSS." data-en="I opened the browser console, wrote my first alert(), and realized code could bring ideas to life. That was the start of my journey with HTML and CSS.">Открыл браузерную консоль, написал первый alert() и понял, что код может оживлять идеи. С этого началось знакомство с HTML и CSS.</div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-year">2023</div>
-      <div class="tl-title" data-ru="Поступление в университет" data-en="Enrolled in University">Поступление в университет</div>
-      <div class="tl-desc" data-ru="Поступил на направление информационная безопасность. Параллельно продолжал изучать JavaScript и глубже разбираться в том, как устроен интернет и веб-приложения." data-en="I enrolled in Information Security, kept learning JavaScript, and started digging deeper into how the internet and web applications work under the hood.">Поступил на направление информационная безопасность. Параллельно продолжал изучать JavaScript и глубже разбираться в том, как устроен интернет и веб-приложения.</div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-year">2024</div>
-      <div class="tl-title" data-ru="Первые реальные проекты" data-en="First real projects">Первые реальные проекты</div>
-      <div class="tl-desc" data-ru="Начал делать собственные проекты, познакомился с Python и попробовал первые CTF-задачи по кибербезопасности. Появился свой подход к коду и стилю разработки." data-en="I started building personal projects, got introduced to Python, and tried my first cybersecurity CTF challenges. That was when my own coding style and approach started to take shape.">Начал делать собственные проекты, познакомился с Python и попробовал первые CTF-задачи по кибербезопасности. Появился свой подход к коду и стилю разработки.</div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-year">2026 →</div>
-      <div class="tl-title" data-ru="Сейчас: 3 курс, расту каждый день" data-en="Now: Year 3, growing every day">Сейчас: 3 курс, расту каждый день</div>
-      <div class="tl-desc" data-ru="Активно развиваюсь во frontend, углубляюсь в безопасность веб-приложений и ищу интересные проекты, где могу расти и приносить пользу." data-en="I am actively growing in frontend, diving deeper into web application security, and looking for interesting projects where I can grow and contribute.">Активно развиваюсь во frontend, углубляюсь в безопасность веб-приложений и ищу интересные проекты, где могу расти и приносить пользу.</div>
-    </div>
-
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- STATS -->
-<div id="stats">
-  <div class="reveal">
-    <div class="section-label" data-ru="Числа" data-en="Numbers">Числа</div>
-    <h2 class="section-title" data-ru="В ЦИФРАХ" data-en="BY NUMBERS">В ЦИФРАХ</h2>
-  </div>
-  <div class="stats-grid reveal" id="statsGrid" style="transition-delay:0.15s;">
-    <div class="stat-cell">
-      <div class="stat-num" data-target="3" data-suffix="+">0</div>
-      <div class="stat-label" data-ru="Проекта в портфолио" data-en="Portfolio projects">Проекта в портфолио</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" data-target="3" data-ru-suffix=" курс" data-en-suffix="rd Year">0</div>
-      <div class="stat-label" data-ru="Информационная безопасность" data-en="Information Security">Информационная безопасность</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" data-target="6" data-suffix="">0</div>
-      <div class="stat-label" data-ru="Навыков и инструментов" data-en="Skills and tools">Навыков и инструментов</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" data-target="100" data-suffix="%">0</div>
-      <div class="stat-label" data-ru="Vibe в коде" data-en="Vibe in code">Vibe в коде</div>
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<div class="wrapper" id="skills">
-  <div class="skills-top reveal">
-    <div>
-      <div class="section-label" data-ru="Стек" data-en="Stack">Стек</div>
-      <h2 class="section-title" data-ru="НАВЫКИ" data-en="SKILLS">НАВЫКИ</h2>
-    </div>
-    <div class="skills-note" data-ru="Быстро учусь и постоянно развиваюсь. Вот инструменты и технологии, с которыми я работаю сейчас." data-en="I learn fast and keep improving. These are the tools and technologies I work with right now.">Быстро учусь и постоянно развиваюсь. Вот инструменты и технологии, с которыми я работаю сейчас.</div>
-  </div>
-
-  <div class="skills-grid reveal" id="skillsGrid" style="transition-delay:0.2s;">
-    <div class="skill-cell" data-level="92">
-      <div class="skill-tag">01 · CORE SCRIPTING</div>
-      <div class="skill-name">JavaScript / TypeScript</div>
-      <div class="skill-bar"><div class="skill-fill"></div></div>
-      <div class="skill-pct">Advanced · 92%</div>
-    </div>
-    <div class="skill-cell" data-level="90">
-      <div class="skill-tag">02 · FRONTEND ENGINE</div>
-      <div class="skill-name">React.js / Next.js / Vite</div>
-      <div class="skill-bar"><div class="skill-fill"></div></div>
-      <div class="skill-pct">Advanced · 90%</div>
-    </div>
-    <div class="skill-cell" data-level="94">
-      <div class="skill-tag">03 · UI ARCHITECTURE</div>
-      <div class="skill-name">HTML5 / CSS3 / Tailwind</div>
-      <div class="skill-bar"><div class="skill-fill"></div></div>
-      <div class="skill-pct">Expert · 94%</div>
-    </div>
-    <div class="skill-cell" data-level="82">
-      <div class="skill-tag">04 · CYBERSECURITY</div>
-      <div class="skill-name">Web InfoSec / OWASP Top 10</div>
-      <div class="skill-bar"><div class="skill-fill"></div></div>
-      <div class="skill-pct">Proficient · 82%</div>
-    </div>
-    <div class="skill-cell" data-level="78">
-      <div class="skill-tag">05 · BACKEND & SCRIPTING</div>
-      <div class="skill-name">Python / Node.js / REST API</div>
-      <div class="skill-bar"><div class="skill-fill"></div></div>
-      <div class="skill-pct">Intermediate+ · 78%</div>
-    </div>
-    <div class="skill-cell" data-level="88">
-      <div class="skill-tag">06 · WORKFLOW & TOOLS</div>
-      <div class="skill-name">Git / CI/CD / PWA / Web Vitals</div>
-      <div class="skill-bar"><div class="skill-fill"></div></div>
-      <div class="skill-pct">Advanced · 88%</div>
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- MINDSET / PRINCIPLES -->
-<div class="wrapper" id="mindset">
-  <div class="reveal">
-    <div class="section-label" data-ru="Принципы" data-en="Principles">Принципы</div>
-    <h2 class="section-title" data-ru="МОЙ ПОДХОД" data-en="MY MINDSET">МОЙ ПОДХОД</h2>
-  </div>
-
-  <div class="mindset-grid reveal" style="transition-delay:0.15s;">
-    <div class="mindset-card">
-      <div class="mindset-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mindset-svg">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      <button type="button" class="aileader-theme-btn aileader-cta" id="themeToggle" aria-label="Toggle theme">
+        <svg id="themeIconSun" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
-      </div>
-      <div class="mindset-num">01</div>
-      <h3 class="mindset-title" data-ru="Clean Code &amp; Performance" data-en="Clean Code &amp; Performance">Clean Code &amp; Performance</h3>
-      <p class="mindset-desc" data-ru="Пишу чистый, масштабируемый код без лишнего оверхеда. Уделяю особое внимание скорости загрузки, Web Vitals и плавному UI." data-en="Writing clean, scalable code without unnecessary overhead. Focused on page load speed, Web Vitals, and smooth UI experience.">Пишу чистый, масштабируемый код без лишнего оверхеда. Уделяю особое внимание скорости загрузки, Web Vitals и плавному UI.</p>
-    </div>
-
-    <div class="mindset-card">
-      <div class="mindset-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mindset-svg">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M12 8v4"/>
-          <path d="M12 16h.01"/>
+        <svg id="themeIconMoon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" hidden aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
-      </div>
-      <div class="mindset-num">02</div>
-      <h3 class="mindset-title" data-ru="Security-First Mindset" data-en="Security-First Mindset">Security-First Mindset</h3>
-      <p class="mindset-desc" data-ru="Учусь на Информационной Безопасности, поэтому учитываю OWASP Top 10, защиту от XSS/CSRF, валидацию и безопасную работу с API ещё на этапе архитектуры." data-en="Studying InfoSec helps me incorporate OWASP Top 10 prevention, XSS/CSRF defense, and secure API handling directly into the architecture phase.">Учусь на Информационной Безопасности, поэтому учитываю OWASP Top 10, защиту от XSS/CSRF, валидацию и безопасную работу с API ещё на этапе архитектуры.</p>
-    </div>
+      </button>
 
-    <div class="mindset-card">
-      <div class="mindset-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mindset-svg">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-          <line x1="3" y1="9" x2="21" y2="9"/>
-          <line x1="9" y1="21" x2="9" y2="9"/>
+      <span class="nav-rule" aria-hidden="true"></span>
+      <a class="aileader-cta liquid-glass nav-cta" href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" data-i18n="nav.cta">Связаться</a>
+    </nav>
+  </header>
+
+  <div class="mobile-bar liquid-glass" id="mobileBar">
+    <a class="mobile-brand" href="#home">
+      <span class="avatar-mark" aria-hidden="true">A</span>
+      <span>amirjondev</span>
+    </a>
+    <div class="mobile-actions">
+      <button type="button" class="aileader-theme-btn aileader-cta" id="themeToggleMobile" aria-label="Toggle theme">
+        <svg class="icon-sun" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
-      </div>
-      <div class="mindset-num">03</div>
-      <h3 class="mindset-title" data-ru="Product &amp; UX Thinking" data-en="Product &amp; UX Thinking">Product &amp; UX Thinking</h3>
-      <p class="mindset-desc" data-ru="Интерфейс должен решать задачи бизнеса и быть удобным пользователю. Забочусь об адаптивности, доступности (A11y) и продуманных микро-взаимодействиях." data-en="Interfaces must serve business goals and feel delightful to users. Prioritizing responsiveness, accessibility (A11y), and micro-interactions.">Интерфейс должен решать задачи бизнеса и быть удобным пользователю. Забочусь об адаптивности, доступности (A11y) и продуманных микро-взаимодействиях.</p>
+        <svg class="icon-moon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" hidden aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button type="button" class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
   </div>
-</div>
 
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<div class="wrapper" id="projects">
-  <div class="reveal">
-    <div class="section-label" data-ru="Работы" data-en="Work">Работы</div>
-    <h2 class="section-title" data-ru="ПРОЕКТЫ" data-en="PROJECTS">ПРОЕКТЫ</h2>
+  <div class="mobile-sheet" id="mobileSheet" hidden>
+    <div class="mobile-sheet-inner">
+      <a href="#home" data-i18n="nav.home">Главная</a>
+      <a href="#about-work" data-i18n="nav.work">Работы</a>
+      <a href="#services" data-i18n="nav.services">Услуги</a>
+      <a href="#stack" data-i18n="nav.stack">Стек</a>
+      <a href="#security" data-i18n="nav.security">Безопасность</a>
+      <a href="#process" data-i18n="nav.process">Процесс</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+      <a class="sheet-cta" href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" data-i18n="nav.cta">Связаться</a>
+    </div>
   </div>
 
-  <div class="project-filters reveal" style="transition-delay:0.05s;">
-    <button type="button" class="filter-btn active" data-project-filter="all" data-ru="Все" data-en="All">Все</button>
-    <button type="button" class="filter-btn" data-project-filter="landing" data-ru="Landing" data-en="Landing">Landing</button>
-    <button type="button" class="filter-btn" data-project-filter="business" data-ru="Business" data-en="Business">Business</button>
-    <button type="button" class="filter-btn" data-project-filter="app" data-ru="App" data-en="App">App</button>
-    <button type="button" class="filter-btn" data-project-filter="ui" data-ru="UI" data-en="UI">UI</button>
-  </div>
-
-  <div class="projects-grid">
-    <div class="proj-card reveal" style="transition-delay:0.05s;" data-project-kind="landing ui">
-      <div class="proj-ghost">01</div>
-      <div class="proj-badge">Commercial / Tile</div>
-      <div class="proj-preview">
-        <img class="proj-shot desktop" src="https://image.thum.io/get/width/1200/noanimate/https://marmo.uz/" alt="MARMO desktop preview" loading="lazy">
-        <img class="proj-shot mobile" src="https://image.thum.io/get/width/420/noanimate/https://marmo.uz/" alt="MARMO mobile preview" loading="lazy">
-      </div>
-      <div class="proj-title" data-ru="MARMO" data-en="MARMO">MARMO</div>
-      <div class="proj-story">
-        <p class="proj-line" data-ru="<strong>Проблема:</strong> длинный путь от каталога к заявке." data-en="<strong>Problem:</strong> users had a long path from catalog to lead form."><strong>Проблема:</strong> длинный путь от каталога к заявке.</p>
-        <p class="proj-line" data-ru="<strong>Решение:</strong> структура + калькулятор + CTA в каждом блоке." data-en="<strong>Solution:</strong> streamlined structure, built-in calculator, and visible CTAs."><strong>Решение:</strong> структура + калькулятор + CTA в каждом блоке.</p>
-        <p class="proj-line" data-ru="<strong>Результат:</strong> сценарий обращения в 2 шага и более понятная воронка." data-en="<strong>Result:</strong> 2-step contact flow with clearer conversion funnel."><strong>Результат:</strong> сценарий обращения в 2 шага и более понятная воронка.</p>
-      </div>
-      <div class="proj-role" data-ru="Моя роль: UX-структура, верстка, логика калькулятора, интеграция форм." data-en="My role: UX structure, layout implementation, calculator logic, and form integration.">Моя роль: UX-структура, верстка, логика калькулятора, интеграция форм.</div>
-      <div class="proj-proof">
-        <span class="proof-badge">A11y-ready</span>
-        <span class="proof-badge">Responsive</span>
-        <span class="proof-badge">SEO-ready</span>
-      </div>
-      <div class="proj-result" data-ru="Мини-результат: ключевая ценность и путь к заявке считываются за 5-7 секунд." data-en="Mini result: core offer and lead path are clear within 5-7 seconds.">Мини-результат: ключевая ценность и путь к заявке считываются за 5-7 секунд.</div>
-      <div class="proj-stack">
-        <span class="proj-tag">HTML</span>
-        <span class="proj-tag">CSS</span>
-        <span class="proj-tag">JavaScript</span>
-      </div>
-      <div class="proj-links">
-        <a href="https://github.com/amirchik701/marmo-tile1" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_marmo_github" data-project-kind="landing ui">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://marmo.uz/" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_marmo_live" data-project-kind="landing ui">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Live demo
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-shader" id="heroShader" aria-hidden="true"></div>
+      <div class="hero-veil" aria-hidden="true"></div>
+      <div class="hero-stack">
+        <div class="hero-logo">
+          <h1 class="hero-logo__title">
+            <span>AMIR</span><span>JON</span>
+          </h1>
+        </div>
+        <p class="hero-sub" data-i18n="hero.subtitle">Frontend Developer и студент InfoSec. Сайты, интерфейсы и рабочие решения от идеи до запуска.</p>
+        <a class="hero-cta aileader-cta liquid-glass" href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="hero.btn">Обсудить проект</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
+    </section>
+
+    <section id="about-work" class="aw-section">
+      <div class="aw-inner">
+        <div class="aw-topbar">
+          <span class="aw-mono" data-i18n="about.num">[ 01 / 08 ]</span>
+          <span class="aw-mono" data-i18n="about.tag">PRODUCTS</span>
+        </div>
+        <header class="aw-head">
+          <div>
+            <p class="aw-label" data-i18n="about.label">ПРОДУКТЫ И ВОЗМОЖНОСТИ</p>
+            <h2 class="aw-title" data-i18n="about.title">Почему Amirjon</h2>
+          </div>
+          <span class="aw-big--head" aria-hidden="true">01</span>
+        </header>
+        <div class="aw-rule" aria-hidden="true"></div>
+        <div class="aw-cols" id="whyTrack">
+          <article class="aw-card aw-card--art-bottom">
+            <div class="aw-card__copy">
+              <h3 class="aw-card__title" data-i18n="about.c1.title">Frontend</h3>
+              <p class="aw-card__text" data-i18n="about.c1.text">Интерфейсы с нуля: структура, адаптив, анимация и понятный путь к действию.</p>
+            </div>
+            <div class="aw-card__actions">
+              <a class="aw-card__btn" href="#services" data-i18n="about.more">Подробнее</a>
+              <a class="aw-card__go" href="#services" aria-label="more">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+            <div class="aw-card__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><rect x="28" y="40" width="144" height="96" rx="14" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 64h144" stroke="currentColor" stroke-width="3"/><circle cx="44" cy="52" r="4" fill="currentColor"/><circle cx="58" cy="52" r="4" fill="currentColor"/><rect x="48" y="82" width="72" height="8" rx="4" fill="currentColor" opacity=".45"/><rect x="48" y="100" width="104" height="8" rx="4" fill="currentColor" opacity=".22"/></svg>
+            </div>
+          </article>
+          <article class="aw-card aw-card--art-top">
+            <div class="aw-card__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M100 58v42l28 16" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="100" cy="100" r="6" fill="currentColor"/></svg>
+            </div>
+            <div class="aw-card__actions">
+              <a class="aw-card__btn" href="#projects" data-i18n="about.more">Подробнее</a>
+              <a class="aw-card__go" href="#projects" aria-label="more">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+            <div class="aw-card__copy">
+              <h3 class="aw-card__title" data-i18n="about.c2.title">Коммерческие сайты</h3>
+              <p class="aw-card__text" data-i18n="about.c2.text">MARMO, WORLDY, AUSIDE: живые проекты с каталогом, заявкой и адаптивной вёрсткой.</p>
+            </div>
+          </article>
+          <article class="aw-card aw-card--art-bottom">
+            <div class="aw-card__copy">
+              <h3 class="aw-card__title" data-i18n="about.c3.title">Поставка</h3>
+              <p class="aw-card__text" data-i18n="about.c3.text">От брифа до запуска: сроки, структура страницы, формы и публикация.</p>
+            </div>
+            <div class="aw-card__actions">
+              <a class="aw-card__btn" href="#process" data-i18n="about.more">Подробнее</a>
+              <a class="aw-card__go" href="#process" aria-label="more">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+            <div class="aw-card__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><path d="M40 140 L100 44 L160 140Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M70 140h60" stroke="currentColor" stroke-width="3"/><rect x="88" y="96" width="24" height="44" fill="currentColor" opacity=".2"/></svg>
+            </div>
+          </article>
+          <article class="aw-card aw-card--art-top">
+            <div class="aw-card__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><path d="M100 36l56 20v36c0 36-24 60-56 72-32-12-56-36-56-72V56z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M78 104l16 16 30-34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="aw-card__actions">
+              <a class="aw-card__btn" href="#security" data-i18n="about.more">Подробнее</a>
+              <a class="aw-card__go" href="#security" aria-label="more">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+            <div class="aw-card__copy">
+              <h3 class="aw-card__title" data-i18n="about.c4.title">InfoSec</h3>
+              <p class="aw-card__text" data-i18n="about.c4.text">Студент информационной безопасности. Думаю про валидацию, XSS и надёжный фронтенд.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="split-section">
+      <div class="aw-inner">
+        <div class="aw-topbar">
+          <span class="aw-mono" data-i18n="services.label">НАШИ УСЛУГИ</span>
+          <span class="aw-mono">02</span>
+        </div>
+        <h2 class="aw-title" data-i18n="services.title">Что я делаю</h2>
+        <div class="svc-layout">
+          <div class="svc-detail" id="svcDetail">
+            <p class="svc-kicker" data-i18n="services.ready">Готовы обсудить задачу?</p>
+            <p class="svc-copy" id="svcCopy" data-i18n="svc.1.desc">Лендинги с понятной воронкой: оффер, блоки ценности, калькулятор и заявка без лишних шагов.</p>
+            <a class="hero-cta aileader-cta liquid-glass" href="#contacts" data-i18n="services.cta">Обсудить проект</a>
+          </div>
+          <ul class="svc-list" id="svcList">
+            <li class="is-active" data-svc="1"><button type="button" data-i18n="svc.1.name">Лендинги</button></li>
+            <li data-svc="2"><button type="button" data-i18n="svc.2.name">Бизнес-сайты</button></li>
+            <li data-svc="3"><button type="button" data-i18n="svc.3.name">UI-вёрстка</button></li>
+            <li data-svc="4"><button type="button" data-i18n="svc.4.name">Адаптив</button></li>
+            <li data-svc="5"><button type="button" data-i18n="svc.5.name">Формы и заявки</button></li>
+            <li data-svc="6"><button type="button" data-i18n="svc.6.name">Интерактив</button></li>
+            <li data-svc="7"><button type="button" data-i18n="svc.7.name">Производительность</button></li>
+            <li data-svc="8"><button type="button" data-i18n="svc.8.name">Базовая безопасность</button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="stack-section">
+      <div class="aw-inner">
+        <p class="aw-label" data-i18n="stack.label">ИНСТРУМЕНТЫ</p>
+        <h2 class="aw-title"><span data-i18n="stack.title1">Тех</span> <span data-i18n="stack.title2">стек</span></h2>
+        <p class="stack-desc" data-i18n="stack.desc">Инструменты, которыми собираю интерфейсы сейчас. React и TypeScript развиваю параллельно с живыми HTML/CSS/JS проектами.</p>
+      </div>
+      <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker ticker--a">
+          <div class="ticker-track">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Vite</span><span>Git</span><span>Figma</span><span>Web Vitals</span>
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Vite</span><span>Git</span><span>Figma</span><span>Web Vitals</span>
+          </div>
+        </div>
+        <div class="ticker ticker--b">
+          <div class="ticker-track">
+            <span>TypeScript</span><span>Next.js</span><span>Tailwind</span><span>Node.js</span><span>Python</span><span>REST</span><span>PWA</span><span>Netlify</span>
+            <span>TypeScript</span><span>Next.js</span><span>Tailwind</span><span>Node.js</span><span>Python</span><span>REST</span><span>PWA</span><span>Netlify</span>
+          </div>
+        </div>
+        <div class="ticker ticker--a">
+          <div class="ticker-track">
+            <span>OWASP</span><span>A11y</span><span>SEO</span><span>CI/CD</span><span>Linux</span><span>Telegram</span><span>Web3Forms</span><span>JSON-LD</span>
+            <span>OWASP</span><span>A11y</span><span>SEO</span><span>CI/CD</span><span>Linux</span><span>Telegram</span><span>Web3Forms</span><span>JSON-LD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="aw-section">
+      <div class="aw-inner">
+        <div class="aw-topbar">
+          <span class="aw-mono" data-i18n="projects.label">КЕЙСЫ</span>
+          <span class="aw-mono">03</span>
+        </div>
+        <header class="aw-head">
+          <div>
+            <p class="aw-label" data-i18n="projects.kicker">ЖИВЫЕ САЙТЫ</p>
+            <h2 class="aw-title" data-i18n="projects.title">Проекты</h2>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="aw-card__go" id="projPrev" aria-label="Previous project">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+            <button type="button" class="aw-card__go" id="projNext" aria-label="Next project">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </header>
+        <div class="aw-rule" aria-hidden="true"></div>
+        <div class="proj-carousel" id="projCarousel" tabindex="0">
+          <article class="proj-slide">
+            <div class="proj-media">
+              <img src="https://image.thum.io/get/width/1200/noanimate/https://marmo.uz/" alt="MARMO" loading="lazy">
+            </div>
+            <div class="proj-body">
+              <p class="aw-mono">01 · LANDING</p>
+              <h3>MARMO</h3>
+              <p data-i18n="proj.1.text">Плитка и керамогранит. Сократил путь от каталога к заявке: структура, калькулятор и CTA в каждом блоке.</p>
+              <p class="proj-role" data-i18n="proj.1.role">Роль: UX-структура, вёрстка, логика калькулятора, формы.</p>
+              <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <div class="proj-links">
+                <a href="https://marmo.uz/" target="_blank" rel="noopener noreferrer">Live</a>
+                <a href="https://github.com/amirchik701/marmo-tile1" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="proj-slide">
+            <div class="proj-media">
+              <img src="https://image.thum.io/get/width/1200/noanimate/https://worldy-global.netlify.app/" alt="WORLDY GLOBAL" loading="lazy">
+            </div>
+            <div class="proj-body">
+              <p class="aw-mono">02 · BUSINESS</p>
+              <h3>WORLDY GLOBAL</h3>
+              <p data-i18n="proj.2.text">Международный оффер собран в короткую структуру: ценность, блоки услуг и понятные CTA.</p>
+              <p class="proj-role" data-i18n="proj.2.role">Роль: информационная архитектура, UI-система, адаптив, QA.</p>
+              <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <div class="proj-links">
+                <a href="https://worldy-global.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                <a href="https://github.com/amirchik701/wordly" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="proj-slide">
+            <div class="proj-media">
+              <img src="https://image.thum.io/get/width/1200/noanimate/https://auside.netlify.app/" alt="AUSIDE" loading="lazy">
+            </div>
+            <div class="proj-body">
+              <p class="aw-mono">03 · B2B</p>
+              <h3>AUSIDE</h3>
+              <p data-i18n="proj.3.text">B2B-платформа фурнитуры: каталог, быстрый запрос цены и оптовые условия в одном интерфейсе.</p>
+              <p class="proj-role" data-i18n="proj.3.role">Роль: полный цикл, UI/UX, каталог, система запросов.</p>
+              <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <div class="proj-links">
+                <a href="https://auside.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                <a href="https://github.com/amirchik701/auside" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="aw-card__dots" id="projDots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="security" class="aw-section">
+      <div class="aw-inner">
+        <p class="aw-label" data-i18n="security.label">БЕЗОПАСНОСТЬ</p>
+        <h2 class="aw-title"><span data-i18n="security.title1">Код, который</span><br><span data-i18n="security.title2">не ломает доверие.</span></h2>
+        <div class="bento">
+          <article class="bento-card bento-card--wide">
+            <h3 data-i18n="sec.1.title">Валидация входа</h3>
+            <p data-i18n="sec.1.desc">Внешние данные с форм и API не идут в логику без проверки. Это база, которой учу на InfoSec.</p>
+          </article>
+          <article class="bento-card">
+            <h3 data-i18n="sec.2.title">XSS-гигиена</h3>
+            <p data-i18n="sec.2.desc">Текст вместо слепого innerHTML, экранирование ввода, CSP на заголовках сайта.</p>
+          </article>
+          <article class="bento-card">
+            <h3 data-i18n="sec.3.title">OWASP Top 10</h3>
+            <p data-i18n="sec.3.desc">Смотрю типичные веб-дыры уже на этапе вёрстки и клиентской логики, не после релиза.</p>
+          </article>
+          <article class="bento-card">
+            <h3 data-i18n="sec.4.title">Секреты</h3>
+            <p data-i18n="sec.4.desc">Ключи и пароли не хардкожу в клиенте. Форма идёт через Web3Forms, аналитика - отдельным тегом.</p>
+          </article>
+          <article class="bento-card bento-card--wide">
+            <h3 data-i18n="sec.5.title">Честная зона</h3>
+            <p data-i18n="sec.5.desc">Я студент, не security-vendor. Не продаю AES-256 и 99.9% uptime. Продаю аккуратный фронтенд с головой на безопасности.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="split-section">
+      <div class="aw-inner">
+        <p class="aw-label" data-i18n="process.label">МОЙ ПРОЦЕСС</p>
+        <h2 class="aw-title" data-i18n="process.title">КАК Я РАБОТАЮ:</h2>
+        <div class="proc-layout">
+          <ul class="proc-list" id="procList">
+            <li class="is-active" data-step="1"><button type="button" data-i18n="step.1.title">Обсуждение</button></li>
+            <li data-step="2"><button type="button" data-i18n="step.2.title">Структура</button></li>
+            <li data-step="3"><button type="button" data-i18n="step.3.title">Сборка</button></li>
+            <li data-step="4"><button type="button" data-i18n="step.4.title">Запуск</button></li>
+          </ul>
+          <div class="proc-detail">
+            <span class="aw-mono" id="procNum">01</span>
+            <p class="svc-copy" id="procCopy" data-i18n="step.1.desc">Ты описываешь задачу. Я собираю требования, предлагаю структуру страницы и называю реалистичный срок.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="aw-section">
+      <div class="aw-inner faq-grid">
+        <div>
+          <p class="aw-label" data-i18n="faq.label">ЧАСТО ЗАДАВАЕМЫЕ</p>
+          <h2 class="aw-title"><span data-i18n="faq.title">ВОПРОСЫ</span><br><span class="aw-soft" data-i18n="faq.title2">&amp; ответы</span></h2>
+          <p class="stack-desc" data-i18n="faq.hint">Нет ответа в списке? Напиши в Telegram, отвечаю сам.</p>
+          <a class="hero-cta aileader-cta liquid-glass" href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" data-i18n="faq.btn">Написать в Telegram</a>
+        </div>
+        <div class="faq-list" id="faqList">
+          <details open>
+            <summary data-i18n="faq.1.q">Что ты делаешь?</summary>
+            <p data-i18n="faq.1.a">Лендинги, бизнес-сайты и интерфейсы на HTML, CSS и JavaScript. Есть три живых коммерческих кейса.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.2.q">Какой стек?</summary>
+            <p data-i18n="faq.2.a">Боевые работы сейчас на HTML/CSS/JS. React, TypeScript и Next.js изучаю и подключаю, когда задаче это нужно.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.3.q">Как начать?</summary>
+            <p data-i18n="faq.3.a">Коротко опиши задачу в Telegram @amirr17 или через форму ниже. Обсудим объём и срок, затем старт.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.4.q">Есть коммерческий опыт?</summary>
+            <p data-i18n="faq.4.a">Да: marmo.uz, WORLDY GLOBAL и AUSIDE. Это не учебные макеты, а опубликованные сайты.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="aw-section">
+      <div class="aw-inner contact-grid">
+        <div>
+          <p class="aw-label" data-i18n="contact.label">КОНТАКТ</p>
+          <h2 class="aw-title" data-i18n="contact.title">Напиши мне</h2>
+          <p class="stack-desc" data-i18n="contact.sub">Лендинг, доработка сайта или обсуждение стажировки. Выбери удобный канал.</p>
+          <div class="contact-links">
+            <a href="mailto:tursunov.amir701@gmail.com">Email</a>
+            <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://www.linkedin.com/in/amir-tursunov-17b41b3b5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+        <form class="contact-form liquid-glass" id="contactForm" method="POST">
+          <input type="hidden" name="access_key" value="386be809-0dd1-4c4c-8735-ea7579aa89ab">
+          <label>
+            <span data-i18n="form.name">Имя</span>
+            <input type="text" id="contactName" name="name" autocomplete="name" required>
+          </label>
+          <label>
+            <span data-i18n="form.email">Email</span>
+            <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+          </label>
+          <label>
+            <span data-i18n="form.message">Сообщение</span>
+            <textarea id="contactMessage" name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="form-submit" id="contactSubmit" data-i18n="form.send">Отправить</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-mark">amirjondev</p>
+        <p class="stack-desc" data-i18n="footer.blurb">Frontend Developer · InfoSec student. Tashkent.</p>
+      </div>
+      <div>
+        <p class="aw-mono" data-i18n="footer.links">Ссылки</p>
+        <a href="#projects" data-i18n="nav.work">Работы</a>
+        <a href="#process" data-i18n="nav.process">Процесс</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div>
+        <p class="aw-mono" data-i18n="footer.contacts">Контакты</p>
+        <a href="mailto:tursunov.amir701@gmail.com">Email</a>
+        <a href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <a class="footer-send" href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" data-i18n="footer.send">Отправить</a>
     </div>
+    <p class="footer-copy">© 2026 Tursunov Amir · amirjondev.uz</p>
+  </footer>
 
-    <div class="proj-card reveal" style="transition-delay:0.15s;" data-project-kind="business app">
-      <div class="proj-ghost">02</div>
-      <div class="proj-badge">Business / Global</div>
-      <div class="proj-preview">
-        <img class="proj-shot desktop" src="https://image.thum.io/get/width/1200/noanimate/https://worldy-global.netlify.app/" alt="WORLDY GLOBAL desktop preview" loading="lazy">
-        <img class="proj-shot mobile" src="https://image.thum.io/get/width/420/noanimate/https://worldy-global.netlify.app/" alt="WORLDY GLOBAL mobile preview" loading="lazy">
-      </div>
-      <div class="proj-title" data-ru="WORLDY GLOBAL" data-en="WORLDY GLOBAL">WORLDY GLOBAL</div>
-      <div class="proj-story">
-        <p class="proj-line" data-ru="<strong>Проблема:</strong> сложное объяснение услуг на международную аудиторию." data-en="<strong>Problem:</strong> services were hard to explain clearly for a global audience."><strong>Проблема:</strong> сложное объяснение услуг на международную аудиторию.</p>
-        <p class="proj-line" data-ru="<strong>Решение:</strong> лаконичная структура, блоки ценности и понятные CTA." data-en="<strong>Solution:</strong> concise page architecture, value blocks, and clear CTAs."><strong>Решение:</strong> лаконичная структура, блоки ценности и понятные CTA.</p>
-        <p class="proj-line" data-ru="<strong>Результат:</strong> бизнес-предложение читается быстро, навигация стала проще." data-en="<strong>Result:</strong> business offer is easier to scan and navigation is faster."><strong>Результат:</strong> бизнес-предложение читается быстро, навигация стала проще.</p>
-      </div>
-      <div class="proj-role" data-ru="Моя роль: информационная архитектура, UI-система, адаптив и QA." data-en="My role: information architecture, UI system, responsive implementation, and QA.">Моя роль: информационная архитектура, UI-система, адаптив и QA.</div>
-      <div class="proj-proof">
-        <span class="proof-badge">A11y-ready</span>
-        <span class="proof-badge">Mobile</span>
-        <span class="proof-badge">Performance</span>
-      </div>
-      <div class="proj-result" data-ru="Мини-результат: ключевые офферы и контакты находятся без лишнего скролла." data-en="Mini result: key offers and contacts are reachable without extra scrolling.">Мини-результат: ключевые офферы и контакты находятся без лишнего скролла.</div>
-      <div class="proj-stack">
-        <span class="proj-tag">HTML</span>
-        <span class="proj-tag">CSS</span>
-        <span class="proj-tag">JavaScript</span>
-      </div>
-      <div class="proj-links">
-        <a href="https://github.com/amirchik701/wordly" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_worldy_github" data-project-kind="business app">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://worldy-global.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_worldy_live" data-project-kind="business app">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Live demo
-        </a>
-      </div>
-    </div>
-
-    <div class="proj-card reveal" style="transition-delay:0.25s;" data-project-kind="business app">
-      <div class="proj-ghost">03</div>
-      <div class="proj-badge">B2B / E-commerce</div>
-      <div class="proj-preview">
-        <img class="proj-shot desktop" src="https://image.thum.io/get/width/1200/noanimate/https://auside.netlify.app/" alt="AUSIDE desktop preview" loading="lazy">
-        <img class="proj-shot mobile" src="https://image.thum.io/get/width/420/noanimate/https://auside.netlify.app/" alt="AUSIDE mobile preview" loading="lazy">
-      </div>
-      <div class="proj-title" data-ru="AUSIDE" data-en="AUSIDE">AUSIDE</div>
-      <div class="proj-story">
-        <p class="proj-line" data-ru="<strong>Проблема:</strong> сложный процесс закупки мебельной фурнитуры для B2B клиентов." data-en="<strong>Problem:</strong> complex procurement process for B2B furniture hardware clients."><strong>Проблема:</strong> сложный процесс закупки мебельной фурнитуры для B2B клиентов.</p>
-        <p class="proj-line" data-ru="<strong>Решение:</strong> B2B платформа с каталогом, быстрым запросом и оптовыми условиями." data-en="<strong>Solution:</strong> B2B platform with catalog, quick request, and wholesale terms."><strong>Решение:</strong> B2B платформа с каталогом, быстрым запросом и оптовыми условиями.</p>
-        <p class="proj-line" data-ru="<strong>Результат:</strong> удобный интерфейс для оптовых закупок с 500+ товарами и 20+ брендами." data-en="<strong>Result:</strong> convenient interface for wholesale purchases with 500+ products and 20+ brands."><strong>Результат:</strong> удобный интерфейс для оптовых закупок с 500+ товарами и 20+ брендами.</p>
-      </div>
-      <div class="proj-role" data-ru="Моя роль: полный цикл разработки, UI/UX дизайн, каталог продуктов, система запросов." data-en="My role: full development cycle, UI/UX design, product catalog, request system.">Моя роль: полный цикл разработки, UI/UX дизайн, каталог продуктов, система запросов.</div>
-      <div class="proj-proof">
-        <span class="proof-badge">B2B-ready</span>
-        <span class="proof-badge">Catalog</span>
-        <span class="proof-badge">Responsive</span>
-      </div>
-      <div class="proj-result" data-ru="Мини-результат: платформа объединяет снабжение, запрос цены и подбор в одном интерфейсе." data-en="Mini result: platform combines procurement, price request, and selection in one interface.">Мини-результат: платформа объединяет снабжение, запрос цены и подбор в одном интерфейсе.</div>
-      <div class="proj-stack">
-        <span class="proj-tag">HTML</span>
-        <span class="proj-tag">CSS</span>
-        <span class="proj-tag">JavaScript</span>
-      </div>
-      <div class="proj-links">
-        <a href="https://github.com/amirchik701/auside" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_auside_github" data-project-kind="business app">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://auside.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link js-track-link" data-track-id="project_auside_live" data-project-kind="business app">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Live demo
-        </a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<div class="wrapper" id="contact" style="text-align:center;">
-  <div class="section-label reveal" style="justify-content:center;" data-ru="Связь" data-en="Contact">Связь</div>
-  <h2 class="contact-big reveal" style="transition-delay:0.1s;">
-    <span data-ru="НАПИШИ" data-en="GET IN">НАПИШИ</span><br><span data-ru="МНЕ" data-en="TOUCH" style="color:var(--accent)">МНЕ</span>
-  </h2>
-  <p class="contact-sub reveal" style="transition-delay:0.2s;" data-ru="Выбери удобный формат: быстрый старт лендинга, детальное обсуждение задачи или сразу резюме для HR/клиента." data-en="Choose the format you need: a quick landing request, detailed project discussion, or instant CV download for HR/client.">
-    Выбери удобный формат: быстрый старт лендинга, детальное обсуждение задачи или сразу резюме для HR/клиента.
-  </p>
-  <div class="contact-form-container reveal" style="transition-delay:0.25s;">
-    <form class="contact-form" id="contactForm" method="POST">
-      <input type="hidden" name="access_key" value="386be809-0dd1-4c4c-8735-ea7579aa89ab">
-      <div class="form-row">
-        <input type="text" id="contactName" name="name" placeholder="Имя" data-ru-ph="Имя" data-en-ph="Name" required>
-        <input type="email" id="contactEmail" name="email" placeholder="Email" data-ru-ph="Email" data-en-ph="Email" required>
-      </div>
-      <textarea id="contactMessage" name="message" placeholder="Сообщение..." data-ru-ph="Сообщение..." data-en-ph="Message..." rows="4" required></textarea>
-      <button type="submit" class="btn-primary form-submit" id="contactSubmit" data-ru="Отправить" data-en="Send Message">Отправить</button>
-      <div class="form-status" id="formStatus"></div>
-    </form>
-    
-    <div class="cta-alt">
-      <span data-ru="Или скачайте моё резюме:" data-en="Or download my CV:">Или скачайте моё резюме:</span>
-      <a href="cv-tursunov-amir.pdf" download class="btn-cv js-track-link" data-track-id="cta_download_cv">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        <span data-ru="Скачать CV" data-en="Download CV">Скачать CV</span>
-      </a>
-    </div>
-  </div>
-  <div class="contact-links reveal" style="transition-delay:0.3s;">
-    <a href="mailto:tursunov.amir701@gmail.com" class="contact-link js-track-link" data-track-id="contact_email">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      Email
-    </a>
-    <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer" class="contact-link js-track-link" data-track-id="contact_github">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      GitHub
-    </a>
-    <a href="https://t.me/amirr17" target="_blank" rel="noopener noreferrer" class="contact-link js-track-link" data-track-id="contact_telegram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-      Telegram
-    </a>
-    <a href="https://www.linkedin.com/in/amir-tursunov-17b41b3b5" target="_blank" rel="noopener noreferrer" class="contact-link js-track-link" data-track-id="contact_linkedin">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      LinkedIn
-    </a>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="ft">© 2026 Tursunov Amir. Built with passion.</div>
-  <div class="ft">amirjondev · Frontend & InfoSec</div>
-</footer>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Tursunov Amir",
-  "url": "https://tursunov-amir.dev",
-  "jobTitle": "Frontend Developer",
-  "knowsAbout": ["Frontend Development", "JavaScript", "Information Security"],
-  "sameAs": [
-    "https://github.com/amirchik701",
-    "https://www.linkedin.com/in/amir-tursunov-17b41b3b5",
-    "https://t.me/amirr17"
-  ]
-}
-</script>
-
-<!-- TERMINAL -->
-<div id="terminal" class="terminal-overlay" aria-hidden="true">
-  <div class="terminal-window">
-    <div class="terminal-header">
-      <div class="terminal-dots">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="terminal-title">guest@amirtursunov: ~</div>
-      <button id="terminalClose" type="button" aria-label="Close terminal">×</button>
-    </div>
-    <div class="terminal-quick-chips">
-      <button type="button" class="term-chip" data-cmd="help">help</button>
-      <button type="button" class="term-chip" data-cmd="projects">projects</button>
-      <button type="button" class="term-chip" data-cmd="skills">skills</button>
-      <button type="button" class="term-chip" data-cmd="cv">cv</button>
-      <button type="button" class="term-chip" data-cmd="clear">clear</button>
-    </div>
-    <div class="terminal-body" id="termBody">
-      <div class="term-line">Welcome to AmirOS v1.0.0</div>
-      <div class="term-line">Type <span class="term-hl">'help'</span> to see available commands.</div>
-    </div>
-    <div class="terminal-input-line">
-      <span class="term-prompt">guest@amirtursunov:~$</span>
-      <input type="text" id="termInput" autocomplete="off" spellcheck="false" autofocus>
-    </div>
-  </div>
-</div>
-
-<script src="./script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tursunov Amir",
+    "url": "https://amirjondev.uz",
+    "jobTitle": "Frontend Developer",
+    "knowsAbout": ["Frontend Development", "JavaScript", "Information Security"],
+    "sameAs": [
+      "https://github.com/amirchik701",
+      "https://www.linkedin.com/in/amir-tursunov-17b41b3b5",
+      "https://t.me/amirr17"
+    ]
+  }
+  </script>
+  <script src="./script.js"></script>
 </body>
 </html>
-
-
