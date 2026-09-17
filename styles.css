@@ -605,25 +605,32 @@ html:not(.dark) .hero-veil {
 .hero-logo__title {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(4.1rem, 16vw, 9.2rem);
-  line-height: 0.82;
-  letter-spacing: -0.07em;
+  font-size: clamp(3.2rem, 11vw, 7.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 2px 28px rgba(0, 0, 0, 0.5);
 }
 
-.hero-logo__title span {
-  display: block;
+.hero-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(10.5px, 1.3vw, 13.5px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #00f0ff;
+  text-transform: uppercase;
+  margin-top: 10px;
+  text-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
 }
 
-.hero-logo__title span:first-child {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-html:not(.dark) .hero-logo__title,
-html:not(.dark) .hero-logo__title span:first-child {
+html:not(.dark) .hero-logo__title {
   color: #0a0a0a;
+  text-shadow: none;
+}
+
+html:not(.dark) .hero-tagline {
+  color: #0077b6;
   text-shadow: none;
 }
 
@@ -1480,28 +1487,21 @@ html:not(.dark) .hero-ticker-track {
   color: rgba(10, 10, 10, 0.42);
 }
 
-.orb {
-  width: 168px;
-  height: 168px;
-  border-radius: 42% 58% 48% 52%;
-  filter: blur(0.2px);
-  background:
-    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.92), transparent 28%),
-    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.18), transparent 42%),
-    linear-gradient(145deg, #f3f3f0, #9d9d97 55%, #2a2a2a);
-  box-shadow: inset 0 -18px 28px rgba(0, 0, 0, 0.28), 0 18px 40px rgba(0, 0, 0, 0.28);
+.card-art-svg {
+  width: min(170px, 78%);
+  height: auto;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.4));
 }
 
-html.dark .orb {
-  background:
-    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.55), transparent 30%),
-    radial-gradient(circle at 72% 68%, rgba(255, 255, 255, 0.08), transparent 44%),
-    linear-gradient(145deg, #3a3a3a, #171717 58%, #050505);
+.aw-card:hover .card-art-svg {
+  transform: translateY(-5px) scale(1.04);
+  filter: drop-shadow(0 14px 28px rgba(0, 240, 255, 0.22));
 }
 
-.orb--clock { border-radius: 50%; transform: rotate(-8deg); }
-.orb--ship { border-radius: 46% 54% 38% 62%; transform: rotate(12deg); }
-.orb--shield { border-radius: 48% 52% 44% 56%; transform: rotate(-14deg) scale(0.94); }
+html:not(.dark) .card-art-svg {
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
 
 .aw-card {
   background: color-mix(in srgb, var(--surface) 82%, transparent);
