@@ -211,7 +211,7 @@ main {
   box-shadow: inset 0 1px 1px 0 var(--glass-specular-hover), var(--glass-shadow-hover);
 }
 
-.aileader-cta,
+.orbit-btn,
 .hero-cta,
 .aw-card__btn,
 .aw-card__go {
@@ -220,7 +220,7 @@ main {
   isolation: isolate;
 }
 
-.aileader-cta::after,
+.orbit-btn::after,
 .hero-cta::after,
 .aw-card__btn::after,
 .aw-card__go::after {
@@ -247,7 +247,7 @@ main {
   transition: opacity 0.55s ease;
 }
 
-.aileader-cta:hover::after,
+.orbit-btn:hover::after,
 .hero-cta:hover::after,
 .aw-card__btn:hover::after,
 .aw-card__go:hover::after {
@@ -352,7 +352,7 @@ html.dark .nav-link.is-active {
   font-size: 14px;
 }
 
-.aileader-lang {
+.lang-dropdown {
   position: relative;
   z-index: 70;
   display: inline-flex;
@@ -361,8 +361,8 @@ html.dark .nav-link.is-active {
   margin-left: 6px;
 }
 
-.aileader-lang-btn,
-.aileader-theme-btn {
+.lang-toggle-btn,
+.theme-btn {
   width: 26px;
   height: 26px;
   min-width: 26px;
@@ -380,7 +380,7 @@ html.dark .nav-link.is-active {
   letter-spacing: 0.04em;
 }
 
-.aileader-lang-menu {
+.lang-menu {
   position: absolute;
   top: calc(100% + 14px);
   left: 50%;
@@ -398,21 +398,21 @@ html.dark .nav-link.is-active {
   transition: 0.28s cubic-bezier(0.22, 0.7, 0.2, 1);
 }
 
-.aileader-lang-menu.is-open {
+.lang-menu.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-.aileader-lang-flags {
+.lang-options {
   display: flex;
   gap: 8px;
   justify-content: center;
   width: 100%;
 }
 
-.aileader-lang-flag {
+.lang-option {
   width: 34px;
   height: 22px;
   border-radius: 999px;
@@ -424,7 +424,7 @@ html.dark .nav-link.is-active {
   cursor: pointer;
 }
 
-.aileader-lang-flag.is-active {
+.lang-option.is-active {
   border-color: var(--hero-nav-fg);
 }
 

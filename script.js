@@ -314,7 +314,7 @@ document.querySelectorAll("[data-lang]").forEach((btn) => {
   });
 });
 document.addEventListener("click", (e) => {
-  if (!(e.target instanceof Element) || e.target.closest(".aileader-lang")) return;
+  if (!(e.target instanceof Element) || e.target.closest(".lang-dropdown")) return;
   langMenu?.classList.remove("is-open");
 });
 
