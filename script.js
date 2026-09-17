@@ -450,3 +450,182 @@ if ("serviceWorker" in navigator) {
     }
   });
 }
+
+/* ==========================================================================
+   AmirOS Interactive Terminal Controller
+   ========================================================================== */
+(() => {
+  const terminal = document.getElementById("terminal");
+  const termInput = document.getElementById("termInput");
+  const termBody = document.getElementById("termBody");
+  const terminalClose = document.getElementById("terminalClose");
+  const terminalCloseDot = document.getElementById("terminalCloseDot");
+  const termFloatBtn = document.getElementById("termFloatBtn");
+  const termNavBtn = document.getElementById("termNavBtn");
+  const termChips = document.querySelectorAll(".term-chip");
+
+  if (!terminal || !termInput || !termBody) return;
+
+  const cmdHistory = [];
+  let historyIdx = -1;
+
+  const terminalCommands = {
+    help: () => `Available commands:<br>
+• <span class="term-hl">whoami</span> — About Amirjon &amp; background<br>
+• <span class="term-hl">skills</span> — Technical &amp; security stack<br>
+• <span class="term-hl">projects</span> — Live deployed commercial works<br>
+• <span class="term-hl">contact</span> — Telegram, Email, GitHub links<br>
+• <span class="term-hl">theme</span> — Toggle dark / light mode<br>
+• <span class="term-hl">clear</span> — Clear terminal output<br>
+• <span class="term-hl-purple">cat flag.txt</span> — Secret CTF flag<br>
+• <span class="term-hl">exit</span> — Close AmirOS shell`,
+
+    whoami: () => `<strong>Amir Tursunov</strong> (@amirjondev)<br>
+Frontend Developer &amp; Information Security Student at Tashkent.<br>
+Specializes in clean UI/UX, fast responsive web applications, and security hygiene (XSS defense, input validation, OWASP).`,
+
+    skills: () => `<strong>Frontend:</strong> HTML5, Semantic Markup, CSS3 / Modern Flex &amp; Grid, JavaScript (ES6+), React &amp; TypeScript (actively studying), Tailwind CSS, Vite.<br>
+<strong>Security &amp; Hygiene:</strong> Web Penetration Testing basics, OWASP Top 10, XSS prevention, strict validation, CSP, CTF challenge solving.<br>
+<strong>Workflow:</strong> Git / GitHub, VS Code, Linux/Bash, Figma translation, Web3Forms, Netlify.`,
+
+    projects: () => `<strong>1. MARMO:</strong> Tile &amp; porcelain showroom platform · <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo.uz</a><br>
+<strong>2. WORLDY:</strong> World exploration &amp; geography learning · <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://worldy-study.netlify.app</a><br>
+<strong>3. AUSIDE:</strong> B2B hardware &amp; wholesale catalog platform · <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://auside.netlify.app</a>`,
+
+    contact: () => `• Telegram: <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="term-link">@amirjondev</a><br>
+• Email: <a href="mailto:tursunov.amir701@gmail.com" class="term-link">tursunov.amir701@gmail.com</a><br>
+• GitHub: <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer" class="term-link">github.com/amirchik701</a>`,
+
+    "cat flag.txt": () => `🚩 <span class="term-hl-purple">CTF{y0u_f0und_th3_p0rtf0l1o_fl4g}</span><br>
+<span class="term-success">Well played, hacker!</span> Send this flag to <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="term-link">@amirjondev</a> on Telegram for instant respect!`,
+
+    "cat flag": () => `🚩 <span class="term-hl-purple">CTF{y0u_f0und_th3_p0rtf0l1o_fl4g}</span><br>
+<span class="term-success">Well played, hacker!</span> Send this flag to <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="term-link">@amirjondev</a> on Telegram!`,
+
+    flag: () => `Try: <span class="term-hl">cat flag.txt</span>`,
+
+    theme: () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      return `Theme switched to: <span class="term-hl">${isDark ? "Dark (Liquid Glass)" : "Light"}</span>`;
+    },
+
+    clear: () => {
+      termBody.innerHTML = "";
+      return "";
+    },
+
+    date: () => new Date().toUTCString(),
+
+    sudo: () => "guest is not in the sudoers file. This incident has been logged and reported to Amir.",
+
+    exit: () => {
+      toggleTerminal(false);
+      return "Shell closed.";
+    },
+  };
+
+  function printTerm(content, isInput = false) {
+    if (!content && !isInput) return;
+    const line = document.createElement("div");
+    line.className = "term-line";
+    if (isInput) {
+      line.innerHTML = `<span class="term-prompt">guest@amirjondev:~$</span> ${content.replace(/</g, "&lt;").replace(/>/g, "&gt;")}`;
+    } else {
+      line.innerHTML = content;
+    }
+    termBody.appendChild(line);
+    termBody.scrollTop = termBody.scrollHeight;
+  }
+
+  function parseCommand(rawCmd) {
+    const cmd = rawCmd.trim();
+    if (!cmd) return;
+    const c = cmd.toLowerCase();
+
+    cmdHistory.push(cmd);
+    historyIdx = cmdHistory.length;
+
+    printTerm(cmd, true);
+
+    if (terminalCommands[c]) {
+      const res = terminalCommands[c]();
+      if (res) printTerm(res);
+    } else if (c.startsWith("cat ")) {
+      printTerm(`cat: ${cmd.substring(4)}: Permission denied or file not found`);
+    } else if (c.startsWith("rm ") || c.startsWith("rmdir ")) {
+      printTerm("Permission denied: Read-only filesystem.");
+    } else if (c === "ls" || c === "dir") {
+      printTerm("flag.txt  projects/  skills/  about.md  contact.sh");
+    } else {
+      printTerm(`Command not found: "${cmd}". Type <span class="term-hl">help</span> for a list of commands.`);
+    }
+  }
+
+  function toggleTerminal(forceState) {
+    const isOpen = typeof forceState === "boolean" ? forceState : !terminal.classList.contains("open");
+    if (isOpen) {
+      terminal.classList.add("open");
+      terminal.setAttribute("aria-hidden", "false");
+      setTimeout(() => termInput.focus(), 80);
+    } else {
+      terminal.classList.remove("open");
+      terminal.setAttribute("aria-hidden", "true");
+      termInput.blur();
+    }
+  }
+
+  termNavBtn?.addEventListener("click", () => toggleTerminal());
+  termFloatBtn?.addEventListener("click", () => toggleTerminal());
+  terminalClose?.addEventListener("click", () => toggleTerminal(false));
+  terminalCloseDot?.addEventListener("click", () => toggleTerminal(false));
+
+  terminal.addEventListener("click", (e) => {
+    if (e.target === terminal) toggleTerminal(false);
+  });
+
+  termChips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const cmd = chip.getAttribute("data-cmd");
+      if (cmd) {
+        if (!terminal.classList.contains("open")) toggleTerminal(true);
+        parseCommand(cmd);
+      }
+    });
+  });
+
+  termInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      parseCommand(termInput.value);
+      termInput.value = "";
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (cmdHistory.length > 0 && historyIdx > 0) {
+        historyIdx--;
+        termInput.value = cmdHistory[historyIdx];
+      }
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (historyIdx < cmdHistory.length - 1) {
+        historyIdx++;
+        termInput.value = cmdHistory[historyIdx];
+      } else {
+        historyIdx = cmdHistory.length;
+        termInput.value = "";
+      }
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    // Ctrl + ~ or Ctrl + ` or Cmd + K
+    if ((e.ctrlKey && (e.key === "`" || e.key === "~" || e.code === "Backquote" || e.key === "ё" || e.key === "Ё")) ||
+        ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")) {
+      e.preventDefault();
+      toggleTerminal();
+    } else if (e.key === "Escape" && terminal.classList.contains("open")) {
+      e.preventDefault();
+      toggleTerminal(false);
+    }
+  });
+})();
+

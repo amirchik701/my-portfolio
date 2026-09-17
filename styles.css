@@ -1583,6 +1583,395 @@ html.dark .orb {
   transform: none;
 }
 
+/* ==========================================================================
+   AmirOS Interactive Terminal & Trigger Styles (Liquid Glass Edition)
+   ========================================================================== */
+
+.nav-term-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  background: rgba(0, 240, 255, 0.08);
+  color: #00f0ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  margin-left: 6px;
+}
+
+.nav-term-btn:hover {
+  background: rgba(0, 240, 255, 0.18);
+  border-color: #00f0ff;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.term-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
+  animation: chip-pulse 2s infinite;
+}
+
+/* Floating Terminal Trigger */
+.term-float-btn {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(10, 14, 22, 0.78);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 100px;
+  color: #00f0ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 240, 255, 0.15);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
+}
+
+.term-float-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: #00f0ff;
+  box-shadow: 0 16px 40px rgba(0, 240, 255, 0.3);
+}
+
+html:not(.dark) .term-float-btn {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 140, 200, 0.3);
+  color: #0088cc;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 0 16px rgba(0, 140, 200, 0.12);
+}
+
+/* Terminal Modal Overlay */
+.terminal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 5, 10, 0.72);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  padding: 16px;
+}
+
+.terminal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.terminal-window {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: rgba(11, 15, 24, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.65), 0 0 40px rgba(0, 240, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transform: translateY(24px) scale(0.98);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+html:not(.dark) .terminal-window {
+  background: rgba(250, 250, 252, 0.94) !important;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.18), 0 0 30px rgba(0, 140, 200, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.terminal-overlay.open .terminal-window {
+  transform: translateY(0) scale(1);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html:not(.dark) .terminal-header {
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.terminal-dots span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.terminal-dots span:hover {
+  opacity: 0.8;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.02em;
+}
+
+html:not(.dark) .terminal-title {
+  color: rgba(10, 10, 12, 0.6);
+}
+
+#terminalClose {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+#terminalClose:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html:not(.dark) #terminalClose {
+  color: rgba(10, 10, 12, 0.5);
+}
+
+html:not(.dark) #terminalClose:hover {
+  color: #000;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Chips Bar */
+.terminal-quick-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.terminal-quick-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.term-chip {
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 999px;
+  color: #00f0ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.term-chip:hover {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: #00f0ff;
+}
+
+.term-chip:active {
+  transform: scale(0.95);
+}
+
+html:not(.dark) .term-chip {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 140, 200, 0.3);
+  color: #0077b6;
+}
+
+/* Terminal Body */
+.terminal-body {
+  padding: 16px 20px;
+  height: 320px;
+  max-height: 50vh;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #d8e2ed;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+html:not(.dark) .terminal-body {
+  color: #1a1e28;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.term-line {
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.term-welcome {
+  color: #00f0ff;
+  font-weight: 700;
+}
+
+.term-sub {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+html:not(.dark) .term-welcome {
+  color: #0077b6;
+}
+
+html:not(.dark) .term-sub {
+  color: rgba(10, 10, 12, 0.55);
+}
+
+.term-hl {
+  color: #00f0ff;
+  font-weight: 600;
+}
+
+.term-hl-purple {
+  color: #c084fc;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(192, 132, 252, 0.4);
+}
+
+.term-link {
+  color: #38bdf8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.term-link:hover {
+  color: #7dd3fc;
+}
+
+.term-success {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+/* Terminal Input Line */
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px 16px;
+  background: rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+html:not(.dark) .terminal-input-line {
+  background: rgba(0, 0, 0, 0.02);
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.term-prompt {
+  color: #00f0ff;
+  font-weight: 700;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+html:not(.dark) .term-prompt {
+  color: #0077b6;
+}
+
+#termInput {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  outline: none;
+  caret-color: #00f0ff;
+}
+
+html:not(.dark) #termInput {
+  color: #0a0a0c;
+  caret-color: #0077b6;
+}
+
+#termInput::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+html:not(.dark) #termInput::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .term-float-btn {
+    bottom: 20px;
+    left: 20px;
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  .terminal-window {
+    max-height: 85vh;
+    border-radius: 14px;
+  }
+
+  .terminal-body {
+    height: 46vh;
+    font-size: 12px;
+    padding: 12px 14px;
+  }
+
+  .terminal-input-line {
+    padding: 10px 14px 14px;
+    font-size: 12px;
+  }
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
