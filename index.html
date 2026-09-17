@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tursunov Amir - Frontend Developer</title>
+  <title>Amirjon Tursunov · Frontend Developer &amp; InfoSec</title>
   <link rel="canonical" href="https://amirjondev.uz/">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="manifest" href="./site.webmanifest">
-  <meta name="description" content="Tursunov Amir - Frontend Developer and InfoSec Student. Современные веб-проекты, интерфейсы и безопасность.">
-  <meta property="og:title" content="Tursunov Amir - Frontend Developer">
+  <meta name="description" content="Amirjon Tursunov (@amirjondev) — Frontend Developer &amp; InfoSec student. Чистый код, адаптивные интерфейсы, безопасность веба (MARMO, WORLDY, AUSIDE).">
+  <meta property="og:title" content="Amirjon Tursunov · Frontend Developer &amp; InfoSec">
   <meta property="og:description" content="Frontend Developer and InfoSec Student. Современные веб-проекты на amirjondev.uz">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://amirjondev.uz/">
@@ -109,6 +109,10 @@
 
   <div class="mobile-sheet" id="mobileSheet" hidden>
     <div class="mobile-sheet-inner">
+      <button type="button" class="sheet-term-btn" id="sheetTermBtn">
+        <span class="term-badge-dot"></span>
+        <span>&gt;_ AmirOS Terminal</span>
+      </button>
       <a href="#home" data-i18n="nav.home">Главная</a>
       <a href="#projects" data-i18n="nav.work">Работы</a>
       <a href="#services" data-i18n="nav.services">Услуги</a>
@@ -620,9 +624,21 @@
             <li data-step="3"><button type="button" data-i18n="step.3.title">Сборка</button></li>
             <li data-step="4"><button type="button" data-i18n="step.4.title">Запуск</button></li>
           </ul>
-          <div class="proc-detail">
-            <span class="aw-mono" id="procNum">01</span>
+          <div class="proc-detail proc-card liquid-glass">
+            <div class="proc-card__header">
+              <span class="proc-phase-tag aw-mono">PHASE</span>
+              <span class="aw-mono proc-num-badge" id="procNum">01</span>
+            </div>
             <p class="svc-copy" id="procCopy" data-i18n="step.1.desc">Ты описываешь задачу. Я собираю требования, предлагаю структуру страницы и называю реалистичный срок.</p>
+            <div class="proc-progress">
+              <span class="proc-progress-step is-active" data-pstep="1">01</span>
+              <span class="proc-progress-line"></span>
+              <span class="proc-progress-step" data-pstep="2">02</span>
+              <span class="proc-progress-line"></span>
+              <span class="proc-progress-step" data-pstep="3">03</span>
+              <span class="proc-progress-line"></span>
+              <span class="proc-progress-step" data-pstep="4">04</span>
+            </div>
           </div>
         </div>
       </div>
@@ -664,9 +680,12 @@
           <h2 class="aw-title" data-i18n="contact.title">Напиши мне</h2>
           <p class="stack-desc" data-i18n="contact.sub">Лендинг, доработка сайта или обсуждение стажировки. Выбери удобный канал.</p>
           <div class="contact-links">
+            <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="contact-link-accent">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+              <span>Telegram @amirjondev</span>
+            </a>
             <a href="mailto:tursunov.amir701@gmail.com">Email</a>
             <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer">Telegram</a>
             <a href="https://www.linkedin.com/in/amir-tursunov-17b41b3b5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
@@ -710,7 +729,10 @@
           <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer">Telegram</a>
           <a href="https://github.com/amirchik701" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
-        <a class="footer-send" href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" data-i18n="footer.send">Отправить</a>
+        <a class="footer-send orbit-btn" href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="footer.send">Написать в Telegram</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
       </div>
       <p class="footer-copy">© 2026 Tursunov Amir · amirjondev.uz</p>
     </div>
@@ -755,6 +777,7 @@
         <button type="button" class="term-chip" data-cmd="whoami">whoami</button>
         <button type="button" class="term-chip" data-cmd="skills">skills</button>
         <button type="button" class="term-chip" data-cmd="projects">projects</button>
+        <button type="button" class="term-chip" data-cmd="cv">cv</button>
         <button type="button" class="term-chip" data-cmd="contact">contact</button>
         <button type="button" class="term-chip" data-cmd="cat flag.txt">cat flag.txt</button>
         <button type="button" class="term-chip" data-cmd="clear">clear</button>
@@ -770,6 +793,11 @@
       </div>
     </div>
   </div>
+
+  <!-- FLOATING SCROLL TO TOP BUTTON -->
+  <button id="scrollTopBtn" type="button" class="scroll-top-btn" aria-label="Scroll to top" title="Наверх">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
 
   <script src="/script.js?v=2.0.3"></script>
 </body>

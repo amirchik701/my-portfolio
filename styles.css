@@ -525,6 +525,24 @@ html.dark .nav-link.is-active {
   font-size: 18px !important;
 }
 
+.sheet-term-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  background: rgba(0, 240, 255, 0.08);
+  color: #00f0ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -1352,6 +1370,33 @@ html:not(.dark) .stack-card:hover .stack-chip:hover {
   background: color-mix(in srgb, var(--fg) 8%, transparent);
 }
 
+.contact-link-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px !important;
+  border-radius: 999px;
+  background: rgba(0, 240, 255, 0.12) !important;
+  border: 1px solid rgba(0, 240, 255, 0.35) !important;
+  color: #00f0ff !important;
+  font-weight: 700;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.contact-link-accent:hover {
+  background: rgba(0, 240, 255, 0.22) !important;
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+html:not(.dark) .contact-link-accent {
+  background: rgba(0, 119, 182, 0.08) !important;
+  border-color: rgba(0, 119, 182, 0.35) !important;
+  color: #0077b6 !important;
+}
+
 @media (max-width: 959px) {
   .proj-card-showcase {
     grid-template-columns: 1fr;
@@ -1497,24 +1542,62 @@ html:not(.dark) .bento-dot {
   font-size: 16px;
 }
 
-.form-submit,
-.footer-send {
+.form-submit {
   border: 0;
   border-radius: 999px;
-  padding: 14px 22px;
+  padding: 14px 28px;
   background: #0a0a0a;
   color: #fff;
   font-weight: 700;
   cursor: pointer;
-  text-decoration: none;
   display: inline-flex;
   justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
 }
 
-html.dark .form-submit,
-html.dark .footer-send {
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+html.dark .form-submit {
   background: #fff;
   color: #0a0a0a;
+}
+
+html.dark .form-submit:hover {
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+}
+
+.footer-send {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  align-self: start;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  background: rgba(0, 240, 255, 0.08);
+  color: #00f0ff;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-send:hover {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+html:not(.dark) .footer-send {
+  background: rgba(0, 119, 182, 0.08);
+  border-color: rgba(0, 119, 182, 0.3);
+  color: #0077b6;
 }
 
 .form-status {
@@ -1693,12 +1776,87 @@ html:not(.dark) .card-art-svg {
   }
 }
 
-.proc-detail .aw-mono {
-  display: block;
-  margin-bottom: 14px;
-  font-size: 2.6rem;
-  letter-spacing: -0.08em;
-  color: color-mix(in srgb, var(--fg) 18%, transparent);
+.proc-card {
+  padding: 32px 28px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proc-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.proc-phase-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #00f0ff;
+}
+
+html:not(.dark) .proc-phase-tag {
+  color: #0077b6;
+}
+
+.proc-num-badge {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--fg);
+  line-height: 1;
+}
+
+.proc-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.proc-progress-step {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  transition: all 0.25s ease;
+}
+
+.proc-progress-step.is-active {
+  border-color: #00f0ff;
+  background: rgba(0, 240, 255, 0.15);
+  color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.35);
+  transform: scale(1.1);
+}
+
+html:not(.dark) .proc-progress-step.is-active {
+  border-color: #0077b6;
+  background: rgba(0, 119, 182, 0.12);
+  color: #0077b6;
+  box-shadow: none;
+}
+
+.proc-progress-line {
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+  border-radius: 2px;
 }
 
 .faq-list summary {
@@ -1825,6 +1983,66 @@ html:not(.dark) .term-float-btn {
   border-color: rgba(0, 140, 200, 0.3);
   color: #0088cc;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 0 16px rgba(0, 140, 200, 0.12);
+}
+
+/* Floating Scroll To Top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 14, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  border-color: #00f0ff;
+  color: #00f0ff;
+  box-shadow: 0 16px 36px rgba(0, 240, 255, 0.28);
+  transform: translateY(-3px);
+}
+
+html:not(.dark) .scroll-top-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.14);
+  color: #0a0a0c;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+html:not(.dark) .scroll-top-btn:hover {
+  border-color: #0077b6;
+  color: #0077b6;
+  box-shadow: 0 16px 36px rgba(0, 119, 182, 0.2);
+}
+
+@media (max-width: 640px) {
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+  }
 }
 
 /* Terminal Modal Overlay */

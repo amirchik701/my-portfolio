@@ -117,7 +117,7 @@ const I18N = {
     "footer.blurb": "Frontend Developer · InfoSec student. Tashkent.",
     "footer.links": "Ссылки",
     "footer.contacts": "Контакты",
-    "footer.send": "Отправить",
+    "footer.send": "Написать в Telegram",
   },
   en: {
     skip: "Skip to content",
@@ -237,7 +237,7 @@ const I18N = {
     "footer.blurb": "Frontend Developer · InfoSec student. Tashkent.",
     "footer.links": "Links",
     "footer.contacts": "Contacts",
-    "footer.send": "Send",
+    "footer.send": "Message on Telegram",
   },
 };
 
@@ -261,8 +261,8 @@ function applyLang() {
   const langLabel = document.getElementById("langBtnLabel");
   if (langLabel) langLabel.textContent = currentLang.toUpperCase();
   document.title = currentLang === "en"
-    ? "Tursunov Amir - Frontend Developer"
-    : "Турсунов Амир - Frontend Developer";
+    ? "Amirjon Tursunov · Frontend Developer & InfoSec"
+    : "Амирджон Турсунов · Frontend Developer & InfoSec";
   refreshDynamicCopy();
 }
 
@@ -320,12 +320,14 @@ document.addEventListener("click", (e) => {
 
 const header = document.getElementById("siteHeader");
 const mobileBar = document.getElementById("mobileBar");
+const scrollTopBtn = document.getElementById("scrollTopBtn");
 let lastY = 0;
 window.addEventListener("scroll", () => {
   const y = window.scrollY;
   const hidden = y > 80 && y > lastY;
   header?.classList.toggle("is-hidden", hidden);
   mobileBar?.classList.toggle("is-hidden", hidden);
+  scrollTopBtn?.classList.toggle("is-visible", y > 450);
   lastY = y;
 
   const ids = ["home", "about-work", "services", "stack", "projects", "security", "process", "faq", "contacts"];
@@ -349,6 +351,10 @@ window.addEventListener("scroll", () => {
     link.classList.toggle("is-active", link.dataset.nav === current);
   });
 }, { passive: true });
+
+scrollTopBtn?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 const burger = document.getElementById("burger");
 const sheet = document.getElementById("mobileSheet");
@@ -389,8 +395,20 @@ bindList("svcList", (item) => {
 bindList("procList", (item) => {
   const copy = document.getElementById("procCopy");
   const num = document.getElementById("procNum");
-  if (copy) copy.textContent = t(`step.${item.dataset.step}.desc`);
-  if (num) num.textContent = String(item.dataset.step).padStart(2, "0");
+  const step = item.dataset.step;
+  if (copy) copy.textContent = t(`step.${step}.desc`);
+  if (num) num.textContent = String(step).padStart(2, "0");
+  document.querySelectorAll(".proc-progress-step").forEach((pstep) => {
+    pstep.classList.toggle("is-active", pstep.dataset.pstep === step);
+  });
+});
+
+document.querySelectorAll(".proc-progress-step").forEach((pstep) => {
+  pstep.addEventListener("click", () => {
+    const stepVal = pstep.dataset.pstep;
+    const targetLi = document.querySelector(`#procList li[data-step="${stepVal}"]`);
+    targetLi?.querySelector("button")?.click();
+  });
 });
 
 document.querySelectorAll(".proj-media-wrap img").forEach((img) => {
@@ -480,6 +498,7 @@ if ("serviceWorker" in navigator) {
   const terminalCloseDot = document.getElementById("terminalCloseDot");
   const termFloatBtn = document.getElementById("termFloatBtn");
   const termNavBtn = document.getElementById("termNavBtn");
+  const sheetTermBtn = document.getElementById("sheetTermBtn");
   const termChips = document.querySelectorAll(".term-chip");
 
   if (!terminal || !termInput || !termBody) return;
@@ -492,6 +511,7 @@ if ("serviceWorker" in navigator) {
 • <span class="term-hl">whoami</span> — About Amirjon &amp; background<br>
 • <span class="term-hl">skills</span> — Technical &amp; security stack<br>
 • <span class="term-hl">projects</span> — Live deployed commercial works<br>
+• <span class="term-hl">cv</span> — Curriculum Vitae &amp; background summary<br>
 • <span class="term-hl">contact</span> — Telegram, Email, GitHub links<br>
 • <span class="term-hl">theme</span> — Toggle dark / light mode<br>
 • <span class="term-hl">clear</span> — Clear terminal output<br>
@@ -509,6 +529,16 @@ Specializes in clean UI/UX, fast responsive web applications, and security hygie
     projects: () => `<strong>1. MARMO:</strong> Tile &amp; porcelain showroom platform · <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo.uz</a><br>
 <strong>2. WORLDY:</strong> World exploration &amp; geography learning · <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://worldy-study.netlify.app</a><br>
 <strong>3. AUSIDE:</strong> B2B hardware &amp; wholesale catalog platform · <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://auside.netlify.app</a>`,
+
+    cv: () => `<strong>Amirjon Tursunov — CV Summary</strong><br>
+Role: Frontend Developer &amp; InfoSec Student<br>
+Location: Tashkent, Uzbekistan<br>
+Stack: HTML5, CSS3, Modern JavaScript (ES6+), React, TypeScript, Vite, Tailwind CSS<br>
+Key Projects: <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO (marmo.uz)</a>, <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">WORLDY</a>, <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">AUSIDE</a><br>
+Telegram: <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="term-link">@amirjondev</a> · Email: <a href="mailto:tursunov.amir701@gmail.com" class="term-link">tursunov.amir701@gmail.com</a><br>
+<em>Contact via Telegram to request full PDF CV or discuss opportunities.</em>`,
+
+    resume: () => terminalCommands.cv(),
 
     contact: () => `• Telegram: <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="term-link">@amirjondev</a><br>
 • Email: <a href="mailto:tursunov.amir701@gmail.com" class="term-link">tursunov.amir701@gmail.com</a><br>
@@ -595,6 +625,10 @@ Specializes in clean UI/UX, fast responsive web applications, and security hygie
 
   termNavBtn?.addEventListener("click", () => toggleTerminal());
   termFloatBtn?.addEventListener("click", () => toggleTerminal());
+  sheetTermBtn?.addEventListener("click", () => {
+    closeSheet();
+    toggleTerminal(true);
+  });
   terminalClose?.addEventListener("click", () => toggleTerminal(false));
   terminalCloseDot?.addEventListener("click", () => toggleTerminal(false));
 
