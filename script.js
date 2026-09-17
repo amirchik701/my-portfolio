@@ -375,72 +375,10 @@ bindList("procList", (item) => {
   if (num) num.textContent = String(item.dataset.step).padStart(2, "0");
 });
 
-const carousel = document.getElementById("projCarousel");
-const dotsWrap = document.getElementById("projDots");
-const slides = carousel ? [...carousel.querySelectorAll(".proj-slide")] : [];
-
-function slideIndex() {
-  if (!carousel || !slides.length) return 0;
-  const w = carousel.clientWidth || 1;
-  return Math.round(carousel.scrollLeft / w);
-}
-
-function goTo(index) {
-  if (!carousel || !slides.length) return;
-  const next = Math.max(0, Math.min(slides.length - 1, index));
-  const left = slides[next].getBoundingClientRect().left - carousel.getBoundingClientRect().left + carousel.scrollLeft;
-  carousel.scrollTo({
-    left,
-    behavior: prefersReducedMotion ? "auto" : "smooth",
-  });
-}
-
-if (dotsWrap && slides.length) {
-  slides.forEach((_, i) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "dot";
-    dot.setAttribute("aria-label", `Project ${i + 1}`);
-    dot.addEventListener("click", () => goTo(i));
-    dotsWrap.appendChild(dot);
-  });
-}
-
-function syncDots() {
-  const i = slideIndex();
-  dotsWrap?.querySelectorAll(".dot").forEach((dot, idx) => dot.classList.toggle("is-on", idx === i));
-}
-
-carousel?.addEventListener("scroll", () => {
-  window.requestAnimationFrame(syncDots);
-}, { passive: true });
-document.getElementById("projPrev")?.addEventListener("click", () => goTo(slideIndex() - 1));
-document.getElementById("projNext")?.addEventListener("click", () => goTo(slideIndex() + 1));
-syncDots();
-
-if (carousel && !prefersReducedMotion && slides.length > 1) {
-  let timer = setInterval(() => {
-    const i = slideIndex();
-    goTo(i >= slides.length - 1 ? 0 : i + 1);
-  }, 7000);
-  const stop = () => clearInterval(timer);
-  carousel.addEventListener("pointerdown", stop);
-  carousel.addEventListener("mouseenter", stop);
-  carousel.addEventListener("focusin", stop);
-}
-
-function markMediaLoaded(img) {
-  img.closest(".proj-media")?.classList.add("is-loaded");
-}
-
-document.querySelectorAll(".proj-media img").forEach((img) => {
+document.querySelectorAll(".proj-media-wrap img").forEach((img) => {
   img.addEventListener("error", () => {
-    const media = img.closest(".proj-media");
-    img.remove();
-    media?.classList.add("is-fallback");
+    img.closest(".proj-media-wrap")?.classList.add("is-fallback");
   }, { once: true });
-  img.addEventListener("load", () => markMediaLoaded(img), { once: true });
-  if (img.complete && img.naturalWidth > 0) markMediaLoaded(img);
 });
 
 document.querySelectorAll("#faqList details").forEach((item) => {
