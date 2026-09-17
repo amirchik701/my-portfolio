@@ -706,6 +706,33 @@ html:not(.dark) .hero-sub {
   gap: 1rem;
 }
 
+.aw-head > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-head .aw-label,
+.aw-head > div .aw-label {
+  margin: 0;
+}
+
+.section-head .aw-title,
+.aw-head > div .aw-title {
+  margin: 0;
+  line-height: 1.12;
+}
+
+.section-head .stack-desc {
+  margin-top: 4px;
+}
+
 .aw-mono,
 .aw-label {
   font-size: 0.7rem;
@@ -724,7 +751,7 @@ html.dark .aw-label {
   font-size: clamp(2.1rem, 4.8vw, 3.55rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .aw-soft {
@@ -902,7 +929,63 @@ html.dark .aw-label {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--muted);
-  max-width: 40ch;
+  max-width: 42ch;
+}
+
+.contact-info,
+.faq-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-info .aw-label,
+.faq-info .aw-label {
+  margin: 0;
+}
+
+.contact-info .aw-title,
+.faq-info .aw-title {
+  margin: 0;
+  line-height: 1.12;
+}
+
+.contact-info .stack-desc,
+.faq-info .stack-desc {
+  margin: 0;
+  line-height: 1.65;
+  font-size: 1.02rem;
+  max-width: 42ch;
+}
+
+.contact-info .contact-links {
+  margin-top: 14px;
+}
+
+.faq-info .hero-cta {
+  margin-top: 14px;
+  align-self: flex-start;
+}
+
+.svc-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.svc-detail .svc-kicker {
+  margin: 0;
+}
+
+.svc-detail .svc-copy {
+  margin: 0;
+  line-height: 1.65;
+  font-size: 1.02rem;
+}
+
+.svc-detail .hero-cta {
+  margin-top: 14px;
+  align-self: flex-start;
 }
 
 .svc-kicker {
@@ -1349,7 +1432,8 @@ html:not(.dark) .stack-card:hover .stack-chip:hover {
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  align-items: center;
 }
 
 .contact-links a,
@@ -1357,44 +1441,77 @@ html:not(.dark) .stack-card:hover .stack-chip:hover {
   text-decoration: none;
 }
 
-.contact-links a {
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--glass-border);
-  font-size: 12px;
-  transition: border-color 0.25s ease, background 0.25s ease;
-}
-
-.contact-links a:hover {
-  border-color: var(--fg);
-  background: color-mix(in srgb, var(--fg) 8%, transparent);
-}
-
-.contact-link-accent {
+.contact-link-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 6px 16px !important;
+  gap: 8px;
+  padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(0, 240, 255, 0.12) !important;
-  border: 1px solid rgba(0, 240, 255, 0.35) !important;
-  color: #00f0ff !important;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--fg);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background 0.25s ease,
+              box-shadow 0.25s ease,
+              color 0.25s ease;
+}
+
+.contact-link-pill:hover {
+  border-color: var(--fg);
+  color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 10%, transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.contact-link--telegram {
+  border-color: rgba(0, 240, 255, 0.4);
+  background: rgba(0, 240, 255, 0.1);
+  color: #00f0ff;
   font-weight: 700;
-  font-size: 12px;
-  transition: all 0.2s ease;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.18);
 }
 
-.contact-link-accent:hover {
-  background: rgba(0, 240, 255, 0.22) !important;
-  border-color: #00f0ff !important;
-  box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
-  transform: translateY(-1px);
+.contact-link--telegram:hover {
+  border-color: #00f0ff;
+  background: rgba(0, 240, 255, 0.22);
+  color: #00f0ff;
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.45);
+  transform: translateY(-2px);
 }
 
-html:not(.dark) .contact-link-accent {
-  background: rgba(0, 119, 182, 0.08) !important;
-  border-color: rgba(0, 119, 182, 0.35) !important;
-  color: #0077b6 !important;
+html:not(.dark) .contact-link-pill {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #111;
+}
+
+html:not(.dark) .contact-link-pill:hover {
+  border-color: #000;
+  background: rgba(0, 0, 0, 0.06);
+  color: #000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+html:not(.dark) .contact-link--telegram {
+  border-color: rgba(0, 119, 182, 0.35);
+  background: rgba(0, 119, 182, 0.08);
+  color: #0077b6;
+  box-shadow: none;
+}
+
+html:not(.dark) .contact-link--telegram:hover {
+  border-color: #0077b6;
+  background: rgba(0, 119, 182, 0.16);
+  color: #0077b6;
+  box-shadow: 0 6px 16px rgba(0, 119, 182, 0.2);
 }
 
 @media (max-width: 959px) {
@@ -1636,14 +1753,6 @@ html:not(.dark) .footer-send {
   display: block;
   margin-top: 8px;
   color: var(--muted);
-}
-
-.footer-send {
-  display: inline-flex;
-  width: max-content;
-  align-self: start;
-  margin-top: 0;
-  padding: 16px 28px;
 }
 
 .footer-copy {
