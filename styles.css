@@ -287,8 +287,7 @@ main {
 .top-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px 8px;
+  padding: 6px 10px;
   border-radius: 100px;
   overflow: visible;
   color: var(--hero-nav-fg);
@@ -302,10 +301,10 @@ main {
 
 .nav-link {
   position: relative;
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: 100px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13.5px;
   letter-spacing: -0.01em;
   color: var(--hero-nav-fg);
   opacity: 0.82;
@@ -338,18 +337,30 @@ html.dark .nav-link.is-active {
   color: #050505;
 }
 
+.nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 14px;
+}
+
 .nav-rule {
   width: 1px;
-  height: 20px;
-  margin: 0 8px;
-  background: color-mix(in srgb, var(--hero-nav-fg) 30%, transparent);
+  height: 18px;
+  margin: 0 2px;
+  background: color-mix(in srgb, var(--hero-nav-fg) 28%, transparent);
 }
 
 .nav-cta {
-  padding: 6px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 16px;
   border-radius: 100px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .lang-dropdown {
@@ -357,15 +368,14 @@ html.dark .nav-link.is-active {
   z-index: 70;
   display: inline-flex;
   align-items: center;
-  height: 26px;
-  margin-left: 6px;
+  height: 28px;
 }
 
 .lang-toggle-btn,
 .theme-btn {
-  width: 26px;
-  height: 26px;
-  min-width: 26px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
   padding: 0;
   border-radius: 999px;
   border: 1.5px solid var(--hero-nav-fg, var(--fg));
@@ -375,9 +385,16 @@ html.dark .nav-link.is-active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.04em;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.lang-toggle-btn:hover,
+.theme-btn:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--hero-nav-fg) 10%, transparent);
 }
 
 .lang-menu {
@@ -2037,7 +2054,6 @@ html:not(.dark) .proc-progress-step.is-active {
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-  margin-left: 6px;
 }
 
 .nav-term-btn:hover {

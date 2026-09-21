@@ -54,35 +54,37 @@
       <a class="nav-link" href="#process" data-nav="process" data-i18n="nav.process">Процесс</a>
       <a class="nav-link" href="#contacts" data-nav="contacts" data-i18n="nav.contacts">Контакты</a>
 
-      <div class="lang-dropdown">
-        <button type="button" class="lang-toggle-btn orbit-btn" id="langBtn" aria-label="Language" aria-expanded="false">
-          <span id="langBtnLabel">RU</span>
-        </button>
-        <div class="lang-menu" id="langMenu" aria-hidden="true">
-          <div class="lang-options">
-            <button type="button" class="lang-option is-active" data-lang="ru">RU</button>
-            <button type="button" class="lang-option" data-lang="en">EN</button>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button type="button" class="lang-toggle-btn orbit-btn" id="langBtn" aria-label="Language" aria-expanded="false">
+            <span id="langBtnLabel">RU</span>
+          </button>
+          <div class="lang-menu" id="langMenu" aria-hidden="true">
+            <div class="lang-options">
+              <button type="button" class="lang-option is-active" data-lang="ru">RU</button>
+              <button type="button" class="lang-option" data-lang="en">EN</button>
+            </div>
           </div>
         </div>
+
+        <button type="button" class="nav-term-btn" id="termNavBtn" title="Терминал (Ctrl + ~ или ⌘ + K)" aria-label="Open Terminal">
+          <span class="term-badge-dot"></span>
+          <span>AmirOS</span>
+        </button>
+
+        <button type="button" class="theme-btn orbit-btn" id="themeToggle" aria-label="Toggle theme">
+          <svg id="themeIconSun" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+          <svg id="themeIconMoon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" hidden aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <span class="nav-rule" aria-hidden="true"></span>
+        <a class="orbit-btn liquid-glass nav-cta" href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" data-i18n="nav.cta">Связаться</a>
       </div>
-
-      <button type="button" class="nav-term-btn" id="termNavBtn" title="Терминал (Ctrl + ~ или ⌘ + K)" aria-label="Open Terminal">
-        <span class="term-badge-dot"></span>
-        <span>AmirOS</span>
-      </button>
-
-      <button type="button" class="theme-btn orbit-btn" id="themeToggle" aria-label="Toggle theme">
-        <svg id="themeIconSun" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <circle cx="12" cy="12" r="5"/>
-          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-        <svg id="themeIconMoon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" hidden aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
-
-      <span class="nav-rule" aria-hidden="true"></span>
-      <a class="orbit-btn liquid-glass nav-cta" href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" data-i18n="nav.cta">Связаться</a>
     </nav>
   </header>
 
