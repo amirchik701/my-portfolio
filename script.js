@@ -462,6 +462,7 @@ form?.addEventListener("submit", async (e) => {
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: payload,
     });
+    if (!res.ok) throw new Error("fail");
     const data = await res.json();
     if (!data.success) throw new Error("fail");
     formStatus.textContent = t("form.ok");
