@@ -544,7 +544,7 @@ Engineering secure, high-performance web applications end-to-end: from scalable 
     projects: () => `<strong>1. MARMO:</strong> Tile &amp; porcelain showroom platform · <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo.uz</a><br>
 <strong>2. WORLDY:</strong> Interactive world discovery platform · <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://worldy-study.netlify.app</a><br>
 <strong>3. AUSIDE:</strong> B2B hardware &amp; wholesale catalog platform · <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://auside.netlify.app</a><br>
-<strong>4. CAVALIER:</strong> Menswear online store · <a href="https://cavalier-clothes.vercel.app" target="_blank" rel="noopener noreferrer" class="term-link">https://cavalier-clothes.vercel.app</a><br>
+<strong>4. CAVALIER:</strong> Menswear online store · <a href="https://cavalier.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://cavalier.uz</a><br>
 <strong>5. MARMO HUB:</strong> B2B warehouse system for tile stores · <a href="https://marmo-hub.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo-hub.uz</a><br>
 <strong>6. NEXUS:</strong> Native macOS notch island app (Swift, SwiftUI)`,
 
@@ -553,7 +553,7 @@ Role: Middle Full-Stack Developer &amp; Cybersecurity Specialist<br>
 Location: Tashkent, Uzbekistan<br>
 Core Competencies: Full-Stack Engineering, Secure Software Architecture (DevSecOps), AppSec Audits<br>
 Stack: React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Docker, OWASP Top 10, Burp Suite<br>
-Key Projects: <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO (marmo.uz)</a>, <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">WORLDY</a>, <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">AUSIDE</a>, <a href="https://cavalier-clothes.vercel.app" target="_blank" rel="noopener noreferrer" class="term-link">CAVALIER</a>, <a href="https://marmo-hub.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO HUB</a>, NEXUS (macOS)<br>
+Key Projects: <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO (marmo.uz)</a>, <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">WORLDY</a>, <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">AUSIDE</a>, <a href="https://cavalier.uz" target="_blank" rel="noopener noreferrer" class="term-link">CAVALIER</a>, <a href="https://marmo-hub.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO HUB</a>, NEXUS (macOS)<br>
 Telegram: <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="term-link">@amirjondev</a> · Email: <a href="mailto:tursunov.amir701@gmail.com" class="term-link">tursunov.amir701@gmail.com</a><br>
 <em>Contact via Telegram to request full PDF CV or discuss opportunities.</em>`,
 
