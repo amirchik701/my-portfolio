@@ -2504,3 +2504,165 @@ html:not(.dark) #termInput::placeholder {
   .proj-media img { opacity: 1; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ==========================================================================
+   Polish 2026-11: floating buttons, contrast, tap targets
+   ========================================================================== */
+
+/* Floating AmirOS + scroll-top: hide while scrolling down so they never sit on text */
+.term-float-btn,
+.scroll-top-btn {
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.term-float-btn {
+  left: max(28px, env(safe-area-inset-left, 0px));
+}
+
+.term-float-btn.is-hidden,
+.scroll-top-btn.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.term-float-btn {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, box-shadow 0.25s, border-color 0.25s;
+}
+
+.term-float-icon {
+  margin-right: -2px;
+}
+
+@media (max-width: 640px) {
+  /* Compact, icon-only pill on phones */
+  .term-float-btn {
+    left: max(16px, env(safe-area-inset-left, 0px));
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
+    border-radius: 50%;
+    font-size: 13px;
+  }
+
+  .term-float-btn .term-badge-dot {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .term-float-icon {
+    margin-right: 0;
+  }
+
+  .term-float-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .scroll-top-btn {
+    right: max(16px, env(safe-area-inset-right, 0px));
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero-logo__title {
+    font-size: 11vw;
+  }
+}
+
+/* Readable small grey labels (WCAG AA on the dark background) */
+html.dark .aw-mono,
+html.dark .aw-label {
+  color: #8f8f8f;
+}
+
+html:not(.dark) .stack-pill--cyan {
+  color: #006a7a;
+  background: rgba(0, 150, 170, 0.08);
+  border-color: rgba(0, 120, 140, 0.3);
+}
+
+html:not(.dark) .stack-pill--purple {
+  color: #7e22ce;
+  background: rgba(126, 34, 206, 0.07);
+  border-color: rgba(126, 34, 206, 0.28);
+}
+
+html:not(.dark) .stack-pill--blue {
+  color: #0369a1;
+  background: rgba(3, 105, 161, 0.07);
+  border-color: rgba(3, 105, 161, 0.28);
+}
+
+html:not(.dark) .contact-link--telegram,
+html:not(.dark) .contact-link--telegram:hover,
+html:not(.dark) .proc-progress-step.is-active {
+  color: #005f8f;
+}
+
+/* Tap targets >= 44px on touch screens */
+@media (max-width: 1099px) {
+  .mobile-actions {
+    gap: 18px;
+  }
+
+  .mobile-actions .theme-btn::before,
+  .burger::before,
+  .mobile-brand::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+  }
+
+  .mobile-actions .theme-btn::before {
+    inset: -10px; /* 28px button with 1.5px border -> 44px hit area */
+  }
+
+  .burger,
+  .mobile-brand {
+    position: relative;
+  }
+}
+
+@media (max-width: 959px) {
+  .proj-btn,
+  .aw-card__btn,
+  .contact-link-pill {
+    min-height: 44px;
+  }
+
+  .aw-card__go {
+    width: 44px;
+    height: 44px;
+  }
+
+  .faq-list summary {
+    min-height: 44px;
+  }
+
+  .site-footer a:not(.footer-send) {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 0;
+  }
+}
+
+html:not(.dark) .footer-send,
+html:not(.dark) .term-float-btn,
+html:not(.dark) .hero-tagline {
+  color: #005f8f;
+}
