@@ -1446,6 +1446,15 @@ html:not(.dark) .stack-card:hover .stack-chip:hover {
   transform: translateY(-2px);
 }
 
+.proj-btn--static,
+.proj-btn--static:hover {
+  cursor: default;
+  transform: none;
+  background: color-mix(in srgb, var(--fg) 5%, transparent);
+  border-color: var(--glass-border);
+  color: var(--muted);
+}
+
 .contact-links {
   display: flex;
   flex-wrap: wrap;
