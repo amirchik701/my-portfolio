@@ -21,7 +21,7 @@ const I18N = {
     "about.c1.title": "Full-Stack",
     "about.c1.text": "Архитектура клиентской и серверной части: React/Next.js, Node.js/Python, REST & GraphQL API и масштабируемые БД.",
     "about.c2.title": "Коммерческие продукты",
-    "about.c2.text": "MARMO, Marmo Hub, Cavalier, WORLDY, AUSIDE: надежные решения с высокой конверсией, продуманной архитектурой и быстрым откликом.",
+    "about.c2.text": "Cavalier, Marmo Hub, MARMO, AUSIDE, WORLDY: живые проекты для бизнеса — интернет-магазин, B2B-система для сети магазинов, каталоги с админ-панелью.",
     "about.c3.title": "DevSecOps & Поставка",
     "about.c3.text": "CI/CD автоматизация, контейнеризация Docker, безопасный деплой на VPS/Cloud и мониторинг доступности.",
     "about.c4.title": "Cybersecurity & AppSec",
@@ -62,18 +62,21 @@ const I18N = {
     "projects.label": "КЕЙСЫ",
     "projects.kicker": "САЙТЫ И ПРИЛОЖЕНИЯ",
     "projects.title": "Проекты",
-    "proj.1.text": "Плитка и керамогранит. Комплексное решение: оптимизированная структура, калькулятор стоимости и конверсионные CTA.",
-    "proj.1.role": "Роль: Архитектура Full-Stack & UX, интерактивный калькулятор, безопасная обработка заявок, SEO.",
-    "proj.2.text": "Интерактивная образовательная веб-платформа: маршруты, карта стран, сравнение и аналитический дашборд прогресса.",
-    "proj.2.role": "Роль: Архитектура веб-приложения, реактивное управление состоянием, интеграция карт и дашборд аналитики.",
-    "proj.3.text": "B2B-платформа фурнитуры: каталог с динамической фильтрацией, быстрый расчет оптовых условий и система прямых запросов.",
-    "proj.3.role": "Роль: Полный цикл разработки, система каталога и фильтрации, движок оптовых запросов цен, защита форм.",
-    "proj.4.text": "Интернет-магазин мужской одежды в Ташкенте: каталог с размерами, корзина с заказом в Telegram, примерка и доставка за 60 минут. Русский и узбекский.",
-    "proj.4.role": "Роль: Полный цикл на Next.js: витрина и корзина, приём заявок, панель магазина (заказы, примерки, товары) и Telegram-бот для менеджера.",
-    "proj.5.text": "B2B-система для сети магазинов кафеля и кухни: учёт остатков склада, поиск плитки у партнёров по сети и бронирование в пару нажатий.",
-    "proj.5.role": "Роль: Архитектура и разработка: Telegram Mini App на React, Supabase Postgres с RLS, Edge-функции, вход через Telegram, RU/UZ.",
-    "proj.6.text": "Нативное приложение macOS: «остров» на вырезе MacBook в духе Dynamic Island. Показывает текущий трек из Apple Music, Spotify и YouTube, управляет воспроизведением и громкостью.",
-    "proj.6.role": "Роль: Разработка с нуля: Swift 6 и SwiftUI, окно AppKit точно по вырезу, пружинные анимации, тесты геометрии.",
+    "proj.marmo.text": "Каталог плитки и керамогранита: калькулятор расхода по размерам комнаты, корзина с оформлением заказа, страница статуса заказа и админ-панель для каталога, заказов и заявок.",
+    "proj.marmo.role": "Роль: Полный цикл: витрина на React, база и вход в админку на Supabase, серверные функции Netlify для заказов и заявок, импорт и экспорт каталога в CSV.",
+    "proj.marmo.tag.calc": "Калькулятор плитки",
+    "proj.marmo.tag.admin": "Админ-панель",
+    "proj.worldy.text": "Интерактивная образовательная веб-платформа: маршруты, карта стран, сравнение и аналитический дашборд прогресса.",
+    "proj.worldy.role": "Роль: Архитектура и разработка: React 19 и TypeScript, карта мира на D3, уроки с квизами, PWA, синхронизация прогресса через Supabase, тесты Vitest и Playwright.",
+    "proj.worldy.tag.map": "Карта мира на D3",
+    "proj.auside.text": "B2B-платформа фурнитуры: каталог с динамической фильтрацией, быстрый расчет оптовых условий и система прямых запросов.",
+    "proj.auside.role": "Роль: Полный цикл разработки, система каталога и фильтрации, движок оптовых запросов цен, защита форм.",
+    "proj.cavalier.text": "Интернет-магазин мужской одежды в Ташкенте: каталог с размерами, корзина с заказом в Telegram, примерка и доставка за 60 минут. Русский и узбекский.",
+    "proj.cavalier.role": "Роль: Полный цикл на Next.js: витрина и корзина, приём заявок, панель магазина (заказы, примерки, товары) и Telegram-бот для менеджера.",
+    "proj.marmohub.text": "B2B-система для сети магазинов кафеля и кухни: учёт остатков склада, поиск плитки у партнёров по сети и бронирование в пару нажатий.",
+    "proj.marmohub.role": "Роль: Архитектура и разработка: Telegram Mini App на React, Supabase Postgres с RLS, Edge-функции, вход через Telegram, RU/UZ.",
+    "proj.nexus.text": "Нативное приложение macOS: «остров» на вырезе MacBook в духе Dynamic Island. Показывает текущий трек из Apple Music, Spotify и YouTube, управляет воспроизведением и громкостью.",
+    "proj.nexus.role": "Роль: Разработка с нуля: Swift 6 и SwiftUI, окно AppKit точно по вырезу, пружинные анимации, тесты геометрии.",
     "proj.private": "Код закрыт",
     "security.label": "БЕЗОПАСНОСТЬ",
     "security.title1": "Код, который",
@@ -110,7 +113,7 @@ const I18N = {
     "faq.3.q": "Чем ценно сочетание Full-Stack + Кибербезопасность?",
     "faq.3.a": "Приложения создаются безопасными с самого первого дня («Secure by Design»). Это исключает критические уязвимости, утечки данных, взлом аккаунтов и избавляет от необходимости дорогостоящих переделок после релиза.",
     "faq.4.q": "Есть ли коммерческий опыт?",
-    "faq.4.a": "Да, среди публичных работ — коммерческие платформы MARMO (marmo.uz), Marmo Hub, Cavalier, WORLDY и AUSIDE. Реализован полный цикл от проектирования до развертывания в продакшене.",
+    "faq.4.a": "Да, среди публичных работ — Cavalier (cavalier.uz), Marmo Hub (marmo-hub.uz), MARMO (marmo.uz), AUSIDE и WORLDY. Реализован полный цикл от проектирования до развертывания в продакшене.",
     "contact.label": "КОНТАКТ",
     "contact.title": "Напиши мне",
     "contact.sub": "Разработка Full-Stack проектов, аудит безопасности или сотрудничество в команде. Выберите удобный канал.",
@@ -148,7 +151,7 @@ const I18N = {
     "about.c1.title": "Full-Stack",
     "about.c1.text": "End-to-end architecture: React/Next.js, Node.js/Python, high-performance REST & GraphQL APIs, and scalable databases.",
     "about.c2.title": "Commercial Products",
-    "about.c2.text": "MARMO, Marmo Hub, Cavalier, WORLDY, AUSIDE: battle-tested production platforms with high conversion, clean architecture, and responsive UX.",
+    "about.c2.text": "Cavalier, Marmo Hub, MARMO, AUSIDE, WORLDY: live products for real businesses — an online store, a B2B system for a retail network, catalogs with admin panels.",
     "about.c3.title": "DevSecOps & Delivery",
     "about.c3.text": "CI/CD pipelines, Docker containerization, hardened VPS/Cloud deployments, and production monitoring.",
     "about.c4.title": "Cybersecurity & AppSec",
@@ -189,18 +192,21 @@ const I18N = {
     "projects.label": "CASES",
     "projects.kicker": "SITES & APPS",
     "projects.title": "Projects",
-    "proj.1.text": "Tile and porcelain showroom. Shorter path from catalog to lead: structure, interactive calculator, and high-converting CTAs.",
-    "proj.1.role": "Role: Full-Stack & UX architecture, interactive calculator engine, secure lead processing, SEO.",
-    "proj.2.text": "An interactive world-discovery platform: learning routes, country map integration, compare, and a progress dashboard.",
-    "proj.2.role": "Role: Web app architecture, reactive state management, map API integration, and analytics dashboard.",
-    "proj.3.text": "B2B hardware platform: dynamic catalog, quick price request, wholesale terms engine, and sanitized forms.",
-    "proj.3.role": "Role: Full-cycle engineering, catalog & filtering system, wholesale quote engine, input sanitization.",
-    "proj.4.text": "Menswear online store in Tashkent: catalog with sizes, a cart that sends the order to Telegram, try-on and delivery within 60 minutes. Russian and Uzbek.",
-    "proj.4.role": "Role: Full-cycle Next.js build: storefront and cart, order intake, store admin panel (orders, try-ons, products), and a Telegram bot for the manager.",
-    "proj.5.text": "B2B system for a network of tile and kitchen stores: warehouse stock, finding tiles at partner stores across the network, and booking in a couple of taps.",
-    "proj.5.role": "Role: Architecture & development: React Telegram Mini App, Supabase Postgres with RLS, Edge Functions, Telegram sign-in, RU/UZ.",
-    "proj.6.text": "Native macOS app: an island on the MacBook notch in the spirit of Dynamic Island. Shows the current track from Apple Music, Spotify, and YouTube, with playback and volume controls.",
-    "proj.6.role": "Role: Built from scratch: Swift 6 and SwiftUI, an AppKit window fitted to the notch, spring animations, geometry tests.",
+    "proj.marmo.text": "Tile and porcelain catalog: a tile calculator based on room size, cart with checkout, an order-status page, and an admin panel for catalog, orders, and leads.",
+    "proj.marmo.role": "Role: Full cycle: React storefront, Supabase database and admin sign-in, Netlify serverless functions for orders and leads, CSV catalog import and export.",
+    "proj.marmo.tag.calc": "Tile calculator",
+    "proj.marmo.tag.admin": "Admin panel",
+    "proj.worldy.text": "An interactive world-discovery platform: learning routes, country map integration, compare, and a progress dashboard.",
+    "proj.worldy.role": "Role: Architecture & development: React 19 and TypeScript, a D3 world map, lessons with quizzes, PWA, progress sync via Supabase, Vitest and Playwright tests.",
+    "proj.worldy.tag.map": "D3 world map",
+    "proj.auside.text": "B2B hardware platform: dynamic catalog, quick price request, wholesale terms engine, and sanitized forms.",
+    "proj.auside.role": "Role: Full-cycle engineering, catalog & filtering system, wholesale quote engine, input sanitization.",
+    "proj.cavalier.text": "Menswear online store in Tashkent: catalog with sizes, a cart that sends the order to Telegram, try-on and delivery within 60 minutes. Russian and Uzbek.",
+    "proj.cavalier.role": "Role: Full-cycle Next.js build: storefront and cart, order intake, store admin panel (orders, try-ons, products), and a Telegram bot for the manager.",
+    "proj.marmohub.text": "B2B system for a network of tile and kitchen stores: warehouse stock, finding tiles at partner stores across the network, and booking in a couple of taps.",
+    "proj.marmohub.role": "Role: Architecture & development: React Telegram Mini App, Supabase Postgres with RLS, Edge Functions, Telegram sign-in, RU/UZ.",
+    "proj.nexus.text": "Native macOS app: an island on the MacBook notch in the spirit of Dynamic Island. Shows the current track from Apple Music, Spotify, and YouTube, with playback and volume controls.",
+    "proj.nexus.role": "Role: Built from scratch: Swift 6 and SwiftUI, an AppKit window fitted to the notch, spring animations, geometry tests.",
     "proj.private": "Private code",
     "security.label": "SECURITY",
     "security.title1": "Code that",
@@ -237,7 +243,7 @@ const I18N = {
     "faq.3.q": "Why is the Full-Stack + Cybersecurity combination valuable?",
     "faq.3.a": "Applications are built 'Secure by Design' from day one. This prevents data leaks, account takeovers, and injection vulnerabilities, eliminating expensive emergency refactoring post-launch.",
     "faq.4.q": "Do you have commercial experience?",
-    "faq.4.a": "Yes, public examples include commercial platforms MARMO (marmo.uz), Marmo Hub, Cavalier, WORLDY, and AUSIDE, covering the full product lifecycle from architecture to production deployment.",
+    "faq.4.a": "Yes, public examples include Cavalier (cavalier.uz), Marmo Hub (marmo-hub.uz), MARMO (marmo.uz), AUSIDE, and WORLDY, covering the full product lifecycle from architecture to production deployment.",
     "contact.label": "CONTACT",
     "contact.title": "Write me",
     "contact.sub": "Full-Stack project development, security audits, or joining a high-impact team. Choose your channel.",
@@ -335,13 +341,16 @@ document.addEventListener("click", (e) => {
 const header = document.getElementById("siteHeader");
 const mobileBar = document.getElementById("mobileBar");
 const scrollTopBtn = document.getElementById("scrollTopBtn");
+const termFloat = document.getElementById("termFloatBtn");
 let lastY = 0;
 window.addEventListener("scroll", () => {
   const y = window.scrollY;
   const hidden = y > 80 && y > lastY;
   header?.classList.toggle("is-hidden", hidden);
   mobileBar?.classList.toggle("is-hidden", hidden);
+  termFloat?.classList.toggle("is-hidden", hidden);
   scrollTopBtn?.classList.toggle("is-visible", y > 450);
+  scrollTopBtn?.classList.toggle("is-hidden", hidden);
   lastY = y;
 
   const ids = ["home", "about-work", "services", "stack", "projects", "security", "process", "faq", "contacts"];
@@ -541,11 +550,11 @@ Engineering secure, high-performance web applications end-to-end: from scalable 
 <strong>Cybersecurity &amp; AppSec:</strong> Web App Penetration Testing, OWASP Top 10 Hardening, Vulnerability Assessment (SAST/DAST), Auth (JWT, OAuth2, RBAC), Secrets Management, CSP, Network &amp; Linux Hardening.<br>
 <strong>DevOps &amp; Tools:</strong> Docker, Git / GitHub Actions (CI/CD), Linux/Bash, Nginx, Postman, Burp Suite, Cloud/VPS Deployment.`,
 
-    projects: () => `<strong>1. MARMO:</strong> Tile &amp; porcelain showroom platform · <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo.uz</a><br>
-<strong>2. WORLDY:</strong> Interactive world discovery platform · <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://worldy-study.netlify.app</a><br>
-<strong>3. AUSIDE:</strong> B2B hardware &amp; wholesale catalog platform · <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://auside.netlify.app</a><br>
-<strong>4. CAVALIER:</strong> Menswear online store · <a href="https://cavalier.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://cavalier.uz</a><br>
-<strong>5. MARMO HUB:</strong> B2B warehouse system for tile stores · <a href="https://marmo-hub.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo-hub.uz</a><br>
+    projects: () => `<strong>1. CAVALIER:</strong> Menswear online store (Next.js, Telegram) · <a href="https://cavalier.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://cavalier.uz</a><br>
+<strong>2. MARMO HUB:</strong> B2B warehouse system for tile stores (Telegram Mini App) · <a href="https://marmo-hub.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo-hub.uz</a><br>
+<strong>3. MARMO:</strong> Tile &amp; porcelain catalog with calculator and admin panel · <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">https://marmo.uz</a><br>
+<strong>4. AUSIDE:</strong> B2B hardware &amp; wholesale catalog platform · <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://auside.netlify.app</a><br>
+<strong>5. WORLDY:</strong> Interactive world discovery platform · <a href="https://worldy-global.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">https://worldy-global.netlify.app</a><br>
 <strong>6. NEXUS:</strong> Native macOS notch island app (Swift, SwiftUI)`,
 
     cv: () => `<strong>Amirjon Tursunov — CV Summary</strong><br>
@@ -553,7 +562,7 @@ Role: Middle Full-Stack Developer &amp; Cybersecurity Specialist<br>
 Location: Tashkent, Uzbekistan<br>
 Core Competencies: Full-Stack Engineering, Secure Software Architecture (DevSecOps), AppSec Audits<br>
 Stack: React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Docker, OWASP Top 10, Burp Suite<br>
-Key Projects: <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO (marmo.uz)</a>, <a href="https://worldy-study.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">WORLDY</a>, <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">AUSIDE</a>, <a href="https://cavalier.uz" target="_blank" rel="noopener noreferrer" class="term-link">CAVALIER</a>, <a href="https://marmo-hub.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO HUB</a>, NEXUS (macOS)<br>
+Key Projects: <a href="https://cavalier.uz" target="_blank" rel="noopener noreferrer" class="term-link">CAVALIER</a>, <a href="https://marmo-hub.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO HUB</a>, <a href="https://marmo.uz" target="_blank" rel="noopener noreferrer" class="term-link">MARMO (marmo.uz)</a>, <a href="https://auside.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">AUSIDE</a>, <a href="https://worldy-global.netlify.app" target="_blank" rel="noopener noreferrer" class="term-link">WORLDY</a>, NEXUS (macOS)<br>
 Telegram: <a href="https://t.me/amirjondev" target="_blank" rel="noopener noreferrer" class="term-link">@amirjondev</a> · Email: <a href="mailto:tursunov.amir701@gmail.com" class="term-link">tursunov.amir701@gmail.com</a><br>
 <em>Contact via Telegram to request full PDF CV or discuss opportunities.</em>`,
 
@@ -572,8 +581,8 @@ Telegram: <a href="https://t.me/amirjondev" target="_blank" rel="noopener norefe
     flag: () => `Try: <span class="term-hl">cat flag.txt</span>`,
 
     theme: () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      toggleTheme();
+      const isDark = currentTheme === "dark";
       return `Theme switched to: <span class="term-hl">${isDark ? "Dark (Liquid Glass)" : "Light"}</span>`;
     },
 
