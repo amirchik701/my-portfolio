@@ -500,6 +500,7 @@ form?.addEventListener("submit", async (e) => {
   }
 });
 
+// Service worker на сайте не используется. Код ниже снимает старый у тех, кто заходил раньше, и чистит его кэш.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.getRegistrations().then((regs) => {
